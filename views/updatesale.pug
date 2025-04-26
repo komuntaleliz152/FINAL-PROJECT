@@ -1,0 +1,22 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title update sale  Form
+  link(rel='stylesheet' href='/css/salesRegister.css')
+.form-container
+  h2 update sale
+  form#salesForm(action="/updateSale?id="+ sales._id method="post")
+  input(type='hidden' name='id' value=sale._id)
+    label(for='productName') Product Name:
+    input#product(type='text' name="productName" value=sale.productName)
+    label(for='quantity') Quantity:
+    input#quantity(type='number' name="quantity" value=sale.quantity)
+    label(for='saleDate') Date of Sale:
+    input#saleDate(type='date' name="saleDate" value=sale.saleDate)
+    label(for='priceperUnit') Price per Unit (UGX):
+    input#price(type='number' name="priceperUnit" value=sale.priceperUnit)
+    label(for='totalAmount') Total Amount (UGX):
+    input#total(type='number' name="totalAmount" value=sale.totalAmount)
+    label(for='customerName') Customer Name:
+    input#customer(type='text' name="customerName" value=sale.customerName)
+    button(type='submit') update sale

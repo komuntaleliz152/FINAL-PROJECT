@@ -1,0 +1,44 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title KGL Stock Management - StockA
+    link(rel='stylesheet' href='/bootstrap-5.0.2-dist/css/bootstrap.css')
+    link(rel='stylesheet' href='/css/stock.css')
+
+  body
+    // Background Video
+    video#background-video(autoplay muted loop)
+      source(src='images/stock.mp4' type='video/mp4')
+
+    // Main Container
+    div.container.my-4
+      // Header Section
+      header.bg-dark.text-light.py-3
+        h1.text-center WELCOME TO KGL STOCK
+        
+      // Signup Section
+      div.text-center.mb-4
+        a(href='/Signup' id='signupButton' class='btn btn-primary btn-lg mb-3') Signup
+        p.mb-3 Already have an account? <a href='/login'>Just log in</a>
+
+      // Stock Data
+      div.row
+        each item in procurement
+          div.col-md-4.mb-4
+            .card
+              .card-header
+                h5 #{item.producename}
+              .card-body
+                p Total Tonnage: #{item.tonnage}
+              .card-footer
+                // You can add more footer content or actions here if needed
+
+      // Footer Section
+      footer.text-center.mt-4
+        p &copy; 2025 Komuntale Elizabeth. All rights reserved.
+
+    // Scripts
+    script(src='/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js')
+    script(src='/js/stock.js')

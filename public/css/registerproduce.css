@@ -1,0 +1,38 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background: url(liz7.jpg) no-repeat center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    background: burlywood;  
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+.container h2 {
+    text-align: center;
+}
+input, select, button {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+button {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+button:hover {
+    background-color: orange;
+}
+.error {
+    color: red;
+    font-size: 12px;
+}

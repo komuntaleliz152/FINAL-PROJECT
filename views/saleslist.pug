@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Sales Display
+    link(rel='stylesheet' href='/css/saleslist.css')
+  body
+    h2 Sales Display
+
+    table
+      thead
+        tr
+          th Product Name
+          th Quantity
+          th Price per Unit
+          th Total Sales
+          th Customer Name
+          th Actions
+      tbody#salesTable
+        if sales.length
+          each sale in sales
+            tr
+              td #{sale.ProductName}
+              td #{sale.Quantity}
+              td #{sale.PriceperUnit}
+              td #{sale.TotalSales}
+              td #{sale.CustomerName}
+              td
+                a.btn.btn-primary(href="/updateSale/" + sale._id) Update
+                form(action="/sales/deleteSale/" method="post")
+                  input(type="hidden" name="id" value=sale._id)
+                  button.btn.btn-danger(type="submit") Delete
+        else
+          tr
+            td(colspan='6') No sales available.
+
+    br
+
+    // Link to Add Sale Form Route (No JS)
+    a.btn.btn-success(href='/') Add New Sale

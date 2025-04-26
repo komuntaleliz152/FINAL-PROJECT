@@ -1,0 +1,33 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Karibu Grocery Signup
+  link(rel='stylesheet' href='/css/signup.css')
+.signup-container
+  h2 Karibu Grocery - Signup
+  form#signupForm(action="/SignUp" method="post")
+    label(for='firstName') First Name
+    input#firstName(type='text' name="firstName")
+    label(for='lastName') Last Name
+    input#lastName(type='text' name="lastName")
+    label(for='email') Email
+    input#email(type='email'  name="email")
+    label(for='password') Password
+    input#password(type='password' name="password")
+    label(for='confirmPassword') Confirm Password
+    input#confirmPassword(type='password' name="confirmPassword")
+    #passwordError.error Passwords do not match
+    label(for='role') Role
+    select#role(name='role',)
+      option(value='')  Select Role 
+      option(value='director') director
+      option(value='salesAgent') salesAgent
+      option(value='Manager') Manager
+    label(for='branch') Branch Name
+    select#branchName(name='branch')
+      option(value='select') select branch
+      option(value='Matugga') matugga
+      option(value='Maganjo') Maganjo
+    button(type='submit') Sign Up
+script(src='signup.js')

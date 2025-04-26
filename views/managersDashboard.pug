@@ -1,0 +1,56 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Manager&apos;s Dashboard - Karibu Grocery Limited
+  link(rel='stylesheet' href='/css/managersDashboard.css')
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+.dashboard-container
+  // Sidebar
+  aside.sidebar
+    h2 Karibu Grocery
+    ul
+      li
+        a(href='/stocklist') Dashboard
+      li
+        a(href='/registerProduce') registerProduce 
+      li
+        a(href='/Addsale') Sales
+      li
+        a(href='#') Orders
+      li
+        a(href='#') Reports
+      li
+        a(href='#') Settings
+  // Main Content
+  main.main-content
+    header
+      .header-container
+        h1 Manager&apos;s Dashboard
+        .notification-area
+          // Notification Bell
+          .notification-bell(onclick='toggleNotifications()')
+            i.fas.fa-bell 
+            span#notification-count.badge 3
+          // Notifications Dropdown
+          #notification-dropdown.notification-dropdown
+            h4 Notifications
+            ul
+              li New stock added: Beans 
+              li Customer order #223 completed
+              li New message from the supplier
+    section.overview
+      #alert-box.alert-box
+        p Important: Inventory levels are low on some items!
+        button(onclick='dismissAlert()') Dismiss
+      .statistics
+        .stat-box
+          h3 Sales Today
+          p $2000
+        .stat-box
+          h3 Orders Pending
+          p 12
+        .stat-box
+          h3 Customers Served
+          p 150
+script(src='managersDashboard.js')

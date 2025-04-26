@@ -1,0 +1,156 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  height: 100vh;
+  background-image: url(liz1.jpg);
+}
+
+.dashboard-container {
+  display: flex;
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: black;
+  color: white;
+  padding: 20px;
+  height: 100vh;
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+}
+
+.sidebar ul li a {
+  color: brown;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header-container h1 {
+  font-size: 24px;
+}
+
+.notification-area {
+  position: relative;
+}
+
+.notification-bell {
+  font-size: 24px;
+  cursor: pointer;
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color:black;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.notification-dropdown {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: tomato;
+  border: 1px solid #ddd;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  padding: 10px;
+}
+
+.notification-dropdown h4 {
+  margin-bottom: 10px;
+}
+
+.notification-dropdown ul {
+  list-style: none;
+}
+
+.notification-dropdown ul li {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.notification-dropdown ul li:last-child {
+  border-bottom: none;
+}
+
+/* Alert Box */
+.alert-box {
+  background-color: #f39c12;
+  color: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.alert-box button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.statistics {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stat-box {
+  background-color: #ecf0f1;
+  padding: 20px;
+  border-radius: 5px;
+  width: 30%;
+  text-align: center;
+}
+
+.stat-box h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Update Sale</title>
+  <link rel="stylesheet" href="/Updatesale.css">
+</head>
+<body>
+<div class="form-container">
+  <h2>Update Sale</h2>
+  <form id="updateSalesForm">
+    <!-- Hidden ID field to identify the sale being updated -->
+    <input type="hidden" id="saleId">
+
+    <label for="product">Product Name:</label>
+    <input type="text" id="product" required>
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" min="1" required>
+
+    <label for="saleDate">Date of Sale:</label>
+    <input type="date" id="saleDate" required>
+
+    <label for="price">Price per Unit (UGX):</label>
+    <input type="number" id="price" min="1" step="1" required>
+
+    <label for="total">Total (UGX):</label>
+    <input type="number" id="total" readonly>
+
+    <label for="customer">Customer Name:</label>
+    <input type="text" id="customer" required>
+
+    <button type="submit">Update Sale</button>
+  </form>
+</div>
+<script src="/Updatesale.js"></script>
+</body>
+</html>

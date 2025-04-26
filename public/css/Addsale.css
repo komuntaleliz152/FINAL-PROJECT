@@ -1,0 +1,48 @@
+ body {
+      font-family: Arial, sans-serif;
+      background-image: url('../img/home.jpg');
+      display: flex;
+      justify-content: center;
+      padding-top: 50px;
+    }
+    .form-container {
+      background:  rgb(216, 181, 181);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 350px;
+    }
+    h2 {
+      text-align: center;
+    }
+    label {
+      margin-top: 15px;
+      display: block;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .total {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background: brown;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: black;
+    }
+ 

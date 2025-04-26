@@ -1,0 +1,60 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Karibu Grocery - Director Dashboard
+  link(rel='stylesheet' href='/css/directorsDashboard.css')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css' integrity='sha512-yHjM9l+kdf0+OPQWnryYfYp0FPhWZKnHcEf6vhc3D+Z6Z+GULe+a4Uez7Gxy0zTRNPn0a+ebpuOj6lA7szOKVQ==' crossorigin='anonymous' referrerpolicy='no-referrer')
+#sidebar.sidebar
+  h2 Karibu
+  a(href='#')
+    i.fas.fa-tachometer-alt
+    |  Dashboard
+  a(href='#')
+    i.fas.fa-chart-line
+    |  Sales
+  a(href='#')
+    i.fas.fa-boxes
+    |  Inventory
+  a(href='#')
+    i.fas.fa-users
+    |  Customers
+  a(href='#')
+    i.fas.fa-coins
+    |  Finance
+  a(href='#')
+    i.fas.fa-file-alt
+    |  Reports
+  a(href='#')
+    i.fas.fa-cog
+    |  Settings
+#main.main-content
+  button.toggle-btn(onclick='toggleSidebar()') &#x2630;
+  header
+    h1 Karibu Grocery Store - Director&apos;s Dashboard
+  .container
+    .card
+      h3 Daily Sales
+      #dailySales.value Loading...
+    .card
+      h3 Top-Selling Products
+      ul#topProducts
+    .card
+      h3 Low Stock Alerts
+      ul#lowStock
+    .card
+      h3 Customer Satisfaction Score
+      #satisfaction.value Loading...
+    .card
+      h3 Gross Profit Margin
+      #grossProfit.value Loading...
+    .card
+      h3 Outstanding Payments
+      #payments.value Loading...
+    .card
+      h3 Employee Attendance
+      #attendance.value Loading...
+    .card
+      h3 Promotion Campaign Performance
+      #campaign.value Loading...
+script(src='directorsDashboard.js')

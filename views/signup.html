@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Karibu Grocery Signup</title>
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+  <div class="signup-container">
+    <h2>Karibu Grocery - Signup</h2>
+    <form id="signupForm">
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" required />
+
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" required />
+
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" id="confirmPassword" required />
+      <div id="passwordError" class="error"></div>
+
+      <label for="role">Role</label>
+      <select id="role" required>
+        <option value=""> Select Role </option>
+        <option value="director">director</option>
+        <option value="salesAgent">salesAgent</option>
+        <option value="Manager">Manager</option>
+      </select>
+
+      <label for="branchName">Branch Name</label>
+      <select id="branchName">
+        <option value="">select Role</option>
+        <option value="Matugga">matugga</option>
+        <option value="Maganjo">Maganjo</option> 
+      </select>
+
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+  <script src="signup.js"></script> 
+</body>
+</html>

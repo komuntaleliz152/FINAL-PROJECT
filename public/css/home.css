@@ -1,0 +1,66 @@
+/* General Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  background: black url('path/to/your-image.jpg') center/cover no-repeat fixed;
+  margin: 0;
+  color: white;
+  display: flex;
+  justify-content: center; /* Horizontally centers content */
+  align-items: center; /* Vertically centers content */
+  height: 100vh; /* Full height of the viewport */
+  text-align: center;
+}
+
+/* Welcome Section Styling */
+.welcome {
+  padding: 50px; /* Adjust padding if needed */
+  max-width: 600px; /* Limiting max width */
+  width: 100%; /* Take full width */
+}
+
+.welcome h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.welcome p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+}
+
+.welcome .btn {
+  padding: 10px 20px;
+  font-size: 1.25rem;
+  transition: background-color 0.3s ease;
+}
+
+.welcome .btn:hover {
+  background-color: #28a745; /* Button hover effect */
+}
+
+/* Footer Styling */
+footer {
+  background-color: #343a40;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .welcome h1 {
+    font-size: 2rem;
+  }
+
+  .welcome p {
+    font-size: 1rem;
+  }
+
+  .welcome .btn {
+    font-size: 1rem;
+  }
+}
+

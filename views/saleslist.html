@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docum</title>
+    <link rel="stylesheet" href="/css/saleslist.cssz">
+</head>
+<body> 
+    <h2>Sales Display</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price per Unit</th>
+                <th>Total Sales</th>
+                <th>Customer Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="salesTable">
+            <tr>
+                <td>Product Name</td>
+                <td>Quantity</td>
+                <td>Price per Unit</td>
+                <td>Total Sales</td>
+                <td>Customer Name</td>
+                <td>
+                    <button class="btn edit-btn" onclick="editRow(this)">Edit</button>
+                    <button class="btn delete-btn" onclick="deleteRow(this)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <button cs="btn add-btn" onclick="addRow()">Add New Sale</button>
+    <script src="display-sales.js"></script>  
+</body>
+</html>
