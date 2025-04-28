@@ -3,38 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Docum</title>
-    <link rel="stylesheet" href="/css/saleslist.cssz">
+    <title>Sales Table</title>
+   <link rel="stylesheet" href="/public/css/saleslist.css">
 </head>
-<body> 
-    <h2>Sales Display</h2>
-    <table>
+<body>
+    <h2>Sales list</h2>
+
+    <table id="salesTable">
         <thead>
             <tr>
-                <th>Product Name</th>
-                <th>Quantity</th>
-                <th>Price per Unit</th>
-                <th>Total Sales</th>
-                <th>Customer Name</th>
+                <th>Produce Name</th>
+                <th>Tonnage (kg)</th>
+                <th>Amount Paid (UGX)</th>
+                <th>Buyer Name</th>
+                <th>Sales Agent</th>
+                <th>Date and Time</th>
                 <th>Actions</th>
             </tr>
         </thead>
-        <tbody id="salesTable">
+        <tbody>
             <tr>
-                <td>Product Name</td>
-                <td>Quantity</td>
-                <td>Price per Unit</td>
-                <td>Total Sales</td>
-                <td>Customer Name</td>
-                <td>
-                    <button class="btn edit-btn" onclick="editRow(this)">Edit</button>
-                    <button class="btn delete-btn" onclick="deleteRow(this)">Delete</button>
-                </td>
+                <td>Product A</td>
+                <td>500</td>
+                <td>1,000,000</td>
+                <td>John Doe</td>
+                <td>Agent 1</td>
+                <td>2025-04-28 10:00 AM</td>
+                <td><button onclick="editSale(this)">Edit</button><button onclick="deleteSale(this)">Delete</button></td>
+            </tr>
+            <tr>
+                <td>Product B</td>
+                <td>300</td>
+                <td>600,000</td>
+                <td>Jane Smith</td>
+                <td>Agent 2</td>
+                <td>2025-04-28 11:00 AM</td>
+                <td><button onclick="editSale(this)">Edit</button><button onclick="deleteSale(this)">Delete</button></td>
+            </tr>
+            <tr>
+                <td>Product C</td>
+                <td>800</td>
+                <td>1,600,000</td>
+                <td>Alex Brown</td>
+                <td>Agent 3</td>
+                <td>2025-04-28 12:00 PM</td>
+                <td><button onclick="editSale(this)">Edit</button><button onclick="deleteSale(this)">Delete</button></td>
+            </tr>
+            <tr>
+                <td>Product D</td>
+                <td>150</td>
+                <td>300,000</td>
+                <td>Mary White</td>
+                <td>Agent 4</td>
+                <td>2025-04-28 02:00 PM</td>
+                <td><button onclick="editSale(this)">Edit</button><button onclick="deleteSale(this)">Delete</button></td>
             </tr>
         </tbody>
     </table>
-    <br>
-    <button cs="btn add-btn" onclick="addRow()">Add New Sale</button>
-    <script src="display-sales.js"></script>  
-</body>
-</html>
+    <!-- Add Sale Button below the table -->
+    <button onclick="addSale()">Add Sale</button>
+
+    <!-- Footer Section at the bottom of the page -->
+    <footer>
+        <p>© 2025 Sales Management System | All Rights Reserved</p>
+    </footer>
+    <script src="saleslist.js"></script>
+    </body>
+    </html>
+
+
+    

@@ -1,65 +1,21 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Karibu Grocery - Stock Management
-  link(rel='stylesheet' href='stockmanagement.css')
-header
-  h1 Karibu Grocery Stock Management
-main
-  h2 Current Stock
-  table#stockTable
-    thead
-      tr
-        th Item Name
-        th Quantity (Tonnes)
-        th Price (UGX)
-        th Action
-    tbody
-      tr
-        td Cowpeas
-        td 100
-        td UGX 5500
-        td
-          button(onclick='editRow(this)') Edit
-          button(onclick='restockRow(this)') Restock
-          button(onclick='deleteRow(this)') Delete
-      tr
-        td Maize
-        td 200
-        td UGX 3000
-        td
-          button(onclick='editRow(this)') Edit
-          button(onclick='restockRow(this)') Restock
-          button(onclick='deleteRow(this)') Delete
-      tr
-        td Beans
-        td 150
-        td UGX 4400
-        td
-          button(onclick='editRow(this)') Edit
-          button(onclick='restockRow(this)') Restock
-          button(onclick='deleteRow(this)') Delete
-      tr
-        td Gnuts
-        td 90
-        td UGX 7300
-        td
-          button(onclick='editRow(this)') Edit
-          button(onclick='restockRow(this)') Restock
-          button(onclick='deleteRow(this)') Delete
-      tr
-        td Soybeans
-        td 120
-        td UGX 6200
-        td
-          button(onclick='editRow(this)') Edit
-          button(onclick='restockRow(this)') Restock
-          button(onclick='deleteRow(this)') Delete
-  h2 Add New Item
-  form#stockForm
-    input#itemName(type='text' placeholder='Item Name' required='')
-    input#itemQuantity(type='number' step='0.01' placeholder='Quantity in Tonnes' required='')
-    input#itemPrice(type='number' step='0.01' placeholder='Price in UGX' required='')
-    button(type='submit') Add Item
-script(src='stockmanagement.js')
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Stock Management
+    link(rel='stylesheet' href='/bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/css/bootstrap.min.css')
+    link(rel='stylesheet' href='/css/stock management.css')
+  body
+    header.bg-dark.text-light.p-3
+      h1.text-center Stock Management
+      nav.nav.justify-content-center
+        a.nav-link.text-light(href='/manager') Manager Dashboard
+    
+    main.container.mt-5
+      h2 Stock Overview
+      div.text-center.mt-4
+      a.btn.btn-primary.btn-lg(href='/stocklist') Click to View Stock Management
+      div#stockData.mt-4
+
+    script(src='/js/stockmanagement.js')

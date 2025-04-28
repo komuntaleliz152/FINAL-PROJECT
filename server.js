@@ -13,7 +13,8 @@ require('dotenv').config();
 
 //import user's mode
 const Signup =require('./models/Signup');
-const register =require('./models/Register');
+const Register =require('./models/Register');
+const Produce =require('./models/Produce');
 
 // 2.Instantations
 const app =express();
@@ -27,7 +28,8 @@ const PORT =3004;
  const managerRoutes =require("./routes/managerRoutes");
  const salesAgentRoutes =require("./routes/salesAgentRoutes");
  const directorRoutes =require("./routes/directorRoutes");
-
+const stockRoutes = require("./routes/stockRoutes");
+const addProduceSaleRoutes = require("./routes/addproducesaleRoutes");
 
 // 3. Configurations
 //set view engine to pug
@@ -72,6 +74,8 @@ app.use('/', homeRoutes);
 app.use('/', managerRoutes);
 app.use('/', salesAgentRoutes);
 app.use('/', directorRoutes);
+app.use('/', stockRoutes);
+app.use('/', addProduceSaleRoutes);
 
 
 

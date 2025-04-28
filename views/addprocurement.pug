@@ -1,0 +1,46 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Produce Procurement Form
+  link(rel='stylesheet' href='/css/addprocurement.css')
+  body
+.form-container
+  h2 Produce Procurement Form
+  form#produceForm(action='/addprocurement' method='POST')
+    .form-group
+      label(for='produceName') Name of Produce
+      input#produceName(type='text' name='produceName')
+    .form-group
+      label(for='produceType') Type of Produce
+      select#produceType(name='produceType' required='')
+        option(value='') Select type
+        option(value='Grain') Grain
+        option(value='Cereal') Cereal
+    .form-group
+      label(for='tonnage') Tonnage (kgs)
+      input#tonnage(type='number' name='tonnage')
+    .form-group
+      label(for='cost') Cost (UgX)
+      input#cost(type='number' name='cost')
+    .form-group
+      label(for='dealerName') Dealer Name
+      input#dealerName(type='text' name='dealerName')
+    .form-group
+      label(for='branchName') Branch Name
+      select#branchName(name='branchName' required='')
+        option(value='') Select Branch
+        option(value='Mattuga') Mattuga
+        option(value='Maganjo') Maganjo
+    .form-group
+      label(for='contact') Dealer Contact
+      input#contact(type='tel' name='contact')
+    .form-group
+      label(for='date') Date
+      input#date(type='date' name='date')
+    .form-group
+      label(for='time') Time of Produce
+      input#time(type='time' name='time')
+    button(type='submit') Submit
+    p#errorMsg.error
+script(src='addprocurement.js')

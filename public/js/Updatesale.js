@@ -19,11 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
       // Normally you'd fetch this from a server using fetch/AJAX
       const existingSale = {
         id: 123,
-        product: "Sugar",
-        quantity: 5,
+        product: "beans",
+        quantity: 1000,
         saleDate: "2025-04-20",
-        price: 2000,
-        customer: "John Doe"
+        price: 20000,
+        customer: "mark joel"
       };
   
       document.getElementById("saleId").value = existingSale.id;

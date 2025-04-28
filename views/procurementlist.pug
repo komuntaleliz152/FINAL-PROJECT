@@ -1,0 +1,126 @@
+//- doctype html
+//- html(lang="en")
+//-   head
+//-     meta(charset="UTF-8")
+//-     meta(name="viewport" content="width=device-width, initial-scale=1.0")
+//-     title Procurement List
+//-     link(rel="stylesheet" href="/bootstrap-5.0.2-dist/css/bootstrap.min.css")
+//-     link(rel="stylesheet" href="/css/procurementlist.css")
+
+//-   body
+//-     // Header Section
+//-     header.bg-dark.text-light.py-3
+//-       .container.text-center
+//-         h1 Procurement List
+//-         nav.mt-3
+//-           a.navbar-brand(href='/manager') Manager Dashboard
+//-           a.navbar-brand(href='/admin') Admin Dashboard
+
+//-     // Main Content Section
+//-     main.container.mt-4
+//-       // Procurement Table
+//-       table#procurement-table.table.table-striped.table-hover
+//-         thead
+//-           tr
+//-             th(scope="col") Produce Name
+//-             th(scope="col") Tonnage (kg)
+//-             th(scope="col") Cost (UGX)
+//-             th(scope="col") Dealer Name
+//-             th(scope="col") Branch
+//-             th(scope="col") Action
+
+//-         tbody
+//-           if procurements && procurements.length > 0
+//-             each procurement in procurements
+//-               tr
+//-                 td #{procurement.producename}
+//-                 td #{procurement.tonnage}
+//-                 td #{procurement.cost}
+//-                 td #{procurement.dealername}
+//-                 td #{procurement.branch}
+//-                 td
+//-                   a(href=/updateprocurement/${procurement._id} class='btn btn-warning btn-sm me-2') Edit
+//-                   form(method='POST', action='/delete-procurement', style='display:inline;')
+//-                     input(type='hidden', name='id', value=procurement._id)
+//-                     button.btn.btn-danger.btn-sm(type='submit') Delete
+//-           else
+//-             tr
+//-               td(colspan='6').text-center No procurement records available
+
+//-       // Add Procurement Button
+//-       .text-center.mt-4
+//-         a(href='/addprocurement' class='btn btn-primary btn-lg') Add Procurement
+
+//-     // Footer Section
+//-     footer.bg-dark.text-light.py-3.mt-5
+//-       .container.text-center
+//-         p.mb-0 © #{new Date().getFullYear()} Procurement System. All rights reserved.
+
+
+
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Procurement List
+    link(rel="stylesheet" href="/bootstrap-5.0.2-dist/css/bootstrap.min.css")
+    link(rel="stylesheet" href="/css/procurementlist.css")
+
+  body
+    // Header Section
+    header.bg-dark.text-light.py-3
+      .container.text-center
+        h1 Procurement List
+        nav.mt-3
+          a.navbar-brand(href='/managerDash') ManagerDashboard
+          a.navbar-brand(href='/directorsDash') directorsDashboard
+
+    // Main Content Section
+    main.container.mt-4
+      // Procurement Table
+      table#procurement-table.table.table-striped.table-hover
+        thead
+          tr
+            th(scope="col") Produce Name
+            th(scope="col") Produce Type
+            th(scope="col") Tonnage (kg)
+            th(scope="col") Cost (UGX)
+            th(scope="col") Dealer Name
+            th(scope="col") Branch Name
+            th(scope="col") Contact
+            th(scope="col") date 
+            th(scope="col") time
+            th(scope="col") Action
+
+        tbody
+          if procurements && procurements.length > 0
+            each procurement in procurements
+              tr
+                td= procurement.producename
+                td= procurement.producetype
+                td= procurement.tonnage
+                td= procurement.cost
+                td= procurement.dealername
+                td= procurement.branchname 
+                td= procurement.contact
+                td= procurement.date
+                td= procurement.time
+                td
+                  a.btn.btn-warning.btn-sm.me-2(href=`/updateprocurement/${procurement._id}`) Edit
+                  form(method='POST', action='/delete-procurement', style='display:inline;')
+                    input(type='hidden', name='id', value=procurement._id)
+                    button.btn.btn-danger.btn-sm(type='submit') Delete
+          else
+            tr
+              td(colspan='6').text-center No procurement records available
+
+      // Add Procurement Button
+      .text-center.mt-4
+        a.btn.btn-primary.btn-lg(href='/addprocurement') Add Procurement
+
+    // Footer Section
+    footer.bg-dark.text-light.py-3.mt-5
+      .container.text-center
+        p.mb-0 © #{year} Procurement System. All rights reserved.

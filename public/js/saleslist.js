@@ -1,44 +1,38 @@
+// Function to handle "Edit" action
+function editSale(button) {
+    const row = button.parentElement.parentElement;
+    const cells = row.getElementsByTagName('td');
+    alert(`Editing sale for ${cells[0].textContent}`);
+    // Here you can add logic to edit the sale, such as displaying a form
+}
 
-function editRow(button) {
-    let row = button.parentElement.parentElement;
-    let cells = row.querySelectorAll("td");
-    for (let i = 0; i < cells.length - 1; i++) {
-        let currentValue = cells[i].innerText;
-        cells[i].innerHTML = `<input type='text' value='${currentValue}'>`;
+// Function to handle "Delete" action
+function deleteSale(button) {
+    const row = button.parentElement.parentElement;
+    if (confirm("Are you sure you want to delete this sale?")) {
+        row.remove();
     }
-    button.innerText = "Save";
-    button.onclick = function() { saveRow(this); };
 }
 
-function saveRow(button) {
-    let row = button.parentElement.parentElement;
-    let inputs = row.querySelectorAll("input");
-    for (let i = 0; i < inputs.length; i++) {
-        row.cells[i].innerText = inputs[i].value;
-    }
-    button.innerText = "Edit";
-    button.onclick = function() { editRow(this); };
-}
-
-function deleteRow(button) {
-    let row = button.parentElement.parentElement;
-    row.remove();
-}
-
-function addRow() {
-    let table = document.getElementById("salesTable");
-    let newRow = table.insertRow();
-    let products = ["Cowpeas", "Maize", "Beans", "Groundnuts", "Soybeans"];
-    let product = products[Math.floor(Math.random() * products.length)];
+// Function to handle "Add Sale" action
+function addSale() {
+    const table = document.getElementById("salesTable").getElementsByTagName('tbody')[0];
+    const newRow = table.insertRow();
     
-    newRow.innerHTML = `
-        <td>${product}</td>
-        <td>0</td>
-        <td>0.00</td>
-        <td>0.00</td>
-        <td>
-            <button class="btn edit-btn" onclick="editRow(this)">Edit</button>
-            <button class="btn delete-btn" onclick="deleteRow(this)">Delete</button>
-        </td>
-    `;
+    // Create cells and add data (you can modify this to gather real data)
+    const cell1 = newRow.insertCell(0);
+    const cell2 = newRow.insertCell(1);
+    const cell3 = newRow.insertCell(2);
+    const cell4 = newRow.insertCell(3);
+    const cell5 = newRow.insertCell(4);
+    const cell6 = newRow.insertCell(5);
+    const cell7 = newRow.insertCell(6);
+
+    cell1.textContent = "New Product";
+    cell2.textContent = "100";
+    cell3.textContent = "200,000";
+    cell4.textContent = "New Buyer";
+    cell5.textContent = "New Agent";
+    cell6.textContent = new Date().toLocaleString();
+    cell7.innerHTML = '<button onclick="editSale(this)">Edit</button><button onclick="deleteSale(this)">Delete</button>';
 }

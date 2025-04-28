@@ -1,0 +1,59 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Add Stock
+    link(rel='stylesheet' href='/bootstrap-5.0.2-dist/css/bootstrap.css')
+    link(rel='stylesheet' href='/css/addstock.css')
+  body
+    header.bg-dark.text-light.py-3
+      h1.text-center Add New Stock
+      nav.text-center
+        a(href='/stocklist' class='btn btn-light') Back to Stock List
+
+    main.container.my-4
+      form#addStockForm(method='POST', action='/addstock')
+        .mb-3
+          label(for='produceName' class='form-label') Produce Name
+          input(type='text', class='form-control', id='produceName', name='produceName')
+          span#error-produceName.error-message
+        .mb-3
+          label(for='typeOfProduce' class='form-label') Type of Produce
+          input(type='text', class='form-control', id='typeOfProduce', name='typeOfProduce')
+          span#error-typeOfProduce.error-message
+        .mb-3
+          label(for='tonnage' class='form-label') Tonnage (kg)
+          input(type='number', class='form-control', id='tonnage', name='tonnage')
+          span#error-tonnage.error-message
+        .mb-3
+          label(for='cost' class='form-label') Cost
+          input(type='number', class='form-control', id='cost', name='cost')
+          span#error-cost.error-message
+        .mb-3
+          label(for='dealerName' class='form-label') Dealer Name
+          input(type='text', class='form-control', id='dealerName', name='dealerName')
+          span#error-dealerName.error-message
+        .mb-3
+          label(for='branchName' class='form-label') Branch Name
+          input(type='text', class='form-control', id='branchName', name='branchName')
+          span#error-branchName.error-message
+        .mb-3
+          label(for='contact' class='form-label') Contact
+          input(type='text', class='form-control', id='contact', name='contact')
+          span#error-contact.error-message
+        .mb-3
+          label(for='priceToSell' class='form-label') Price to Sell
+          input(type='number', class='form-control', id='priceToSell', name='priceToSell')
+          span#error-priceToSell.error-message
+        .mb-3
+          label(for='stockDate' class='form-label') Stock Date
+          input(type='date', class='form-control', id='stockDate', name='stockDate')
+          span#error-stockDate.error-message
+        .mb-3
+          label(for='stockTime' class='form-label') Stock Time
+          input(type='time', class='form-control', id='stockTime', name='stockTime')
+          span#error-stockTime.error-message
+        button(type='submit', class='btn btn-primary' style="width: 400px;") Add Stock
+         a.btn.btn-secondary(href="/stocklist") Back to Stocklist
+    script(src='/js/addstock.js')

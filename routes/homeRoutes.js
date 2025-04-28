@@ -5,8 +5,6 @@ router.get("/", (req, res) => {
   res.render("home");
 });
 
-router.get("/stock", (req, res) => {
-  res.render("stock");
-});
+
 
 module.exports =router;
