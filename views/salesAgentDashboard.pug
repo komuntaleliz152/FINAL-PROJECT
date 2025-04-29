@@ -3,16 +3,16 @@ head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Sales Agent Dashboard
-  link(rel='stylesheet' href='salesAgentDashboard.css')
+  link(rel='stylesheet' href='css/salesAgentDashboard.css')
   script(src='https://cdn.jsdelivr.net/npm/chart.js')
 .dashboard
   nav.sidebar
     h2 Dashboard
     ul
       li
-        a(href='#') Leads
+        a(href='/addCreditSale') Add Credit Sale
       li
-        a(href='#') Deals
+        a(href='') Deals
       li
         a(href='#') Reports
       li
@@ -51,4 +51,4 @@ head
     .chart-container
       h2 Sales Performance
       canvas#salesChart
-script(src='salesAgentDashboard.js')
+script(src='js/salesAgentDashboard.js')

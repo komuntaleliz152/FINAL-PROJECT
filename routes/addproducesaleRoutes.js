@@ -1,26 +1,25 @@
-const express = require("express");
+ const express = require("express");
 const router = express.Router();
 
 // Import model
-const Produce = require("../models/Produce"); // Assuming ProduceSale is your model
+const ProduceSale = require("../models/ProduceSale"); // Assuming ProduceSale is your model
 
 // Show produce sale registration form
 router.get("/addProduceSale", (req, res) => {
   res.render("addProduceSale"); // Render the form where the user can add a new sale
 });
 
-// Handle produce sale registration form submission
-router.post("/addProduceSale", async (req, res) => {
-  try {
-    // Create a new produce sale from the submitted form data
-    const addProduceSale = new addProduceSale(req.body);
-    await addProduceSale.save(); // Save it to the database
-
-    res.redirect("/SalesList"); // Redirect to the list of sales after successful registration
-  } catch (error) {
-    console.error("Error saving produce sale:", error);
-    res.status(400).send("Unable to save produce sale");
-  }
+// ROUTE: Save new procurement (POST)
+router.post('/addProduceSale', async (req, res) => {
+    console.log(req.body);
+    try {
+        const newProduceSale = new ProduceSale(req.body);
+        await newProduceSale.save();
+        res.redirect('/produceSalesList');
+    } catch (error) {
+        console.error("Error saving produceSale:", error);
+        res.status(500).send("Unable to save produceSale to DB");
+    }
 });
 
 // List all produce sales

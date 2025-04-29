@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Credit Sale Registration Form</title>
+  <link rel="stylesheet" href="../public/css/addCreditSale.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Credit Sale Registration Form</h2>
+    <form id="creditSaleForm" onsubmit="return validateForm()">
+
+      <label for="buyerName">Name of the Buyer</label>
+      <input type="text" id="buyerName" required>
+      <div id="buyerNameError" class="error"></div>
+
+      <label for="nationalId">National ID (NIN)</label>
+      <input type="text" id="nationalId" required>
+      <div id="nationalIdError" class="error"></div>
+
+      <label for="location">Location</label>
+      <input type="text" id="location" required>
+      <div id="locationError" class="error"></div>
+
+      <label for="contact">Contacts (Phone Number)</label>
+      <input type="text" id="contact" required>
+      <div id="contactError" class="error"></div>
+
+      <label for="amountDue">Amount Due (UGX)</label>
+      <input type="number" id="amountDue" required min="10000">
+      <div id="amountDueError" class="error"></div>
+
+      <label for="salesAgentName">Sales Agent Name</label>
+      <input type="text" id="salesAgentName" required>
+      <div id="salesAgentNameError" class="error"></div>
+
+      <label for="dueDate">Due Date</label>
+      <input type="date" id="dueDate" required>
+      <div id="dueDateError" class="error"></div>
+
+      <label for="produceName">Produce Name</label>
+      <input type="text" id="produceName" required>
+      <div id="produceNameError" class="error"></div>
+
+      <label for="produceType">Type of Produce</label>
+      <select id="produceType" required>
+        <option value="">Select Type</option>
+        <option value="Grains">Grains</option>
+        <option value="Vegetables">Vegetables</option>
+        <option value="Fruits">Fruits</option>
+        <option value="Others">Others</option>
+      </select>
+      <div id="produceTypeError" class="error"></div>
+
+      <label for="tonnage">Tonnage (in tons)</label>
+      <input type="number" id="tonnage" required min="0.1" step="0.1">
+      <div id="tonnageError" class="error"></div>
+
+      <label for="dispatchDate">Date of Dispatch</label>
+      <input type="date" id="dispatchDate" required>
+      <div id="dispatchDateError" class="error"></div>
+
+      <button type="submit">Register Sale</button>
+      <div id="formSuccess" class="success"></div>
+    </form>
+  </div>
+
+  <footer>
+    &copy; 2025 AgriCredit System | All Rights Reserved.
+  </footer>
+  <script src="js/addCreditSale.js"></script>
+
+</body>
+</html>

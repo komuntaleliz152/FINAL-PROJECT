@@ -1,7 +1,7 @@
 //defining our schema
 const mongoose = require("mongoose");
 
-const ProduceSchema = new mongoose.Schema({
+const ProduceSaleSchema = new mongoose.Schema({
   produceName: {
     type: String,
     trim: true,
@@ -15,7 +15,7 @@ const ProduceSchema = new mongoose.Schema({
     type: Number,
     trim: true,
   },
-  buyername: {
+  buyerName: {
     type: String,
     trim: true,
   },
@@ -24,10 +24,10 @@ const ProduceSchema = new mongoose.Schema({
     trim: true
   },
   saleDateTime: {
-    type: String,
+    type: Date,
     trim: true,
-  },
+  }
 
 });
 
-module.exports = mongoose.model("Produce", ProduceSchema);
+module.exports = mongoose.model("ProduceSale", ProduceSaleSchema);

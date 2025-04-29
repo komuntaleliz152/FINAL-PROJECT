@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Credit Sales Table</title>
+  <link rel="stylesheet" href="/public/css/creditSaleList.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Credit Sales List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Produce Name</th>
+          <th>Produce Type</th>
+          <th>Tonnage</th>
+          <th>Buyer Name</th>
+          <th>National ID</th>
+          <th>Contact</th>
+          <th>Location</th>
+          <th>Amount Due (UGX)</th>
+          <th>Due Date</th>
+          <th>Dispatch Date</th>
+          <th>Sales Agent</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="salesTableBody">
+        <tr>
+          <td data-label="Produce Name">Maize</td>
+          <td data-label="Produce Type">Grains</td>
+          <td data-label="Tonnage">3.5</td>
+          <td data-label="Buyer Name">John Doe</td>
+          <td data-label="National ID">CFX12345678AB</td>
+          <td data-label="Contact">+256712345678</td>
+          <td data-label="Location">Lira</td>
+          <td data-label="Amount Due (UGX)">120000</td>
+          <td data-label="Due Date">2025-05-20</td>
+          <td data-label="Dispatch Date">2025-04-25</td>
+          <td data-label="Sales Agent">Sarah</td>
+          <td class="actions">
+            <button class="edit-btn" onclick="editRow(this)">Edit</button>
+            <button class="delete-btn" onclick="deleteRow(this)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="add-button-container">
+      <button class="credit-btn" onclick="addCredit()">Add Credit Sale</button>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 AgriCredit System | All Rights Reserved.
+  </footer>
+  <script src="creditSaleList.js"></script>
+</body>
+</html>

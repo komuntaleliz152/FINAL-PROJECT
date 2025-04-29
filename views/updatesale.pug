@@ -1,22 +1,39 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  title update sale  Form
-  link(rel='stylesheet' href='/css/salesRegister.css')
-.form-container
-  h2 update sale
-  form#salesForm(action="/updateSale?id="+ sales._id method="post")
-  input(type='hidden' name='id' value=sale._id)
-    label(for='productName') Product Name:
-    input#product(type='text' name="productName" value=sale.productName)
-    label(for='quantity') Quantity:
-    input#quantity(type='number' name="quantity" value=sale.quantity)
-    label(for='saleDate') Date of Sale:
-    input#saleDate(type='date' name="saleDate" value=sale.saleDate)
-    label(for='priceperUnit') Price per Unit (UGX):
-    input#price(type='number' name="priceperUnit" value=sale.priceperUnit)
-    label(for='totalAmount') Total Amount (UGX):
-    input#total(type='number' name="totalAmount" value=sale.totalAmount)
-    label(for='customerName') Customer Name:
-    input#customer(type='text' name="customerName" value=sale.customerName)
-    button(type='submit') update sale
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Update Produce Sale
+    link(rel='stylesheet' href='./css/addproducesale.css')
+  body
+    form#producesalesform(action='/UpdateProduceSale'+ sales._id method='POST')
+      h2 Update Produce Sale Form
+      // Error Message Display
+      #errorMsg.error
+      // Hidden ID Field
+      input(type='hidden' name='Id'  value=sale._Id)
+      // Produce Name
+      label(for='produceName') Produce Name
+      input#produce(type='text' name='produceName' value=sale.produceName)
+      // Tonnage
+      label(for='tonnage') Tonnage (kg)
+      input#tonnage(type='number' name='tonnage' value=sale.tonnage)
+      // Amount Paid
+      label(for='amount') Amount (UGX)
+      input#amount(type='text' name='amount' valve=sale.amount)
+      // Buyer Name
+      label(for='buyerName') Buyer Name
+      input#buyerName(type='text' name='buyerName' value=sale.buyerName)
+      // Sales Agent
+      label(for='salesAgent') Sales Agent Name
+      input#salesAgent(type='text' name='salesAgent' value=sale.salesAgent )
+      // Sale Date and Time
+      label(for='saleDateTime') Date and Time
+      input#saleDateTime(type='datetime-local' name='saleDateTime' value=sale.saleDateTime)
+      // Submit Button
+      button(type='submit') Update Sale
+    script(src='js/updateproducesale.js')
+
+
+
+ 

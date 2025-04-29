@@ -14,7 +14,8 @@ require('dotenv').config();
 //import user's mode
 const Signup =require('./models/Signup');
 const Register =require('./models/Register');
-const Produce =require('./models/Produce');
+const ProduceSale =require('./models/ProduceSale');
+const Credit =require('./models/Credit');
 
 // 2.Instantations
 const app =express();
@@ -28,8 +29,9 @@ const PORT =3004;
  const managerRoutes =require("./routes/managerRoutes");
  const salesAgentRoutes =require("./routes/salesAgentRoutes");
  const directorRoutes =require("./routes/directorRoutes");
-const stockRoutes = require("./routes/stockRoutes");
-const addProduceSaleRoutes = require("./routes/addproducesaleRoutes");
+ const stockRoutes = require("./routes/stockRoutes");
+ const addProduceSaleRoutes = require("./routes/addproducesaleRoutes");
+ const creditRoutes = require("./routes/creditRoutes");
 
 // 3. Configurations
 //set view engine to pug
@@ -52,6 +54,8 @@ mongoose.connect(process.env.DATABASE, {
 // 4. middleware
 app.use(express.static(path.join(__dirname, 'public')));
 app.use("/public/img/uploads", express.static(__dirname + "/public/img/uploads"));
+app.use("/css", express.static(__dirname + "/public/css"));
+app.use("/js", express.static(__dirname + "/public/js"));
 app.use(express.urlencoded({ extended: true })); //helps to parse data from forms
 // express session configs
 app.use(expressSession);
@@ -76,6 +80,7 @@ app.use('/', salesAgentRoutes);
 app.use('/', directorRoutes);
 app.use('/', stockRoutes);
 app.use('/', addProduceSaleRoutes);
+app.use('/', creditRoutes);
 
 
 
