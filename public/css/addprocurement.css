@@ -1,7 +1,7 @@
 /* addprocurement.css */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f7f8;
+    background-image: url('../img/maize.jpg');
     margin: 0;
     padding: 0;
     display: flex;
@@ -11,18 +11,19 @@ body {
   }
   
   .form-container {
-    background: white;
+    background: transparent;
     padding: 30px 40px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     width: 400px;
     max-width: 90%;
+    backdrop-filter: blur(20px);
   }
   
   h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: #333;
+    color: black;
   }
   
   form {
@@ -38,7 +39,7 @@ body {
     font-weight: 600;
     margin-bottom: 5px;
     display: block;
-    color: #555;
+    color: black;
   }
   
   input[type="text"],
@@ -64,8 +65,8 @@ body {
   
   button[type="submit"] {
     padding: 12px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: white ;
+    color: black;
     font-size: 16px;
     font-weight: bold;
     border: none;
@@ -76,7 +77,7 @@ body {
   }
   
   button[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: black ;
   }
   
   .error {

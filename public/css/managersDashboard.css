@@ -9,7 +9,8 @@ body {
   font-family: Arial, sans-serif;
   display: flex;
   height: 100vh;
-  background-image: url(liz1.jpg);
+  background-image: url(../img/home.jpg);
+  
 }
 
 .dashboard-container {
@@ -20,7 +21,7 @@ body {
 /* Sidebar */
 .sidebar {
   width: 250px;
-  background-color: black;
+  background-color:  #146158;
   color: white;
   padding: 20px;
   height: 100vh;
@@ -41,7 +42,7 @@ body {
 }
 
 .sidebar ul li a {
-  color: brown;
+  color: white;
   text-decoration: none;
   font-size: 18px;
   display: block;
@@ -78,7 +79,7 @@ header {
   position: absolute;
   top: -5px;
   right: -5px;
-  background-color:black;
+  background-color:whitesmoke;
   color: white;
   border-radius: 50%;
   padding: 5px 10px;
@@ -117,7 +118,7 @@ header {
 
 /* Alert Box */
 .alert-box {
-  background-color: #f39c12;
+  background-color: red;
   color: white;
   padding: 15px;
   margin-bottom: 20px;
@@ -141,7 +142,7 @@ header {
 }
 
 .stat-box {
-  background-color: #ecf0f1;
+  background-color: #e9eaea;;
   padding: 20px;
   border-radius: 5px;
   width: 30%;

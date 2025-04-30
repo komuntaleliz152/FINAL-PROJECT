@@ -1,6 +1,6 @@
  body {
       font-family: 'Segoe UI', sans-serif;
-      background-image:url(beans4.jpg)no-repeat ;
+      background-image:url(../img/maize.jpg);
       margin: 0;
       padding: 0;
       display: flex;
@@ -10,12 +10,14 @@
     }
 
     .signup-container {
-      background-color: rgb(181, 87, 87);
+      /* background-color: rgb(44, 110, 44); */
+      background:transparent;
       padding: 2rem 2.5rem;
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       width: 100%;
       max-width: 450px;
+      backdrop-filter: blur(20px);
     }
 
     .signup-container h2 {
@@ -42,8 +44,8 @@
     button {
       width: 100%;
       padding: 12px;
-      background-color: rgb(216, 181, 181);
-      color: white;
+      background-color: white;
+      color: black;
       font-size: 1rem;
       font-weight: bold;
       border: none;
@@ -56,10 +58,10 @@
       background-color: black;
     }
 
-    .error {
-      color: red;
+    /* .error {
+      color: #e74c3c;
       font-size: 0.9rem;
       margin-top: -10px;
       margin-bottom: 10px;
-    }
+    } */
   

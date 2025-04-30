@@ -83,8 +83,8 @@ html(lang="en")
       table#procurement-table.table.table-striped.table-hover
         thead
           tr
-            th(scope="col") Produce Name
-            th(scope="col") Produce Type
+            th(scope="col") ProduceName
+            th(scope="col") ProduceType
             th(scope="col") Tonnage (kg)
             th(scope="col") Cost (UGX)
             th(scope="col") Dealer Name
@@ -98,17 +98,17 @@ html(lang="en")
           if procurements && procurements.length > 0
             each procurement in procurements
               tr
-                td= procurement.producename
-                td= procurement.producetype
+                td= procurement.produceName
+                td= procurement.produceType
                 td= procurement.tonnage
                 td= procurement.cost
-                td= procurement.dealername
-                td= procurement.branchname 
+                td= procurement.dealerName
+                td= procurement.branchName 
                 td= procurement.contact
                 td= procurement.date
                 td= procurement.time
                 td
-                  a.btn.btn-warning.btn-sm.me-2(href=`/updateprocurement/${procurement._id}`) Edit
+                  a.btn.btn-warning.btn-sm.me-2(href=`/updateprocurement/${procurement._id}`) update
                   form(method='POST', action='/delete-procurement', style='display:inline;')
                     input(type='hidden', name='id', value=procurement._id)
                     button.btn.btn-danger.btn-sm(type='submit') Delete

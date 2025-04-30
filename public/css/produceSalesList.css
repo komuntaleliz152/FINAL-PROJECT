@@ -12,7 +12,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  background-color: #f9f9f9; /* Light background to enhance readability */
+  background-color: rgb(191, 155, 155); /* Light background to enhance readability */
 }
 
 /* Header */
@@ -65,7 +65,7 @@ button[onclick='addSale()'] {
   font-size: 16px;
   font-weight: bold;
   color: #fff;
-  background-color: #4CAF50; /* Green background for the button */
+  background-color: brown; /* Green background for the button */
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -88,7 +88,7 @@ button {
 }
 
 button:hover {
-  background-color: #ddd; /* Light gray hover effect */
+  background-color: brown; /* Light gray hover effect */
 }
 
 button:nth-child(1) {
@@ -110,7 +110,7 @@ button:nth-child(2):hover {
 /* Footer styling */
 footer {
   margin-top: auto;
-  background-color: #f4f4f4;
+  background-color: brown;
   text-align: center;
   padding: 15px 0;
   font-size: 14px;

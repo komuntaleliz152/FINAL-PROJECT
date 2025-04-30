@@ -1,0 +1,51 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Sales Agent Dashboard
+  link(rel='stylesheet' href='css/salesAgentDashboard.css')
+  script(src='https://cdn.jsdelivr.net/npm/chart.js')
+.dashboard
+  nav.sidebar
+    h2 Dashboard
+    ul
+      li
+        a(href='/addCreditSale') Add Credit Sale
+      li
+        a(href='') Deals
+      li
+        a(href='#') Reports
+      li
+        a(href='#') Profile
+  main.content
+    header
+      h1 Welcome, Sales Agent Dashboard Maganjo
+    section.stats
+      .stat-box
+        | Leads: 
+        span#leads 25
+      .stat-box
+        | Deals Closed: 
+        span#deals 10
+      .stat-box
+        | Revenue: shs
+        span#revenue 50,000
+    .table-container
+      h2 Recent Leads
+      table
+        tr
+          th Name
+          th Contact
+          th Status
+          th Value
+        tr
+          td Marcus Bruno
+          td brunomarcus@gmail.com
+          td New
+          td shs50000
+        tr
+          td Chiru Faith
+          td faithchiru@gmail.com
+          td In Progress
+          td shs70000
+script(src='js/salesAgentDashboard.js')

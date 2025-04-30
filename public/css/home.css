@@ -1,21 +1,26 @@
 /* General Body Styling */
 body {
   font-family: Arial, sans-serif;
-  background: black url('path/to/your-image.jpg') center/cover no-repeat fixed;
-  margin: 0;
+  font-size: 30px;
+  font-weight: bold;
+  background-image: url('../img/index3.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   color: white;
   display: flex;
   justify-content: center; /* Horizontally centers content */
-  align-items: center; /* Vertically centers content */
-  height: 100vh; /* Full height of the viewport */
+  align-items: center;     /* Vertically centers content */
+  height: 100vh;           /* Full height of the viewport */
   text-align: center;
+  margin: 0;               /* Removes default margin */
 }
 
 /* Welcome Section Styling */
 .welcome {
-  padding: 50px; /* Adjust padding if needed */
-  max-width: 600px; /* Limiting max width */
-  width: 100%; /* Take full width */
+  padding: 50px;           /* Adjust padding if needed */
+  max-width: 600px;        /* Limiting max width */
+  width: 100%;             /* Take full width */
 }
 
 .welcome h1 {
@@ -32,6 +37,10 @@ body {
   padding: 10px 20px;
   font-size: 1.25rem;
   transition: background-color 0.3s ease;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
 .welcome .btn:hover {
@@ -56,11 +65,12 @@ footer {
   }
 
   .welcome p {
-    font-size: 1rem;
+    font-size: 3rem;
   }
 
   .welcome .btn {
-    font-size: 1rem;
+    font-size: 3rem;
   }
 }
+
 

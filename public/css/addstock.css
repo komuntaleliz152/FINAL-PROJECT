@@ -1,0 +1,72 @@
+/* saleslist.css */
+
+/* Page background and overall text settings */
+body {
+    background-color: #f8f9fa;
+    color: #343a40;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Header Styling */
+  header {
+    border-bottom: 3px solid #ffc107;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  /* Navigation Buttons */
+  nav a.btn {
+    margin: 0 5px;
+    font-weight: 500;
+  }
+  
+  /* Stock Table Styling */
+  #procurement-table {
+    margin-top: 1.5rem;
+    background-color: #ffffff;
+    border-collapse: collapse;
+  }
+  
+  #procurement-table th {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+  }
+  
+  #procurement-table td {
+    vertical-align: middle;
+    text-align: center;
+  }
+  
+  /* Action Buttons */
+  td a.btn-primary,
+  td button.btn-danger {
+    margin: 0 2px;
+  }
+  
+  /* Add Button */
+  a.btn-primary.mt-3 {
+    font-weight: 500;
+  }
+  
+  /* Responsive improvements */
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 1.75rem;
+    }
+  
+    nav a.btn {
+      display: block;
+      margin: 5px auto;
+    }
+  
+    #procurement-table {
+      font-size: 0.9rem;
+    }
+  }
+  
