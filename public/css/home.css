@@ -6,7 +6,7 @@ body {
   background-image: url('../img/index3.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: center; /* Optional: adds a blur effect to the background */
   color: white;
   display: flex;
   justify-content: center; /* Horizontally centers content */
@@ -14,6 +14,18 @@ body {
   height: 100vh;           /* Full height of the viewport */
   text-align: center;
   margin: 0;               /* Removes default margin */
+}
+
+.container {
+  display: fixed; /* Fixed position to cover the entire viewport */
+  background: transparent;
+  backdrop-filter: blur(15px); /* Optional: adds a blur effect to the background */
+  justify-content: center; /* Center items vertically */
+  align-items: center;     /* Center items horizontally */
+  text-align: center;      /* Center text */
+  width: 100%;             /* Full width of the container */
+  padding: 20px;
+  border-radius: 70px;           /* Padding around the container */
 }
 
 /* Welcome Section Styling */
@@ -72,5 +84,6 @@ footer {
     font-size: 3rem;
   }
 }
+
 
 

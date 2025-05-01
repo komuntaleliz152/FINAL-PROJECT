@@ -3,14 +3,14 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     display: flex;
-    background-image: url('../img/index3.jpg');
+    background-image: url('');
 }
 .dashboard {
     display: flex;
     width: 100%;
 }
 .sidebar {
-    width: 250px;
+    width: 200px;
     background-color: #146158 ;
     color: white;
     padding: 20px;

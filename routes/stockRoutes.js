@@ -1,10 +1,26 @@
-
 const express = require("express");
 const router = express.Router();
 const Procurement = require("../models/Procurement"); // Make sure you require your model
 const Stock = require("../models/Procurement"); // And the Stock model
 
 
+// ROUTE: Form page to add procurement
+router.get('/addprocurement', (req, res) => {
+    res.render('addprocurement'); 
+});
+
+// ROUTE: Save new procurement (POST)
+router.post('/addprocurement', async (req, res) => {
+    console.log(req.body);
+    try {
+        const newProcurement = new Procurement(req.body);
+        await newProcurement.save();
+        res.redirect('/procurementlist');
+    } catch (error) {
+        console.error("Error saving procurement:", error);
+        res.status(500).send("Unable to save procurement to DB");
+    }
+});
 router.get('/procurementlist', async (req, res) => {
     try {
         const procurements = await Procurement.find();
@@ -16,7 +32,6 @@ router.get('/procurementlist', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
-
 
 // ROUTE: View Stock
 router.get('/stock', async (req, res) => {

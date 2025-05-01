@@ -42,44 +42,20 @@ router.post("/login", passport.authenticate("local", {failureRedirect: "/login"}
   console.log("Login successful for user:", req.body.email, "with role:", req.user.role);
   req.session.user = req.user;
   
-  const { role, branch } = req.user;
 
-    if (!role) {
-      return res.status(400).send("User role missing");
-    }
+  if(req.user.role ==="Manager"){
+    res.redirect("/managerDash");
+}
+else if(req.user.role ==="salesAgent"){
+    res.redirect("/salesAgentDash")
+}
+else if(req.user.role ==="director"){
+    res.redirect("/directorsDash");
+}else{
+    res.send("You do not have any role in the system")
+}
+//the roles are the values of the input not what appears at user interface
 
-    const lowerRole = role.toLowerCase();
-
-    if (lowerRole === "Manager" || lowerRole === "salesAgent") {
-      if (!branch) {
-        return res.status(400).send("Branch missing for this user");
-      }
-
-      const lowerBranch = branch.toLowerCase();
-
-      if (lowerRole === "Manager") {
-        if (lowerBranch === "Maganjo") {
-          return res.redirect("/managerDash/Maganjo");
-        } else if (lowerBranch === "Mattuga") {
-          return res.redirect("/managerDash/Mattuga");
-        } else {
-          return res.send("Invalid branch for manager");
-        }
-      } else if (lowerRole === "salesAgent") {
-        if (lowerBranch === "Maganjo") {
-          return res.redirect("/salesAgentDash/Maganjo");
-        } else if (lowerBranch === "Mattuga") {
-          return res.redirect("/salesAgentDash/Mattuga");
-        } else {
-          return res.send("Invalid branch for sales agent");
-        }
-      }
-    } else if (lowerRole === "director") {
-      return res.redirect("/directorDash");
-    } else {
-      return res.send("This role does not exist");
-
-  }
 });
   
 

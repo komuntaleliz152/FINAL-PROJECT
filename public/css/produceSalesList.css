@@ -12,7 +12,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  background-color: rgb(191, 155, 155); /* Light background to enhance readability */
+  background-color:  rgba(42, 157, 143, 0.5); /* Light background to enhance readability */
 }
 
 /* Header */
@@ -33,7 +33,7 @@ table#salesTable {
 
 table#salesTable th,
 table#salesTable td {
-  border: 1px solid #ccc;
+  border: 1px solid  #343a40;;
   padding: 12px;
   text-align: left;
   font-size: 14px; /* Font size consistency */
@@ -59,22 +59,21 @@ table#salesTable td {
 
 /* Add Sale button */
 button[onclick='addSale()'] {
-  display: block;
-  margin: 0 auto 30px auto;
-  padding: 12px 24px;
-  font-size: 16px;
+  /* margin: 0 auto 30px auto; */
+  /* padding: 12px 24px; */
+  font-size: 20px;
   font-weight: bold;
   color: #fff;
-  background-color: brown; /* Green background for the button */
+  background-color: black; /* Green background for the button */
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-button[onclick='addSale()']:hover {
-  background-color: #45a049; /* Darker green when hovering */
-}
+/* button[onclick='addSale()']:hover {
+  background-color: #45a049; Darker green when hovering */
+
 
 /* Edit and Delete buttons */
 button {
@@ -88,7 +87,7 @@ button {
 }
 
 button:hover {
-  background-color: brown; /* Light gray hover effect */
+  background-color: black; /* Light gray hover effect */
 }
 
 button:nth-child(1) {
@@ -110,12 +109,12 @@ button:nth-child(2):hover {
 /* Footer styling */
 footer {
   margin-top: auto;
-  background-color: brown;
+  background-color:  #343a40;;
   text-align: center;
   padding: 15px 0;
   font-size: 14px;
   border-top: 1px solid #ccc;
-  color: #333;
+  color: white;
 }
 
 /* Optional responsive design for smaller screens */
@@ -125,10 +124,10 @@ footer {
   }
 
   button[onclick='addSale()'] {
-    padding: 10px 20px;
+     padding: 10px 20px; 
   }
 
-  button {
+   button {
     padding: 5px 10px;
-  }
+  } 
 }

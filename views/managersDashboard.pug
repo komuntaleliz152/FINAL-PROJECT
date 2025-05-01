@@ -1,0 +1,100 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Manager&apos;s Dashboard - Karibu Grocery Limited
+    link(rel='stylesheet' href='/css/managersDashboard.css')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css' integrity='sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==' crossorigin='anonymous' referrerpolicy='no-referrer')
+
+  body
+    .dashboard-container
+      // Sidebar
+      aside.sidebar
+        h2 Karibu Grocery
+        ul
+          li
+            a(href='/')
+              i.fas.fa-home
+              |  Home
+          br
+          li
+            a(href='/registerProduce')
+              i.fas.fa-carrot
+              |  Register Produce
+          br
+          li
+            a(href='/addsale')
+              i.fas.fa-chart-line
+              |  Sales
+          br
+          li
+            a(href='/addstock')
+              i.fas.fa-box
+              |  Stock
+          br
+          li
+            a(href='#') 
+          br
+          li
+            a(href='#')
+          br
+
+      // Main Content
+      main.main-content
+        header
+          .header-container
+            h1 Manager&apos;s Dashboard
+            .notification-area
+              // Notification Bell
+              .notification-bell(onclick='toggleNotifications()')
+                i.fas.fa-bell
+                span#notification-count.badge 3
+              // Notifications Dropdown
+              #notification-dropdown.notification-dropdown
+                h4 Notifications
+                ul
+                  li New stock added: Beans
+                  li Customer order #223 completed
+                  li New message from the supplier
+
+        section.overview
+          #alert-box.alert-box
+            p Important: Inventory levels are low on some items!
+            button(onclick='dismissAlert()') Dismiss
+
+          // Statistics & Cards (3 per row)
+          .statistics
+            // Row 1
+            .stat-box
+              h3 Sales Today
+              p $2000
+            .stat-box
+              h3 High Selling Product
+              p Soybeans
+              p 12
+            .stat-box
+              h3 Current products
+              p 150
+
+            // Row 2
+            .stat-box
+              h3 Low Stock Items
+              ul
+                li Tomatoes – 5 units
+                li Onions – 3 units
+                li Milk – 2 bottles
+            .stat-box
+              h3 Recent Activities
+              ul
+                li Registered new produce: Kale
+                li Sale recorded: $500 - 10:30 AM
+                li Stock updated: Rice
+            .stat-box
+              h3 Employee Highlights
+              ul
+                li John – 15 sales
+                li Mary – Updated 3 stock items
+                li Ahmed – Handled 5 orders
+
+    script(src='js/managersDashboard.js')

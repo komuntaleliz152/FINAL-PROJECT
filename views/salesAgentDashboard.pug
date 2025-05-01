@@ -4,22 +4,32 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Sales Agent Dashboard
   link(rel='stylesheet' href='css/salesAgentDashboard.css')
-  script(src='https://cdn.jsdelivr.net/npm/chart.js')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css' integrity='sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==' crossorigin='anonymous' referrerpolicy='no-referrer')
+
 .dashboard
   nav.sidebar
     h2 Dashboard
     ul
       li
-        a(href='/addCreditSale') Add Credit Sale
+        a(href='/')
+          i.fas.fa-house(style='margin-right: 8px')
+          | Home
       li
-        a(href='') Deals
+        a(href='/addCredit')
+          i.fas.fa-money-bill-wave(style='margin-right: 8px') 
+          | Add Credit
       li
-        a(href='#') Reports
+        a(href='/addsale')
+          i.fas.fa-dollar-sign(style="margin-right: 5px")
+          | Sale 
       li
-        a(href='#') Profile
+        a(href='/Logout')
+          i.fas.fa-sign-out-alt(style="margin-right: 5px") 
+          | Logout
+
   main.content
     header
-      h1 Welcome, Sales Agent Dashboard Maganjo
+      h1 Welcome, Sales Agent Dashboard 
     section.stats
       .stat-box
         | Leads: 
@@ -28,8 +38,9 @@ head
         | Deals Closed: 
         span#deals 10
       .stat-box
-        | Revenue: shs
+        | Revenue: shs 
         span#revenue 50,000
+
     .table-container
       h2 Recent Leads
       table
@@ -48,4 +59,5 @@ head
           td faithchiru@gmail.com
           td In Progress
           td shs70000
+
 script(src='js/salesAgentDashboard.js')

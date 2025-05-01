@@ -11,37 +11,33 @@ const ProcurementSchema = new mongoose.Schema({
     trim: true,
   },
 
-  date: {
-    trim: true,
-    type: String,
-  },
-
-  time: {
-    type: String,
-    trim: true,
-  },
   tonnage: {
-    type: Number,
-    trim: true,
-  },
-  cost: {
     type: Number,
     trim: true
   },
-  brancName: {
+
+  cost: {
     type: String,
     trim: true,
   },
-
   dealerName: {
     type: String,
     trim: true,
+  },
+  branchName: {
+    type: String,
+    trim: true
   },
   contact: {
     type: Number,
     trim: true,
   },
-  price: {
+
+  date: {
+    type: Date,
+    trim: true,
+  },
+  time: {
     type: Number,
     trim: true,
   },

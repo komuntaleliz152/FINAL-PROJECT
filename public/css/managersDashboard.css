@@ -9,8 +9,7 @@ body {
   font-family: Arial, sans-serif;
   display: flex;
   height: 100vh;
-  background-image: url(../img/home.jpg);
-  
+  background-color: rgba(152, 183, 180, 0.5);
 }
 
 .dashboard-container {
@@ -20,7 +19,7 @@ body {
 
 /* Sidebar */
 .sidebar {
-  width: 250px;
+  width: 300px;
   background-color:  #146158;
   color: white;
   padding: 20px;
@@ -29,8 +28,8 @@ body {
 
 .sidebar h2 {
   text-align: center;
-  margin-bottom: 30px;
-  font-size: 24px;
+  margin-bottom: 50px;
+  font-size: 30px;
 }
 
 .sidebar ul {
@@ -44,7 +43,7 @@ body {
 .sidebar ul li a {
   color: white;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 25px;
   display: block;
 }
 
@@ -79,7 +78,7 @@ header {
   position: absolute;
   top: -5px;
   right: -5px;
-  background-color:whitesmoke;
+  background-color: whitesmoke;
   color: white;
   border-radius: 50%;
   padding: 5px 10px;
@@ -91,7 +90,7 @@ header {
   position: absolute;
   top: 30px;
   right: 0;
-  background-color: tomato;
+  background-color: rgb(21, 21, 21);
   border: 1px solid #ddd;
   width: 250px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -118,7 +117,7 @@ header {
 
 /* Alert Box */
 .alert-box {
-  background-color: red;
+  background-color: #146158;
   color: white;
   padding: 15px;
   margin-bottom: 20px;
@@ -136,22 +135,37 @@ header {
   cursor: pointer;
 }
 
+/* Statistics Section - Updated */
 .statistics {
   display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   justify-content: space-between;
 }
 
 .stat-box {
-  background-color: #e9eaea;;
+  background-color: #e9eaea;
   padding: 20px;
   border-radius: 5px;
-  width: 30%;
+  flex: 1 1 calc(33.333% - 20px);
   text-align: center;
+  min-width: 250px;
 }
 
 .stat-box h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 20px;
+  margin-bottom: 15px;
 }
 
+/* Responsive Layout */
+@media (max-width: 900px) {
+  .stat-box {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
 
+@media (max-width: 600px) {
+  .stat-box {
+    flex: 1 1 100%;
+  }
+}
