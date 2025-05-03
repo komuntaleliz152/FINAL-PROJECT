@@ -75,7 +75,7 @@ html(lang="en")
         h1 Procurement List
         nav.mt-3
           a.navbar-brand(href='/managerDash') ManagerDashboard
-          a.navbar-brand(href='/directorsDash') directorsDashboard
+          a.navbar-brand(href='/directorsDash', style='margin-left: 20px' ) directorsDashboard
 
     // Main Content Section
     main.container.mt-4
@@ -108,7 +108,7 @@ html(lang="en")
                 td= procurement.date
                 td= procurement.time
                 td
-                  a.btn.btn-warning.btn-sm.me-2(href=`/updateprocurement/${procurement._id}`) update
+                  a.btn.btn-primary(href="/UpdateProduceProcurement/" + procurement._id) Update
                   form(method='POST', action='/delete-procurement', style='display:inline;')
                     input(type='hidden', name='id', value=procurement._id)
                     button.btn.btn-danger.btn-sm(type='submit') Delete

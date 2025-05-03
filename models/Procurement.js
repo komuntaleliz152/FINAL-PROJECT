@@ -38,7 +38,7 @@ const ProcurementSchema = new mongoose.Schema({
     trim: true,
   },
   time: {
-    type: Number,
+    type: String,
     trim: true,
   },
 });

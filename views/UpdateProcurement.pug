@@ -1,0 +1,62 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Update Produce Procurement
+    link(rel='stylesheet', href='/css/UpdateProcurement.css')
+  body
+    .form-container
+      h2 Update Produce Procurement
+
+      form#produceForm(action=`/UpdateProduceProcurement/${produceProcurement._id}`, method='POST')
+        // Hidden input to hold the record ID (optional since ID is in the URL)
+        input(type='hidden', name='id', value=produceProcurement._id)
+
+        .form-group
+          label(for='produceName') Name of Produce
+          input#produceName(type='text', name='produceName', value=produceProcurement.produceName, required)
+
+        .form-group
+          label(for='produceType') Type of Produce
+          select#produceType(name='produceType', required)
+            option(value='') Select type
+            option(value='Grain', selected=produceProcurement.produceType === 'Grain') Grain
+            option(value='Legume', selected=produceProcurement.produceType === 'Legume') Legume
+
+        .form-group
+          label(for='tonnage') Tonnage (kgs)
+          input#tonnage(type='number', name='tonnage', value=produceProcurement.tonnage, required, min='0')
+
+        .form-group
+          label(for='cost') Cost (UgX)
+          input#cost(type='number', name='cost', value=produceProcurement.cost, required, min='0')
+
+        .form-group
+          label(for='dealerName') Dealer Name
+          input#dealerName(type='text', name='dealerName', value=produceProcurement.dealerName, required)
+
+        .form-group
+          label(for='branchName') Branch Name
+          select#branchName(name='branchName', required)
+            option(value='') Select Branch
+            option(value='Mattuga', selected=produceProcurement.branchName === 'Mattuga') Mattuga
+            option(value='Maganjo', selected=produceProcurement.branchName === 'Maganjo') Maganjo
+
+        .form-group
+          label(for='contact') Dealer Contact
+          input#contact(type='tel', name='contact', value=produceProcurement.contact, required, pattern='[0-9+]{9,15}')
+
+        .form-group
+          label(for='date') Date
+          input#date(type='date', name='date', value=produceProcurement.date.toISOString().split('T')[0], required)
+
+        .form-group
+          label(for='time') Time of Produce
+          input#time(type='time', name='time', value=produceProcurement.time, required)
+
+        button(type='submit') Update
+
+        p#errorMsg.error
+
+    script(src='/js/updateprocurement.js')

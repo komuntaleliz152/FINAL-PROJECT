@@ -1,5 +1,5 @@
-document.getElementById("produceForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+// document.getElementById("produceForm").addEventListener("submit", function (e) {
+  // e.preventDefault
 
   const produceName = document.getElementById("produceName").value.trim();
   const produceType = document.getElementById("produceType").value.trim();
@@ -53,4 +53,4 @@ document.getElementById("produceForm").addEventListener("submit", function (e) {
 
   alert("Produce record submitted successfully!");
   this.reset();
-});
+

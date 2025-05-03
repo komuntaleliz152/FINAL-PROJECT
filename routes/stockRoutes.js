@@ -33,17 +33,6 @@ router.get('/procurementlist', async (req, res) => {
     }
 });
 
-// ROUTE: View Stock
-router.get('/stock', async (req, res) => {
-    try {
-        const procurement = await Procurement.find();
-        res.render('stock', { procurement }); 
-    } catch (err) {
-        console.error('Error fetching stock data:', err);
-        res.status(500).send('Internal Server Error');
-    }
-});
-
 // ROUTE: Form page to add procurement
 router.get('/addprocurement', (req, res) => {
     res.render('addprocurement'); 
@@ -58,8 +47,43 @@ router.post('/addprocurement', async (req, res) => {
         res.redirect('/procurementlist');
     } catch (error) {
         console.error("Error saving procurement:", error);
-        res.status(500).send("Unable to save procurement to DB");
+        res.status(500).send("Unable to retrive procuce procurement from the DB");
     }
+});
+
+// Display form to update a specific ProduceProcurement by ID
+router.get("/UpdateProduceProcurement/:id", async (req, res) => {
+    try {
+      const produceProcurement = await ProduceProcurement.findById(req.params.id);
+      if (!produceProcurement) {
+        return res.status(404).send("Produce procurement not found");
+      }
+      res.render("UpdateProduceProcurement", { produceProcurement });
+    } catch (error) {
+      res.status(500).send("Server error while retrieving the produce procurement");
+    }
+  });
+  
+  // Handle form submission to update ProduceProcurement
+  router.post("/UpdateProduceProcurement/:id", async (req, res) => {
+    try {
+      await ProduceProcurement.findByIdAndUpdate(req.params.id, req.body);
+      res.redirect("/procurementlist");
+    } catch (error) {
+      res.status(400).send("Unable to update the produce procurement");
+    }
+  });
+  
+
+// Delete produce procurement
+router.post("/produceProcurement/deleteProduceProcurement", async (req, res) => {
+  try {
+    // Delete the produce procurement by ID
+    await ProduceProcurement.deleteOne({ _id: req.body.id });
+    res.redirect("back"); // Redirect back to the previous page
+  } catch (error) {
+    res.status(400).send("Unable to delete the produce procurement");
+  }
 });
 
 // ROUTE: Stock Management Dashboard
@@ -82,22 +106,14 @@ router.get("/stocklist", async (req, res) => {
 router.get("/addstock", (req, res) => {
     res.render("Addstock");
 });
-
+// ROUTE: View Stock
+router.get('/stock', async (req, res) => {
+    try {
+        const procurement = await Procurement.find();
+        res.render('stock', { procurement }); 
+    } catch (err) {
+        console.error('Error fetching stock data:', err);
+        res.status(500).send('Internal Server Error');
+    }
+});
 module.exports = router;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

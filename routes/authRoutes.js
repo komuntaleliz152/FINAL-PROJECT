@@ -54,9 +54,28 @@ else if(req.user.role ==="director"){
 }else{
     res.send("You do not have any role in the system")
 }
-//the roles are the values of the input not what appears at user interface
 
 });
+
+// //the roles are the values of the input not what appears at user interface
+// router.get("/logout", (req, res) => {
+//   if (req.session) {
+//     req.session.destroy((error) => {
+//       if (error) {
+//         return res.status(500).send("Error logging out");
+//       }
+//       res.redirect("/logout/comfirm"); // ✅ redirect to a safe route
+//     });
+//   } else {
+//     res.redirect("/logout/cofirm"); // ✅ still redirect if no session
+//   }
+// });
+
+
+
+
+
+
   
 
 module.exports =router;

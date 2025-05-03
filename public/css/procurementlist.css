@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 40px;
-    background-color: rgb(208, 142, 142);
+    background-color: rgba(81, 81, 189, 0.045);
     color: #333;
   }
 
@@ -43,6 +43,9 @@ body {
     cursor: pointer;
     margin-top: 10px;
   }
+  .add-procurement-btn {
+    font-size: 1.75rem; 
+  }
 
   button:hover {
     background-color: black;
@@ -54,5 +57,30 @@ body {
     margin-top: 15px;
     text-align: right;
   }
+  
+  .navbar-brand {
+    font-size: 20px;
+  }
+  
+  .navbar-margin-left {
+    margin-left: 20px;
+  }
+  footer {
+    background-color: #343a40; 
+    color: #f8f9fa;            
+    padding: 1rem 0;           
+    margin-top: 3rem;         
+    font-size: 0.9rem;
+  }
+  
+  footer .container {
+    text-align: center;
+  }
+  
+  footer p {
+    margin-bottom: 0;
+  }
+  
+  
 
 

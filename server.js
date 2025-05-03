@@ -16,6 +16,7 @@ const Signup =require('./models/Signup');
 const Register =require('./models/Register');
 const ProduceSale =require('./models/ProduceSale');
 const Credit =require('./models/Credit');
+const Procurement =require('./models/Procurement');
 
 // 2.Instantations
 const app =express();
@@ -32,7 +33,7 @@ const PORT =3004;
  const stockRoutes = require("./routes/stockRoutes");
  const addProduceSaleRoutes = require("./routes/addproducesaleRoutes");
  const creditRoutes = require("./routes/creditRoutes");
-
+ const logoutRoutes = require("./routes/logoutRoutes");
 // 3. Configurations
 //set view engine to pug
 app.set("view engine", "pug");
@@ -81,6 +82,8 @@ app.use('/', directorRoutes);
 app.use('/', stockRoutes);
 app.use('/', addProduceSaleRoutes);
 app.use('/', creditRoutes);
+app.use('/', logoutRoutes);
+  
 
 
 
