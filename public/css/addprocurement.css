@@ -1,7 +1,7 @@
 /* === GENERAL PAGE STYLES === */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-image: url('../img/maize.jpg');
+  background-image: url('../img/home.jpg');
   background-size: cover;
   background-position: center;
   margin: 0;
@@ -14,7 +14,8 @@ body {
 
 /* === FORM CONTAINER === */
 .form-container {
-  background: transparent;
+  /* background: transparent; */
+  background-color: rgba(42, 157, 143, 0.5);
   padding: 30px 40px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
