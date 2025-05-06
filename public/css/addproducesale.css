@@ -1,6 +1,4 @@
-/* ===============================
-   Reset and Global Styles
-================================== */
+/* ========== Reset & Global ========== */
 * {
   margin: 0;
   padding: 0;
@@ -16,119 +14,149 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  font-size: 25px;
+
 }
 
-/* ===============================
-   Form Container
-================================== */
+/* ========== Form Container ========== */
 form {
-  background-color: rgba(42, 157, 143, 0.5);
-  padding: 20px;
-  border-radius: 8px;
+  background-color: rgba(43, 42, 42, 0.65);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
+  color: white;
+}
+ 
+a {
+  color: white;
 }
 
-/* ===============================
-   Headings and Labels
-================================== */
+/* ========== Headings ========== */
 h2 {
   text-align: center;
-  color: black;
+  color: white;
+  font-weight: 20px;
   margin-bottom: 20px;
 }
 
-label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-  color: black;
+/* ========== Grid Layout ========== */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
-/* ===============================
-   Input Fields
-================================== */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========== Inputs ========== */
 input[type="text"],
 input[type="number"],
 input[type="datetime-local"] {
-  width: 100%;
   padding: 12px;
-  margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 16px;
-  box-sizing: border-box
+  width: 100%;
 }
 
-/* Invalid input border */
 .input-error {
   border: 2px solid #e74c3c !important;
 }
 
-/* ===============================
-   Submit Button
-================================== */
-button[type="submit"] {
-  background-color: white;
-  color: black;
-  padding: 12px;
-  width: 100%;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-top: 10px;
-}
-
-button[type="submit"]:hover {
-  background-color: black;
+/* ========== Labels ========== */
+label {
+  margin-bottom: 8px;
   color: white;
+  font-size: 20px;
 }
 
-/* ===============================
-   Error Messages
-================================== */
-/* General error message at top */
+/* ========== Error Messages ========== */
 #errorMsg {
   display: none;
   background-color: #e74c3c;
-  color: #fff;
+  color: white;
   padding: 10px;
   margin-bottom: 15px;
   border-radius: 5px;
   font-weight: bold;
+  text-align: center;
 }
 
-/* Field-specific error message */
 .error-msg {
   color: #e74c3c;
   font-size: 0.875em;
-  margin-top: -16px;
-  margin-bottom: 12px;
-  display: block;
+  margin-top: 5px;
 }
 
-/* ===============================
-   Responsive Design
-================================== */
+/* ========== Submit Button ========== */
+button[type="submit"] {
+  background-color: rgb(9, 148, 44);
+  color: white;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: rgb(7, 172, 18);
+  color: white;
+}
+
+/* ========== Responsive ========== */
 @media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
   form {
-    width: 90%;
-    padding: 15px;
-  }
-
-  h2 {
-    font-size: 20px;
-  }
-
-  input[type="text"],
-  input[type="number"],
-  input[type="datetime-local"],
-  button[type="submit"] {
-    font-size: 14px;
+    padding: 20px;
   }
 }
 
-  
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  z-index: 1000;
+  transition: transform 0.4s ease;
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #28a745;
+}

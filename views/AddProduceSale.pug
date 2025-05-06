@@ -1,3 +1,54 @@
+//- doctype html
+//- html
+//-   head
+//-     meta(charset='UTF-8')
+//-     meta(name='viewport', content='width=device-width, initial-scale=1.0')
+//-     title Produce Sale Form
+//-     link(rel='stylesheet', href='/css/addproducesale.css')
+//-   body
+//-     form#producesalesform(action='/AddProduceSale', method='POST', onsubmit='return validateForm()')
+//-       h2 Produce Sale Form
+
+//-       #errorMsg.error
+
+//-       .form-grid
+//-         .form-group
+//-           label(for='produce') Produce Name
+//-           input#produce(type='text', name='produceName')
+//-           span.error-msg#produceNameError
+
+//-         .form-group
+//-           label(for='tonnage') Tonnage (kg)
+//-           input#tonnage(type='number', name='tonnage')
+//-           span.error-msg#tonnageError
+
+//-         .form-group
+//-           label(for='amount') Amount (UGX)
+//-           input#amount(type='text', name='amount')
+//-           span.error-msg#amountError
+
+//-         .form-group
+//-           label(for='buyerName') Buyer Name
+//-           input#buyerName(type='text', name='buyerName', required='')
+//-           span.error-msg#buyerNameError
+
+//-         .form-group
+//-           label(for='salesAgent') Sales Agent Name
+//-           input#salesAgent(type='text', name='salesAgent', required='')
+//-           span.error-msg#salesAgentError
+
+//-         .form-group
+//-           label(for='saleDateTime') Date and Time
+//-           input#saleDateTime(type='datetime-local', name='saleDateTime', required='')
+//-           span.error-msg#saleDateTimeError
+
+//-       button(type='submit') Submit Sale
+
+//-     script(src='/js/addproducesale.js')
+
+
+
+
 doctype html
 html
   head
@@ -5,45 +56,91 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Produce Sale Form
     link(rel='stylesheet', href='/css/addproducesale.css')
+    style.
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(82, 78, 78, 0.75);
+        color: white;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        backdrop-filter: blur(8px);
+        transform: translateY(-100%);
+        transition: transform 0.4s ease;
+        z-index: 999;
+      }
+
+      .navbar.show {
+        transform: translateY(0);
+      }
+
+      .toggle-hint {
+        position: fixed;
+        bottom: 10px;
+        width: 100%;
+        text-align: center;
+        font-size: 0.9rem;
+        color: white;
+        opacity: 0.6;
+        z-index: 998;
+      }
+
   body
+    nav.navbar#mainNavbar
+      span.logo Produce Dashboard
+      a(href='/managerDash') Back
+
+    .toggle-hint Press <strong>Space</strong> to toggle menu
+
     form#producesalesform(action='/AddProduceSale', method='POST', onsubmit='return validateForm()')
       h2 Produce Sale Form
 
-      // Top general error
       #errorMsg.error
 
-      // Produce Name
-      label(for='produce') Produce Name
-      input#produce(type='text', name='produceName')
-      span.error-msg#produceNameError
+      .form-grid
+        .form-group
+          label(for='produce') Produce Name
+          input#produce(type='text', name='produceName')
+          span.error-msg#produceNameError
 
-      // Tonnage
-      label(for='tonnage') Tonnage (kg)
-      input#tonnage(type='number', name='tonnage')
-      span.error-msg#tonnageError
+        .form-group
+          label(for='tonnage') Tonnage (kg)
+          input#tonnage(type='number', name='tonnage')
+          span.error-msg#tonnageError
 
-      // Amount Paid
-      label(for='amount') Amount (UGX)
-      input#amount(type='text', name='amount')
-      span.error-msg#amountError
+        .form-group
+          label(for='amount') Amount (UGX)
+          input#amount(type='text', name='amount')
+          span.error-msg#amountError
 
-      // Buyer Name
-      label(for='buyerName') Buyer Name
-      input#buyerName(type='text', name='buyerName', required='')
-      span.error-msg#buyerNameError
+        .form-group
+          label(for='buyerName') Buyer Name
+          input#buyerName(type='text', name='buyerName', required='')
+          span.error-msg#buyerNameError
 
-      // Sales Agent
-      label(for='salesAgent') Sales Agent Name
-      input#salesAgent(type='text', name='salesAgent', required='')
-      span.error-msg#salesAgentError
+        .form-group
+          label(for='salesAgent') Sales Agent Name
+          input#salesAgent(type='text', name='salesAgent', required='')
+          span.error-msg#salesAgentError
 
-      // Sale Date and Time
-      label(for='saleDateTime') Date and Time
-      input#saleDateTime(type='datetime-local', name='saleDateTime', required='')
-      span.error-msg#saleDateTimeError
+        .form-group
+          label(for='saleDateTime') Date and Time
+          input#saleDateTime(type='datetime-local', name='saleDateTime', required='')
+          span.error-msg#saleDateTimeError
 
-      // Submit Button
       button(type='submit') Submit Sale
 
     script(src='/js/addproducesale.js')
-
+    script.
+      document.addEventListener('keydown', (e) => {
+        if (e.code === 'Space') {
+          e.preventDefault();
+          const nav = document.getElementById('mainNavbar');
+          nav.classList.toggle('show');
+        }
+      });

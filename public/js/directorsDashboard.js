@@ -8,7 +8,7 @@
     // Dummy data
     document.getElementById('dailySales').textContent = "Shs 3,250";
     document.getElementById('satisfaction').textContent = "88%";
-    document.getElementById('grossProfit').textContent = "35%";
+    document.getElAementById('grossProfit').textContent = "35%";
     document.getElementById('payments').textContent = "Shs 1,200";
     document.getElementById('attendance').textContent = "92%";
     document.getElementById('campaign').textContent = "120 Leads / 5% Conversion";

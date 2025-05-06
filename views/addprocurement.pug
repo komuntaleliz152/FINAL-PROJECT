@@ -4,65 +4,110 @@ html
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     title Produce Procurement Form
-    link(rel='stylesheet' href='./css/addprocurement.css')
+    link(rel='stylesheet', href='/css/addprocurement.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css' integrity='sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==' crossorigin='anonymous' referrerpolicy='no-referrer')
+
   body
-    .form-container
-      h2 Produce Procurement Form
-      form#produceForm(action='/addprocurement' method='POST')
-        .form-group
-          label(for='produceName') Name of Produce
-          input#produceName(type='text' name='produceName')
-          span.error-message#produceNameError
+    .dashboard-container
+      // Sidebar
+      aside.sidebar
+        h2 Karibu Grocery
+        ul
+          li
+            a(href='/')
+              i.fas.fa-home
+              |  Home
+          br
+          li
+            a(href='/registerProduce')
+              i.fas.fa-carrot
+              |  Register Produce
+          br
+          li
+            a(href='/addsale')
+              i.fas.fa-chart-line
+              |  Sales
+          br
+          li
+            a(href='/addstock')
+              i.fas.fa-box
+              |  Stock
+          br
+          li
+            a(href='/addprocurement')
+              i.fas.fa-shopping-cart
+              |  Procurement
 
-        .form-group
-          label(for='produceType') Type of Produce
-          select#produceType(name='produceType' required='')
-            option(value='') Select type
-            option(value='Grain') Grain
-            option(value='Legume') Legume
-          span.error-message#produceTypeError
+      // Main content
+      main.main-content
+        header.page-header
+          h1 Produce Procurement Form
+          .icon-area
+            i.fas.fa-bell
+            i.fas.fa-user-circle
 
-        .form-group
-          label(for='tonnage') Tonnage (kgs)
-          input#tonnage(type='number' name='tonnage')
-          span.error-message#tonnageError
+        // Form section
+        .form-wrapper
+          .form-container
+            form#produceForm(action='/addprocurement' method='POST')
+              .form-group
+                label(for='produceName') Name of Produce
+                input#produceName(type='text' name='produceName')
+                span.error-message#produceNameError
 
-        .form-group
-          label(for='cost') Cost (UgX)
-          input#cost(type='number' name='cost')
-          span.error-message#costError
+              .form-group
+                label(for='produceType') Type of Produce
+                select#produceType(name='produceType' required)
+                  option(value='') Select type
+                  option(value='Grain') Grain
+                  option(value='Legume') Legume
+                span.error-message#produceTypeError
 
-        .form-group
-          label(for='dealerName') Dealer Name
-          input#dealerName(type='text' name='dealerName')
-          span.error-message#dealerNameError
+              .form-group
+                label(for='tonnage') Tonnage (kgs)
+                input#tonnage(type='number' name='tonnage')
+                span.error-message#tonnageError
 
-        .form-group
-          label(for='branchName') Branch Name
-          select#branchName(name='branchName')
-            option(value='') Select Branch
-            option(value='Mattuga') Mattuga
-            option(value='Maganjo') Maganjo
-          span.error-message#branchNameError
+              .form-group
+                label(for='cost') Cost (UgX)
+                input#cost(type='number' name='cost')
+                span.error-message#costError
 
-        .form-group
-          label(for='contact') Dealer Contact
-          input#contact(type='tel' name='contact')
-          span.error-message#contactError
+              .form-group
+                label(for='dealerName') Dealer Name
+                input#dealerName(type='text' name='dealerName')
+                span.error-message#dealerNameError
 
-        .form-group
-          label(for='date') Date
-          input#date(type='date' name='date')
-          span.error-message#dateError
+              .form-group
+                label(for='branchName') Branch Name
+                select#branchName(name='branchName')
+                  option(value='') Select Branch
+                  option(value='Mattuga') Mattuga
+                  option(value='Maganjo') Maganjo
+                span.error-message#branchNameError
 
-        .form-group
-          label(for='time') Time of Produce
-          input#time(type='time' name='time')
-          span.error-message#timeError
+              .form-group
+                label(for='contact') Dealer Contact
+                input#contact(type='tel' name='contact')
+                span.error-message#contactError
 
-        .form-group
-          button.button(type='submit') Submit
+              .form-group
+                label(for='date') Date
+                input#date(type='date' name='date')
+                span.error-message#dateError
 
-        p#errorMsg.error
+              .form-group
+                label(for='time') Time of Produce
+                input#time(type='time' name='time')
+                span.error-message#timeError
 
-    script(src='js/addprocurement.js')
+              .form-group
+                button.button(type='submit') Submit
+
+              p#errorMsg.error
+
+        // Footer
+        footer.footer
+          p © 2025 Karibu Grocery Limited. All rights reserved.
+
+    script(src='/js/addprocurement.js')

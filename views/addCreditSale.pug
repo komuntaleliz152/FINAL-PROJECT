@@ -1,51 +1,162 @@
+//- doctype html
+//- html
+//-   head
+//-     meta(charset='UTF-8')
+//-     meta(name='viewport', content='width=device-width, initial-scale=1.0')
+//-     title Credit Sale Registration Form
+//-     link(rel='stylesheet' href='./css/addCreditSale.css')
+//-   body
+//-     // Navbar
+//-     nav.navbar
+//-       ul
+//-         li
+//-           a(href='/dashboard') Dashboard
+//-         li
+//-           a(href='/addCreditSale') Register Credit Sale
+//-         li
+//-           a(href='/addProduceSale') Produce Sale
+//-         li
+//-           a(href='/logout') Logout
+
+//-     // Main Form Container
+//-     .container#creditFormContainer
+//-       h2 Credit Sale Registration Form
+//-       form#creditSaleForm(action='/addCreditSale' method='POST' onsubmit='return validateForm()')
+//-         label(for='produceName') Produce Name
+//-         input#produceName(type='text' name='produceName')
+//-         #produceNameError.error
+
+//-         label(for='produceType') Type of Produce
+//-         select#produceType(name='produceType')
+//-           option(value='') Select produce type
+//-           option(value='Grains') Grains
+//-           option(value='Cereals') Cereals
+//-           option(value='Legumes') Legumes
+//-           option(value='Others') Others
+//-         span#produceTypeError.error
+
+//-         label(for='tonnage') Tonnage
+//-         input#tonnage(type='text' name='tonnage')
+//-         #tonnageError.error
+
+//-         label(for='buyerName') Buyer Name
+//-         input#buyerName(type="text" name='buyerName')
+//-         #buyerNameError.error
+
+//-         label(for='nationalId') National ID
+//-         input#nationalId(type='text' name='nationalId')
+//-         #nationalIdError.error
+
+//-         label(for='contact') Contact Number
+//-         input#contact(type='tel' name='contact')
+//-         #contactError.error
+
+//-         label(for='location') Location
+//-         input#location(type='text' name='location')
+//-         #locationError.error
+
+//-         label(for='amountDue') Amount Due (UGX)
+//-         input#amountDue(type='text' name='amountDue')
+//-         #amountDueError.error
+
+//-         label(for='dispatchDate') Date of Dispatch
+//-         input#dispatchDate(type='date' name='dispatchDate')
+//-         #dispatchDateError.error
+
+//-         label(for='salesAgentName') Sales Agent Name
+//-         input#salesAgentName(type='text' name='salesAgentName')
+//-         #salesAgentNameError.error
+
+//-         button(type='submit') Register Credit
+//-         #formSuccess.success
+
+//-     footer
+//-       | &copy; 2025 AgriCredit System | All Rights Reserved.
+
+//-     script(src='/js/addCreditSale.js')
+
+
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Credit Sale Registration Form
-  link(rel='stylesheet' href=' ./css/addCreditSale.css')
-.container
-  h2 Credit Sale Registration Form
-  form#creditSaleForm(action='/addCreditSale' method='POST' onsubmit='return validateForm()')
-    label(for='produceName') Produce Name
-    input#produceName(type='text' name='produceName')
-    #produceNameError.error
-    label(for='produceType') Type of Produce
-    select#produceType(name='produceType')
-     option(value='') Select produce type
-     option(value='Grains') Grains
-     option(value='Cereals') Cereals
-     option(value='Legumes') Legumes
-     option(value='Others') Others
-    span#produceTypeError.error 
-    label(for='tonnage') tonnage
-    input#tonnage(type='text' name='tonnage')
-    #tonnageError.error
-    label(for='buyerName') Buyer Name
-    input#buyerName(type="text" name='buyerName')
-    #buyerNameError.error
-    label(for='nationalId') National ID
-    input#nationalId(type='text'  name='nationalId')
-    #nationalIdError.error
-    label(for='contact') Contact Number
-    input#contact(type='tel' name='contact')
-    #contactError.error
-    label(for='location') Location
-    input#location(type='text' name='location')
-    #locationError.error
-    label(for='amountDue') amount Due (UGX)
-    input#amountDue(type='text' name='amountDue')
-    #amountDueError.error
-    label(for='dispatchDate') Date of Dispatch
-    input#dispatchDate(type='date' name='dispatchDate')
-    #dispatchDateError.error
-    label(for='salesAgentName') Sales Agent Name
-    input#salesAgentName(type='text' name='salesAgentName')
-    #salesAgentNameError.error
-    button(type='submit') Register Credit
-    #formSuccess.success
-footer
-  | &copy; 2025 AgriCredit System | All Rights Reserved.
-script(src='js/addCreditSale.js')
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Credit Sale Registration Form
+    link(rel='stylesheet', href='/css/addCreditSale.css')
+  body
+    // Navbar
+    nav.navbar
+      ul
+        li
+          a(href='/dashboard') Dashboard
+        li
+          a(href='/addCreditSale') Credit Sale
+        li
+          a(href='/addProduceSale') Produce Sale
+        li
+          a(href='/logout') Logout
 
+    // Form Container
+    .container
+      h2 Credit Sale Registration Form
+      form#creditSaleForm(action='/addCreditSale', method='POST', onsubmit='return validateForm()')
+        .form-grid
+          .form-group
+            label(for='produceName') Produce Name
+            input#produceName(type='text', name='produceName')
+            #produceNameError.error
 
+          .form-group
+            label(for='produceType') Type of Produce
+            select#produceType(name='produceType')
+              option(value='') Select produce type
+              option(value='Grains') Grains
+              option(value='Cereals') Cereals
+              option(value='Legumes') Legumes
+              option(value='Others') Others
+            #produceTypeError.error
+
+          .form-group
+            label(for='tonnage') Tonnage
+            input#tonnage(type='text', name='tonnage')
+            #tonnageError.error
+
+          .form-group
+            label(for='buyerName') Buyer Name
+            input#buyerName(type="text", name='buyerName')
+            #buyerNameError.error
+
+          .form-group
+            label(for='nationalId') National ID
+            input#nationalId(type='text', name='nationalId')
+            #nationalIdError.error
+
+          .form-group
+            label(for='contact') Contact Number
+            input#contact(type='tel', name='contact')
+            #contactError.error
+
+          .form-group
+            label(for='location') Location
+            input#location(type='text', name='location')
+            #locationError.error
+
+          .form-group
+            label(for='amountDue') Amount Due (UGX)
+            input#amountDue(type='text', name='amountDue')
+            #amountDueError.error
+
+          .form-group
+            label(for='dispatchDate') Date of Dispatch
+            input#dispatchDate(type='date', name='dispatchDate')
+            #dispatchDateError.error
+
+          .form-group
+            label(for='salesAgentName') Sales Agent Name
+            input#salesAgentName(type='text', name='salesAgentName')
+            #salesAgentNameError.error
+
+        button(type='submit') Register Credit
+        #formSuccess.success
+
+    script(src='/js/addCreditSale.js')

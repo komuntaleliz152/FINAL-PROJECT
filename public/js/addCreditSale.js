@@ -98,3 +98,23 @@ function validateForm() {
 
   // return false; prevent submission if not valid
 }
+
+
+// Optional validation placeholder
+function validateForm() {
+  // Basic client-side check
+  return true;
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const formContainer = document.getElementById('creditFormContainer');
+
+  // Toggle form visibility on spacebar
+  document.addEventListener('keydown', (e) => {
+    if (e.code === 'Space') {
+      e.preventDefault(); // Prevent scrolling
+      formContainer.classList.toggle('hidden');
+    }
+  });
+});

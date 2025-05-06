@@ -14,43 +14,52 @@ html
         | Passwords do not match.
 
       form#signupForm(action="/SignUp" method="post")
-        label(for='firstName') First Name
-        input#firstName(type='text' name="firstName")
-        span#firstNameError(class='error')
+        .form-row
+          .form-group
+            label(for='firstName') First Name
+            input#firstName(type='text' name="firstName")
+            span#firstNameError(class='error')
 
-        label(for='lastName') Last Name
-        input#lastName(type='text' name="lastName")
-        span#lastNameError(class='error')
+          .form-group
+            label(for='lastName') Last Name
+            input#lastName(type='text' name="lastName")
+            span#lastNameError(class='error')
 
-        label(for='email') Email
-        input#email(type='text' name="email")
-        span#emailError(class='error')
+        .form-row
+          .form-group
+            label(for='email') Email
+            input#email(type='text' name="email")
+            span#emailError(class='error')
 
-        label(for='password') Password
-        input#password(type='password' name="password")
-        span#passwordError(class='error')
+          .form-group
+            label(for='password') Password
+            input#password(type='password' name="password")
+            span#passwordError(class='error')
 
-        label(for='confirmPassword') Confirm Password
-        input#confirmPassword(type='password' name="confirmPassword")
-        span#confirmPasswordError(class='error')
+        .form-row
+          .form-group
+            label(for='confirmPassword') Confirm Password
+            input#confirmPassword(type='password' name="confirmPassword")
+            span#confirmPasswordError(class='error')
 
-        label(for='role') Role
-        select#role(name='role')
-          option(value='') Select Role 
-          option(value='director') director
-          option(value='salesAgent') salesAgent
-          option(value='Manager') Manager
-        span#roleError(class='error')
+          .form-group
+            label(for='role') Role
+            select#role(name='role')
+              option(value='') Select Role
+              option(value='director') Director
+              option(value='salesAgent') Sales Agent
+              option(value='Manager') Manager
+            span#roleError(class='error')
 
-        label(for='branch') Branch Name
-        select#branchName(name='branch')
-          option(value='select') select branch
-          option(value='Matugga') Matugga
-          option(value='Maganjo') Maganjo
-        span#branchError(class='error')
+        .form-row
+          .form-group
+            label(for='branch') Branch Name
+            select#branchName(name='branch')
+              option(value='select') Select Branch
+              option(value='Matugga') Matugga
+              option(value='Maganjo') Maganjo
+            span#branchError(class='error')
 
         button(type="submit") Sign Up
 
     script(src='/js/signup.js')
-
-

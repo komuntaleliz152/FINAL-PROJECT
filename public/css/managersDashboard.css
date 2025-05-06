@@ -1,4 +1,4 @@
-/* General Reset */
+/* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
@@ -6,10 +6,11 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   display: flex;
   height: 100vh;
-  background-color: rgb(236, 236, 236);
+  background-color: #f0f4f4;
+  color: #333;
 }
 
 .dashboard-container {
@@ -19,17 +20,17 @@ body {
 
 /* Sidebar */
 .sidebar {
-  width: 300px;
-  background-color:  #146158;
+  width: 260px;
+  background-color: #146158;
   color: white;
-  padding: 20px;
-  height: 100vh;
+  padding: 30px 20px;
 }
 
 .sidebar h2 {
   text-align: center;
-  margin-bottom: 50px;
-  font-size: 30px;
+  margin-bottom: 40px;
+  font-size: 24px;
+  letter-spacing: 1px;
 }
 
 .sidebar ul {
@@ -37,69 +38,86 @@ body {
 }
 
 .sidebar ul li {
-  margin: 15px 0;
+  margin: 20px 0;
 }
 
 .sidebar ul li a {
   color: white;
   text-decoration: none;
-  font-size: 25px;
-  display: block;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s ease;
 }
 
-/* Main Content */
+.sidebar ul li a:hover {
+  color: #f5f5f5;
+}
+
+/* Main content */
 .main-content {
   flex: 1;
-  padding: 20px;
+  padding: 30px;
+  overflow-y: auto;
 }
 
+/* Header section */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .header-container h1 {
-  font-size: 24px;
+  font-size: 28px;
+  color: #146158;
 }
 
 .notification-area {
-  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.notification-bell {
-  font-size: 24px;
+.notification-bell,
+.settings-icon {
+  font-size: 22px;
+  color: #146158;
   cursor: pointer;
   position: relative;
 }
 
 .badge {
   position: absolute;
-  top: -5px;
-  right: -5px;
-  background-color: #12574f;
+  top: -6px;
+  right: -10px;
+  background-color: red;
   color: white;
+  font-size: 11px;
   border-radius: 50%;
-  padding: 5px 10px;
-  font-size: 12px;
+  padding: 3px 7px;
 }
 
 .notification-dropdown {
   display: none;
   position: absolute;
-  top: 30px;
+  top: 35px;
   right: 0;
-  background-color: rgb(21, 21, 21);
-  border: 1px solid #ddd;
-  width: 250px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 100;
-  padding: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+  width: 240px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+  padding: 15px;
+  border-radius: 6px;
 }
 
 .notification-dropdown h4 {
+  font-size: 16px;
   margin-bottom: 10px;
+  color: #146158;
 }
 
 .notification-dropdown ul {
@@ -107,8 +125,9 @@ header {
 }
 
 .notification-dropdown ul li {
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
 }
 
 .notification-dropdown ul li:last-child {
@@ -119,47 +138,55 @@ header {
 .alert-box {
   background-color: #146158;
   color: white;
-  padding: 15px;
-  margin-bottom: 20px;
+  padding: 15px 20px;
+  margin-bottom: 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 .alert-box button {
-  background-color: transparent;
-  color: white;
+  background: none;
   border: none;
-  font-size: 16px;
+  color: white;
   cursor: pointer;
+  font-size: 14px;
 }
 
-/* Statistics Section - Updated */
+/* Statistics section */
 .statistics {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: space-between;
 }
 
 .stat-box {
   background-color: white;
-  padding: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   flex: 1 1 calc(33.333% - 20px);
-  text-align: center;
-  min-width: 250px;
-  font-size: 20px;
-  height: 200px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  text-align: left;
+  min-width: 260px;
 }
 
 .stat-box h3 {
-  font-size: 20px;
-  margin-bottom: 15px;
+  font-size: 18px;
+  color: #146158;
+  margin-bottom: 10px;
 }
 
-/* Responsive Layout */
+.stat-box p, .stat-box ul {
+  font-size: 16px;
+  color: #333;
+}
+
+.stat-box ul {
+  list-style: disc inside;
+}
+
+/* Responsive adjustments */
 @media (max-width: 900px) {
   .stat-box {
     flex: 1 1 calc(50% - 20px);
@@ -167,6 +194,10 @@ header {
 }
 
 @media (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+
   .stat-box {
     flex: 1 1 100%;
   }

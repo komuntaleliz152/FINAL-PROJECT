@@ -1,3 +1,68 @@
+//- doctype html
+//- html
+//-   head
+//-     meta(charset='UTF-8')
+//-     meta(name='viewport', content='width=device-width, initial-scale=1.0')
+//-     title Director's Dashboard
+//-     link(rel='stylesheet', href='/css/directorsDashboard.css')
+//-     link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css' integrity='sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==' crossorigin='anonymous' referrerpolicy='no-referrer')
+//- body
+//-     #sidebar.sidebar
+//-       h2 Welcome  Orban 
+//-       a(href='/')
+//-         i.fas.fa-home
+//-         |  Home 
+//-       a(href='/addproduceSale')
+//-         i.fas.fa-seedling
+//-         |  Produce Sale 
+//-       a(href='/addProcurement')
+//-         i.fas.fa-truck-loading
+//-         |  Procurement
+//-       a(href='/CreditSalesList')
+//-         i.fas.fa-hand-holding-usd
+//-         |  Credit Sales List
+//-       a(href='/addSale')
+//-         i.fas.fa-receipt
+//-         |  Sales 
+//-       a(href='/stockList')
+//-         i.fas.fa-warehouse
+//-         |  Stock List
+//-         a(href='/Logout')
+//-           i.fas.fa-sign-out-alt
+//-           |  Logout
+
+//-     #main.main-content
+//-       button.toggle-btn(onclick='toggleSidebar()') &#x2630;
+//-       header
+//-         h1 Director's Dashboard
+
+//-       .container
+//-         .card
+//-           h3 Daily Sales
+//-           #dailySales.value
+
+//-         .card
+//-           h3 Top-Selling Products
+//-           ul#topProducts
+
+//-         .card
+//-           h3 Low Stock Alerts
+//-           ul#lowStock
+
+//-         .card
+//-           h3 Weekly Sales
+//-           #satisfaction.value 
+
+//-         .card
+//-           h3 Monthly Sales
+//-           #grossProfit.value 
+
+//-         .card
+//-           h3 Low selling products
+//-           #lowsellingproducts.value 
+
+//-     script(src='js/directorsDashboard.js')
+
 doctype html
 html
   head
@@ -5,31 +70,31 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Director's Dashboard
     link(rel='stylesheet', href='/css/directorsDashboard.css')
-    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css' integrity='sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==' crossorigin='anonymous' referrerpolicy='no-referrer')
-body
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css', integrity='sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==', crossorigin='anonymous', referrerpolicy='no-referrer')
+  body
     #sidebar.sidebar
-      h2 Welcome  Orban 
+      h2 Welcome Orban
       a(href='/')
         i.fas.fa-home
-        |  Home 
+        | Home 
       a(href='/addproduceSale')
         i.fas.fa-seedling
-        |  Produce Sale 
+        | Produce Sale 
       a(href='/addProcurement')
         i.fas.fa-truck-loading
-        |  Procurement
+        | Procurement
       a(href='/CreditSalesList')
         i.fas.fa-hand-holding-usd
-        |  Credit Sales List
+        | Credit Sales List
       a(href='/addSale')
         i.fas.fa-receipt
-        |  Sales 
+        | Sales 
       a(href='/stockList')
         i.fas.fa-warehouse
-        |  Stock List
-        a(href='/Logout')
-          i.fas.fa-sign-out-alt
-          |  Logout
+        | Stock List
+      a(href='/Logout')
+        i.fas.fa-sign-out-alt
+        | Logout
 
     #main.main-content
       button.toggle-btn(onclick='toggleSidebar()') &#x2630;
@@ -38,27 +103,33 @@ body
 
       .container
         .card
+          h3 Total Sales
+          p= totalSales ? `UGX ${totalSales.toLocaleString()}` : 'UGX 0'
+
+        .card
+          h3 Weekly Sales
+          p= weeklySales ? `UGX ${weeklySales.toLocaleString()}` : 'UGX 0'
+
+        .card
           h3 Daily Sales
-          #dailySales.value
+          p= dailySales ? `UGX ${dailySales.toLocaleString()}` : 'UGX 0'
 
         .card
           h3 Top-Selling Products
           ul#topProducts
+            li Placeholder for future
 
         .card
           h3 Low Stock Alerts
           ul#lowStock
-
-        .card
-          h3 Weekly Sales
-          #satisfaction.value 
+            li Placeholder for future
 
         .card
           h3 Monthly Sales
-          #grossProfit.value 
+          #grossProfit.value Placeholder
 
         .card
-          h3 Low selling products
-          #lowsellingproducts.value 
+          h3 Low Selling Products
+          #lowsellingproducts.value Placeholder
 
-    script(src='js/directorsDashboard.js')
+    script(src='/js/directorsDashboard.js')

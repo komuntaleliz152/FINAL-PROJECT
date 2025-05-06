@@ -8,52 +8,71 @@ html
   body
     header.bg-dark.text-light.py-3
       h1.text-center Add New Stock
-      nav.text-center
+      nav#navbar.text-center
+        | Manage Inventory | Reports | Settings
 
     main.container.my-4
-      form#addStockForm(action='/addstock' method='POST')
+      form#addStockForm(action='/addstock', method='POST')
         .mb-3
-          label(for='produceName' class='form-label') Produce Name
+          label(for='produceName', class='form-label') Produce Name
           input(type='text', class='form-control', id='produceName', name='produceName')
           span#error-produceName.error-message
+
         .mb-3
-          label(for='produceType' class='form-label') Type of Produce
+          label(for='produceType', class='form-label') Type of Produce
           input(type='text', class='form-control', id='produceType', name='produceType')
           span#error-produceType.error-message
+
         .mb-3
-          label(for='tonnage' class='form-label') Tonnage (kg)
+          label(for='tonnage', class='form-label') Tonnage (kg)
           input(type='number', class='form-control', id='tonnage', name='tonnage')
           span#error-tonnage.error-message
+
         .mb-3
-          label(for='cost' class='form-label') Cost
+          label(for='cost', class='form-label') Cost
           input(type='number', class='form-control', id='cost', name='cost')
           span#error-cost.error-message
+
         .mb-3
-          label(for='dealerName' class='form-label') Dealer Name
+          label(for='dealerName', class='form-label') Dealer Name
           input(type='text', class='form-control', id='dealerName', name='dealerName')
           span#error-dealerName.error-message
+
         .mb-3
-          label(for='branchName' class='form-label') Branch Name
+          label(for='branchName', class='form-label') Branch Name
           input(type='text', class='form-control', id='branchName', name='branchName')
           span#error-branchName.error-message
+
         .mb-3
-          label(for='contact' class='form-label') Contact
+          label(for='contact', class='form-label') Contact
           input(type='text', class='form-control', id='contact', name='contact')
           span#error-contact.error-message
+
         .mb-3
-          label(for='sellingPrice' class='form-label') Selling Price
+          label(for='sellingPrice', class='form-label') Selling Price
           input(type='number', class='form-control', id='sellingPrice', name='sellingPrice')
           span#error-sellingPrice.error-message
+
         .mb-3
-          label(for='Date' class='form-label') Date
+          label(for='Date', class='form-label') Date
           input(type='date', class='form-control', id='Date', name='Date')
           span#error-Date.error-message
+
         .mb-3
-          label(for='Time' class='form-label') Time
+          label(for='Time', class='form-label') Time
           input(type='time', class='form-control', id='Time', name='Time')
           span#error-Time.error-message
 
         button(type='submit', class='btn btn-primary mt-3') Add Stock
-        
 
-    script(src='/js/addstock.js')  
+    script(src='/js/addstock.js')
+    script.
+      document.addEventListener('keydown', function (e) {
+        if (e.code === 'Space') {
+          e.preventDefault();
+          const navbar = document.getElementById('navbar');
+          if (navbar) {
+            navbar.classList.toggle('hidden');
+          }
+        }
+      });

@@ -1,26 +1,27 @@
-//defining our schema
+// Updated Sale Schema (models/Sale.js)
 const mongoose = require("mongoose");
 
 const SaleSchema = new mongoose.Schema({
-    ProductName:{
-        type:String,
-        trim:true,
+    ProductName: {
+        type: String,
+        trim: true,
     },
-    Quantity:{
-        type:Number,
-        trim:true,
+    Quantity: {
+        type: Number,
+        trim: true,
     },
-    saleDate:{
-       type:String,
-       trim:true
+    saleDate: {
+        type: Date,
+        default: Date.now,
     },
-    PriceperUnit:{
-        type:Number,
-        trim:true,
+    PriceperUnit: {
+        type: Number,
+        trim: true,
     },
-    CustomerName:{
-        type:String,
-        trim:true,
+    CustomerName: {
+        type: String,
+        trim: true,
     },
-})
+});
+
 module.exports = mongoose.model("Sale", SaleSchema);

@@ -3,7 +3,7 @@ html
   head
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    title Manager&apos;s Dashboard - Karibu Grocery Limited
+    title Manager's Dashboard - Karibu Grocery Limited
     link(rel='stylesheet' href='/css/managersDashboard.css')
     link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css' integrity='sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==' crossorigin='anonymous' referrerpolicy='no-referrer')
 
@@ -24,7 +24,7 @@ html
               |  Register Produce
           br
           li
-            a(href='/addsale')
+            a(href='/addProduceSale')
               i.fas.fa-chart-line
               |  Sales
           br
@@ -35,24 +35,20 @@ html
           br
           li
             a(href='/addprocurement')
-             i.fas.fa-shopping-cart
-             |  Procurement 
-          br
-          li
-            a(href='#')
-          br
+              i.fas.fa-shopping-cart
+              |  Procurement
 
       // Main Content
       main.main-content
         header
           .header-container
-            h1 Manager&apos;s Dashboard
+            h1 Manager's Dashboard
             .notification-area
-              // Notification Bell
               .notification-bell(onclick='toggleNotifications()')
                 i.fas.fa-bell
                 span#notification-count.badge 3
-              // Notifications Dropdown
+              .settings-icon
+                i.fas.fa-cog
               #notification-dropdown.notification-dropdown
                 h4 Notifications
                 ul
@@ -65,38 +61,34 @@ html
             p Important: Inventory levels are low on some items!
             button(onclick='dismissAlert()') Dismiss
 
-          // Statistics & Cards (3 per row)
+          // Statistics
           .statistics
-            // Row 1
             .stat-box
               h3 Sales Today
-              p 1000000ugx
+              p 1000000 UGX
             .stat-box
               h3 High Selling Product
               p Beans
-              p 8000000ugx
+              p 8000000 UGX
             .stat-box
-              h3 Current products
-              p maize 
-              p beans
-
-            // Row 2
+              h3 Current Products
+              p Maize
+              p Beans
             .stat-box
               h3 Low Stock Items
               ul
                 li Soybeans – 50kgs
-                li Maize – 30 kgs
+                li Maize – 30kgs
             .stat-box
               h3 Recent Orders
               ul
                 li Beans
-                li Cowpeas 
-                li 
+                li Cowpeas
             .stat-box
               h3 Available Stock
               ul
-                li Cowpeas  9000kgs
-                li Soybeans  1000kgs
-                li Gnuts    8000kgs
+                li Cowpeas – 9000kgs
+                li Soybeans – 1000kgs
+                li Gnuts – 8000kgs
 
-    script(src='js/managersDashboard.js')
+    script(src='/js/managersDashboard.js')

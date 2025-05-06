@@ -1,105 +1,155 @@
-/* General Layout */
-body {
-  background-color: #f4f6f8;
-  color: #333;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* ===============================
+   Reset and Base Styles
+================================== */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* header.bg-dark.text-light {
-  background-color: ;
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url('../img/maize.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+/* ===============================
+   Header
+================================== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  padding: 1.2rem;
+  z-index: 10;
+}
+
+header h1 {
+  font-size: 2rem;
   color: #fff;
-  padding: 1.5rem 0;
-} */
-
-header h1.text-center {
-  margin: 0;
-  font-size: 2.5rem;
-  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
-nav.text-center {
+nav {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* ===============================
+   Form Container
+================================== */
+.container {
+  background-color: rgba(43, 42, 42, 0.65);
+  backdrop-filter: blur(12px);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 900px;
+  margin-top: 120px;
+}
+
+/* ===============================
+   Form Layout (Two Columns)
+================================== */
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 30px;
+}
+
+.mb-3 {
+  display: flex;
+  flex-direction: column;
+}
+
+label.form-label {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: #f1f1f1;
+}
+
+input.form-control {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #000;
+  transition: border-color 0.3s;
+}
+
+input.form-control:focus {
+  outline: none;
+  border-color: #28a745;
+}
+
+/* Error Message */
+.error-message {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+/* Submit Button (Full Width) */
+button.btn {
+  grid-column: span 2;
+  background-color: #28a745;
+  border: none;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
   margin-top: 10px;
 }
 
-main.container.my-4 {
-  max-width: 800px;
-  margin: 0 auto;
+button.btn:hover {
+  background-color: #218838;
 }
 
-form#addStockForm {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-form#addStockForm .form-label {
-  font-weight: 500;
-  color: #333;
-  font-size: 1rem;
-}
-
-form#addStockForm .form-control {
-  width: 100%;
-  padding: 0.75rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-top: 0.25rem;
-  margin-bottom: 0.75rem;
-  background-color: #f8f9fa;
-}
-
-form#addStockForm .form-control:focus {
-  border-color: #007bff;
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-form#addStockForm .error-message {
-  color: #dc3545;
-  font-size: 0.875rem;
-  display: block;
-  margin-top: 0.25rem;
-}
-
-button.btn.btn-primary {
-  background-color: #007bff;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 500;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 20px;
-}
-
-button.btn.btn-primary:hover {
-  background-color: #0056b3;
-}
-
-/* Responsive Adjustments */
+/* ===============================
+   Responsive
+================================== */
 @media (max-width: 768px) {
-  main.container.my-4 {
-    padding: 1rem;
+  form {
+    grid-template-columns: 1fr;
+    gap: 15px;
   }
 
-  form#addStockForm {
+  .container {
     padding: 1.5rem;
+    margin: 100px 1rem 0;
   }
 
-  button.btn.btn-primary {
-    width: 100%;
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  button.btn {
+    grid-column: span 1;
   }
 }
 
+.hidden {
+  opacity: 0;
+  transform: scaleY(0);
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+}
 
-
-
-
-
-  

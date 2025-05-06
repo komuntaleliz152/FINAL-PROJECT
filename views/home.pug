@@ -4,24 +4,32 @@ html(lang="en")
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Karibu Grocery Limited
+
     // Stylesheets
     link(rel='stylesheet', href='bootstrap-5.0.2-dist/bootstrap-5.0.2-dist/css/bootstrap.css')
     link(rel='stylesheet', href='/css/home.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css')
 
-  // Main Content
-  main.d-flex.flex-column.justify-content-center.align-items-center.text-center
-    section.hero-container.py-5
-      .hero-content.container
-        h1 Welcome to Karibu Grocery Ltd.
-        p.lead Your trusted wholesale produce distributor
-        a.btn.btn-light.btn-lg(href='/Signup') Sign Up Now
-        p.mt-3 Already have an account? <a href='/login'>Just log in</a>
+  body
+    // Main Content
+    main.d-flex.flex-column.justify-content-center.align-items-center.text-center
+      section.hero-container.py-5
+        .hero-content.container
+          h1.animate__animated.animate__fadeInDown
+            | Welcome to Karibu Grocery
+            br
+            span.ltd.animate__animated.animate__fadeInDown.animate__delay-1s Ltd.
+          p.lead.animate__animated.animate__fadeInUp.animate__delay-1s Your trusted wholesale produce distributor
+          .button-group.mt-4
+            a.btn.btn-primary.btn-lg(href='/Signup') Sign Up 
+            br
+            a.btn.btn-outline-light.btn-lg(href='/login') Log In
 
-  // Footer
-  footer.text-center.py-3.bg-light.border-top
-    p.mb-0 &copy; 2025 Komuntale Elizabeth. All rights reserved.
+    // Footer
+    footer.text-center.bg-dark.text-light.border-top
+      p.mb-0 &copy; 2025 Komuntale Elizabeth. All rights reserved.
 
-  // Scripts
-  script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
-  script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js')
-  script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+    // Scripts
+    script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js')
+    script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')

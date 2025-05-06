@@ -56,11 +56,12 @@ router.post("/updateProduceSale", async (req, res) => {
 });
 
 // Delete produce sale
-router.post("/produceSales/deleteProduceSale", async (req, res) => {
+router.post("/produceSale/deleteSale", async (req, res) => {
   try {
     // Delete the produce sale by ID
-    await ProduceSale.deleteOne({ _id: req.body.id });
-    res.redirect("back"); // Redirect back to the previous page
+    console.log("req.body",req.body);
+    await ProduceSale.deleteOne({ _id: req.body._id });
+    res.redirect("/produceSalesList"); // Redirect back to the previous page
   } catch (error) {
     res.status(400).send("Unable to delete the produce sale");
   }

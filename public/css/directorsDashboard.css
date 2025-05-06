@@ -1,12 +1,23 @@
+/* GLOBAL STYLES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-image: url('../img/home.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   color: #333;
   display: flex;
+  height: 100vh;
 }
 
+/* SIDEBAR */
 .sidebar {
   width: 250px;
   background-color: #264653;
@@ -43,6 +54,11 @@ body {
   background-color: #2a9d8f;
 }
 
+.sidebar.collapsed {
+  transform: translateX(-100%);
+}
+
+/* TOGGLE BUTTON */
 .toggle-btn {
   position: absolute;
   top: 1rem;
@@ -52,15 +68,14 @@ body {
   border: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  z-index: 1001;
 }
 
-.sidebar.collapsed {
-  transform: translateX(-100%);
-}
-
+/* MAIN CONTENT */
 .main-content {
   margin-left: 250px;
   width: 100%;
+  padding: 2rem;
   transition: margin-left 0.3s ease;
 }
 
@@ -68,39 +83,43 @@ body {
   margin-left: 0;
 }
 
+/* HEADER */
 header {
   background-color: #2a9d8f;
   color: white;
   padding: 1rem 2rem;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
+/* CONTAINER: GRID LAYOUT */
 .container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
-  gap: 1rem; /* Space between cards */
-  padding: 1rem; /* Padding around the container */
-  margin: 0; /* Remove extra margin */
+  grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+  gap: 2rem;
+  margin: 0;
+  padding: 2rem;
 }
 
+/* CARD STYLES */
 .card {
-  background: rgba(255, 255, 255, 0.95); /* Soft white with slight transparency */
-  border: 2px solid #264653; /* Add border to create the box form */
-  border-radius: 8px; /* Rounded corners for the box */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Slight shadow to elevate the box */
-  padding: 2rem; /* Padding inside each card */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid #264653;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
   position: relative;
   overflow: hidden;
-  width: 100%; /* Ensure cards take up full width of the grid item */
-  /* max-width: 100%; Let the cards stretch within the grid */
-  height: 90px; /* Adjust height based on content */
-  margin-right: 30px; /* Removes margin around individual cards */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;  /* Allow cards to grow to fill available space */
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .card::before {
@@ -109,27 +128,32 @@ header {
   top: 0;
   left: 0;
   height: 30px;
-  width: 350%;
-  background-color: #2a9d8f; /* Accent line */
-  border-top-left-radius: 8px; /* Match the rounded corners */
+  width: 100%;
+  background-color: #2a9d8f;
+  border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
 
 .card h3 {
-  margin-top: 0;
   font-size: 1.25rem;
   color: #264653;
+  margin-bottom: 1rem;
 }
 
 .card p {
-  color: #555;
-  line-height: 1.4;
-  font-size: 1rem;
+  font-size: 1.25rem;
+  color: #e76f51;
+  font-weight: bold;
 }
 
-.card .value {
-  font-size: 2rem;
-  font-weight: bold;
-   color: #e76f51; 
-  margin-top: 0.5rem;
+.card ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+/* RESPONSIVE DESIGN: When the screen is large enough, show 3 columns */
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for medium and larger screens */
+  }
 }
