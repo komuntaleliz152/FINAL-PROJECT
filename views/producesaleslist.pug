@@ -1,68 +1,3 @@
-//- doctype html
-//- html
-//-   head
-//-     meta(charset='UTF-8')
-//-     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-//-     title Produce Sales List
-//-     link(rel='stylesheet', href='./css/produceSalesList.css')
-//-   body
-//-     h2 Produce Sales List
-
-//-     table#salesTable
-//-       thead
-//-         tr
-//-           th Produce Name
-//-           th Tonnage (kg)
-//-           th Amount (UGX)
-//-           th Buyer Name
-//-           th Sales Agent
-//-           th Date and Time
-//-           th Actions
-//-       tbody
-//-         if produceSales.length
-//-           each sale in produceSales
-//-             tr
-//-               td #{sale.produceName}
-//-               td #{sale.tonnage}
-//-               td #{sale.amount}
-//-               td #{sale.buyerName}
-//-               td #{sale.salesAgent}
-//-               td #{sale.saleDateTime}
-//-               td
-//-     //-             a.btn.btn-primary(href="produceSale/updateSale/" + sale._id) Update
-//-     //-             form(="/produceSale/deleteSale/" method='POST')
-//-     //-               input(type='hidden' name='_id' value=sale._id)
-//-     //-               button.btn.btn-danger(type='submit') Delete
-//-     //-     else
-//-     //-       tr
-//-     //-         td(colspan='7') No sales data available.
-
-//-     //- // Add Sale button below the table
-//-     //- button(onclick="Window.location.href='/ProduceSale/addProduceSale'") Add Produce Sale
-
-//-      each sale in sales
-//-   tr
-//-     td
-//-            a.btn.btn-primary(href="/produceSale/updateSale/" + sale._id) Update
-//-       form(action="/produceSale/deleteSale/" method="POST" style="display:inline")
-//-         input(type="hidden" name="_id" value=sale._id)
-//-         button.btn.btn-danger(type="submit") Delete
-//- else
-//-   tr
-//-     td(colspan="7") No sales data available.
-
-//- // Add Sale button below the table
-//- button.btn.btn-success(onclick="window.location.href='/produceSale/addProduceSale'") Add Produce Sale
-
-
-//-     // Footer Section
-//-     footer
-//-       p &copy; 2025 Sales Management System | All Rights Reserved
-
-//-     // External JavaScript
-//-     script(src='js/produceSaleslist.js')
-
-
 doctype html
 html
   head
@@ -71,6 +6,14 @@ html
     title Produce Sales List
     link(rel='stylesheet', href='./css/produceSalesList.css')
   body
+    // Top Navigation Bar
+    nav.navbar
+      .nav-links
+        a(href='/') Home
+        a(href='/addProduceSale') Add Sale
+        a(href='/addCreditSale') Add Credit
+        a(href='/logout') Logout
+
     h2 Produce Sales List
 
     table#salesTable
@@ -95,20 +38,18 @@ html
               td #{sale.salesAgent}
               td #{sale.saleDateTime}
               td
-                a.btn.btn-primary(href="/UpdateproduceSale/" + sale._id) Update
+                a.update-btn(href="/UpdateproduceSale/" + sale._id) Update
                 form(action="/produceSale/deleteSale/" method="POST" style="display:inline")
                   input(type="hidden" name="_id" value=sale._id)
-                  button.btn.btn-danger(type="submit") Delete
+                  button.delete-btn(type="submit") Delete
         else
           tr
             td(colspan="7") No sales data available.
 
-    // Add Sale button below the table
-    button.btn.btn-success(onclick="window.location.href='/addProduceSale'") Add Produce Sale
+    button.add-produce-btn(onclick="window.location.href='/addProduceSale'") Add Produce Sale
 
-    // Footer Section
     footer
       p &copy; 2025 Sales Management System | All Rights Reserved
 
-    // External JavaScript
     script(src='js/produceSaleslist.js')
+

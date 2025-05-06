@@ -1,35 +1,53 @@
 document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const username = document.getElementById('email');
-    const password = document.getElementById('password');
-    const rememberMe = document.getElementById('rememberMe').checked;
-    const usernameError = document.getElementById('usernameError');
-    const passwordError = document.getElementById('passwordError');
+  const email = document.getElementById('email');
+  const password = document.getElementById('password');
+  const rememberMe = document.getElementById('rememberMe')?.checked;
 
-    // Clear old error messages
-    usernameError.textContent = '';
-    passwordError.textContent = '';
+  const emailError = document.getElementById('emailError');
+  const passwordError = document.getElementById('passwordError');
 
-    let hasError = false;
+  // Clear previous error messages and red borders
+  emailError.textContent = '';
+  passwordError.textContent = '';
+  email.classList.remove('error-border');
+  password.classList.remove('error-border');
 
-    if (email.value.trim() === '') {
-        emailError.textContent = 'Email is required.';
-        hasError = true;
-    }
+  let hasError = false;
 
-    if (password.value.trim() === '') {
-        passwordError.textContent = 'Password is required.';
-        hasError = true;
-    } else if (password.value.length < 6) {
-        passwordError.textContent = 'Password must be at least 6 characters.';
-        hasError = true;
-    }
+  // Validate email with strict pattern
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (email.value.trim() === '') {
+    emailError.textContent = 'Email is required.';
+    email.classList.add('error-border');
+    hasError = true;
+  } else if (!emailRegex.test(email.value.trim())) {
+    emailError.textContent = 'Please enter a valid email address.';
+    email.classList.add('error-border');
+    hasError = true;
+  }
 
-    if (!hasError) {
-        alert(`Username: ${username.value}\nPassword: ${password.value}\nRemember Me: ${rememberMe}`);
-    }
+  // Validate password: exactly 6 digits, numbers only
+  const pwd = password.value.trim();
+  if (pwd === '') {
+    passwordError.textContent = 'Password is required.';
+    password.classList.add('error-border');
+    hasError = true;
+  } else if (!/^\d{6}$/.test(pwd)) {
+    passwordError.textContent = 'Password must be exactly 6 digits (numbers only).';
+    password.classList.add('error-border');
+    hasError = true;
+  }
+
+  if (!hasError) {
+    alert(`Email: ${email.value}\nPassword: ${pwd}\nRemember Me: ${rememberMe}`);
+     this.submit(); // Uncomment when ready to submit the form
+  }
 });
+
+
+  
 
 
 

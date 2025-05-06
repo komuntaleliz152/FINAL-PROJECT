@@ -6,7 +6,7 @@ head
   link(rel='stylesheet' href=' ./css/addCreditSale.css')
 .container
   h2 Credit Sale Registration Form
-  form#creditSaleForm(action='/addCreditSale' method='POST')
+  form#creditSaleForm(action='/addCreditSale' method='POST' onsubmit='return validateForm()')
     label(for='produceName') Produce Name
     input#produceName(type='text' name='produceName')
     #produceNameError.error
@@ -28,7 +28,7 @@ head
     input#nationalId(type='text'  name='nationalId')
     #nationalIdError.error
     label(for='contact') Contact Number
-    input#contact(type='number' name='contact')
+    input#contact(type='tel' name='contact')
     #contactError.error
     label(for='location') Location
     input#location(type='text' name='location')
@@ -42,7 +42,7 @@ head
     label(for='salesAgentName') Sales Agent Name
     input#salesAgentName(type='text' name='salesAgentName')
     #salesAgentNameError.error
-    button(type='submit') Register Sale
+    button(type='submit') Register Credit
     #formSuccess.success
 footer
   | &copy; 2025 AgriCredit System | All Rights Reserved.

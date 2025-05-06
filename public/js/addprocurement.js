@@ -1,56 +1,86 @@
-// document.getElementById("produceForm").addEventListener("submit", function (e) {
-  // e.preventDefault
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("produceForm");
 
-  const produceName = document.getElementById("produceName").value.trim();
-  const produceType = document.getElementById("produceType").value.trim();
-  const date = document.getElementById("date").value;
-  const tonnage = document.getElementById("tonnage").value;
-  const cost = document.getElementById("cost").value;
-  const dealerName = document.getElementById("dealerName").value.trim();
-  const contact = document.getElementById("contact").value.trim();
+  const fields = {
+    produceName: document.getElementById("produceName"),
+    produceType: document.getElementById("produceType"),
+    tonnage: document.getElementById("tonnage"),
+    cost: document.getElementById("cost"),
+    dealerName: document.getElementById("dealerName"),
+    contact: document.getElementById("contact"),
+    date: document.getElementById("date")
+  };
 
-  const errorMsg = document.getElementById("errorMsg");
-  errorMsg.textContent = "";
+  const errorSpans = {
+    produceName: document.getElementById("produceNameError"),
+    produceType: document.getElementById("produceTypeError"),
+    tonnage: document.getElementById("tonnageError"),
+    cost: document.getElementById("costError"),
+    dealerName: document.getElementById("dealerNameError"),
+    contact: document.getElementById("contactError"),
+    date: document.getElementById("dateError")
+  };
 
-  const isAlpha = str => /^[A-Za-z]+$/.test(str);
   const isAlphaNum = str => /^[A-Za-z0-9 ]+$/.test(str);
-  const isPhone = num => /^(\+256|0)[0-9]{9}$/.test(num);
+  const isNumeric = str => /^[0-9]+$/.test(str);
+  const isPhone = num => /^\+256\d{9}$/.test(num);
 
-  if (!isAlphaNum(produceName)) {
-    errorMsg.textContent = "Produce name must be alphanumeric.";
-    return;
-  }
+  const clearErrors = () => {
+    Object.values(fields).forEach(field => field.style.border = "");
+    Object.values(errorSpans).forEach(span => span.textContent = "");
+  };
 
-  if (!isAlpha(produceType) || produceType.length < 2) {
-    errorMsg.textContent = "Type must be letters only and at least 2 characters.";
-    return;
-  }
+  const setError = (fieldKey, message) => {
+    fields[fieldKey].style.border = "2px solid red";
+    errorSpans[fieldKey].textContent = message;
+  };
 
-  if (!date) {
-    errorMsg.textContent = "Date is required.";
-    return;
-  }
+  form.addEventListener("submit", e => {
+    clearErrors();
+    let isValid = true;
 
-  if (!tonnage || tonnage.length < 3) {
-    errorMsg.textContent = "Tonnage must be numeric and at least 3 digits.";
-    return;
-  }
+    const { produceName, produceType, tonnage, cost, dealerName, contact, date } = fields;
 
-  if (!cost || cost.length < 5) {
-    errorMsg.textContent = "Cost must be at least 5 digits.";
-    return;
-  }
+    if (!produceName.value.trim() || produceName.value.trim().length < 3 || !isAlphaNum(produceName.value.trim())) {
+      setError("produceName", "At least 3 alphanumeric characters required.");
+      isValid = false;
+    }
 
-  if (!isAlphaNum(dealerName) || dealerName.length < 2) {
-    errorMsg.textContent = "Dealer name must be alphanumeric and at least 2 characters.";
-    return;
-  }
+    if (!produceType.value) {
+      setError("produceType", "Please select a produce type.");
+      isValid = false;
+    }
 
-  if (!isPhone(contact)) {
-    errorMsg.textContent = "Enter a valid Ugandan phone number.";
-    return;
-  }
+    if (!tonnage.value || !isNumeric(tonnage.value) || tonnage.value.length < 3) {
+      setError("tonnage", "Tonnage must be numeric and at least 3 digits.");
+      isValid = false;
+    }
 
-  alert("Produce record submitted successfully!");
-  this.reset();
+    if (!cost.value || !isNumeric(cost.value) || cost.value.length < 5) {
+      setError("cost", "Cost must be numeric and at least 5 digits.");
+      isValid = false;
+    }
+
+    if (!dealerName.value.trim() || dealerName.value.trim().length < 4 || !isAlphaNum(dealerName.value.trim())) {
+      setError("dealerName", "Dealer name must be alphanumeric and at least 4 characters.");
+      isValid = false;
+    }
+
+    if (!contact.value || !isPhone(contact.value)) {
+      setError("contact", "Use format +256XXXXXXXXX (13 characters).");
+      isValid = false;
+    }
+
+    if (!date.value) {
+      setError("date", "Date is required.");
+      isValid = false;
+    }
+
+    if (!isValid) {
+      e.preventDefault(); // Stop form submission
+    }
+  });
+});
+
+
 

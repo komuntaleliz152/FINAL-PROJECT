@@ -1,86 +1,136 @@
+/* ==== Base Styles ==== */
 body {
-    font-family: Arial, sans-serif;
-    margin: 40px;
-    background-color: rgba(81, 81, 189, 0.045);
-    color: #333;
-  }
+  font-family: Arial, sans-serif;
+  margin: 40px;
+  background-color: rgb(236, 236, 236);
+  color: #333;
+}
 
-  h1 {
-    text-align: center;
-    color: #2c3e50;
-  }
+h1 {
+  text-align: center;
+  color: #2c3e50;
+}
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-image: url(beans4.jpg);
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  }
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 6px;
+  box-sizing: border-box;
+}
 
-  th, td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: center;
-  }
+#total {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 15px;
+  text-align: right;
+}
 
-  th {
-    background-color: brown;
-    color: white;
-  }
+/* ==== Table Styles ==== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-image: url(beans4.jpg);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
 
-  input[type="text"], input[type="number"] {
-    width: 100%;
-    padding: 6px;
-    box-sizing: border-box;
-  }
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
 
-  button {
-    background-color: brown;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  .add-procurement-btn {
-    font-size: 1.75rem; 
-  }
+th {
+  background-color: #146158;
+  color: white;
+  font-weight: bold;
+}
 
-  button:hover {
-    background-color: black;
-  }
+tr:hover {
+  background-color: white;
+  transition: background-color 0.3s ease;
+}
 
-  #total {
-    font-weight: bold;
-    font-size: 18px;
-    margin-top: 15px;
-    text-align: right;
-  }
-  
-  .navbar-brand {
-    font-size: 20px;
-  }
-  
-  .navbar-margin-left {
-    margin-left: 20px;
-  }
-  footer {
-    background-color: #343a40; 
-    color: #f8f9fa;            
-    padding: 1rem 0;           
-    margin-top: 3rem;         
-    font-size: 0.9rem;
-  }
-  
-  footer .container {
-    text-align: center;
-  }
-  
-  footer p {
-    margin-bottom: 0;
-  }
-  
-  
+/* ==== Footer Styles ==== */
+footer {
+  background-color: #343a40;
+  color: #f8f9fa;
+  padding: 1rem 0;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
 
+footer .container {
+  text-align: center;
+}
 
+footer p {
+  margin-bottom: 0;
+}
+
+/* ==== Buttons ==== */
+button,
+a {
+  font-family: inherit;
+}
+
+/* General Button Base */
+.button-action {
+  display: inline-block;
+  width: 100px;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  color: #fff;
+  text-decoration: none;
+  margin-left: 10px;
+
+}
+
+/* Update Button */
+.button-update,
+a.update-btn {
+  background-color: brown;
+  margin-left: 10px;
+}
+.button-update:hover,
+a.update-btn:hover {
+  background-color: rgb(121, 60, 60);
+}
+
+/* Delete Button */
+.button-delete,
+button.delete-btn {
+  background-color: brown;
+}
+.button-delete:hover,
+button.delete-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* Add Procurement Button */
+a.add-procurement-btn {
+  background-color: #146158;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 14px;
+  border-radius: 10px;
+  text-align: center;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+a.add-procurement-btn:hover {
+  background-color: #2c2c2c;
+  transform: translateY(-2px);
+  color: white;
+}

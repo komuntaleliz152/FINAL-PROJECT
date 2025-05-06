@@ -1,84 +1,3 @@
-//- doctype html
-//- html
-//-   head
-//-     meta(charset='UTF-8')
-//-     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-//-     title Director's Dashboard
-//-     link(rel='stylesheet', href='/css/directorsDashboard.css')
-//-     link(
-//-       rel='stylesheet',
-//-       href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css',
-//-       integrity='sha512-yHjM9l+kdf0+OPQWnryYfYp0FPhWZKnHcEf6vhc3D+Z6Z+GULe+a4Uez7Gxy0zTRNPn0a+ebpuOj6lA7szOKVQ==',
-//-       crossorigin='anonymous',
-//-       referrerpolicy='no-referrer'
-//-     )
-
-//-   body
-//-     #sidebar.sidebar
-//-       h2 Karibu
-//-       a(href='/creditSaleList')
-//-         i.fas.fa-tachometer-alt
-//-         |  Credit Sale List
-//-       a(href='/produceSale')
-//-         i.fas.fa-chart-line
-//-         |  Produce Sale 
-//-       a(href='/addProcurement')
-//-         i.fas.fa-boxes
-//-         |  Procurement
-//-       a(href='/CreditSalesList')
-//-         i.fas.fa-users
-//-         |  Credit Sales List
-//-       a(href='/procurementList')
-//-         i.fas.fa-coins
-//-         |  Procurement List 
-//-       a(href='/stockList')
-//-         i.fas.fa-file-alt
-//-         |  Stock List
-//-       a(href='/Logout')
-//-         i.fas.fa-cog
-//-         |  Logout
-
-//-     #main.main-content
-//-       button.toggle-btn(onclick='toggleSidebar()') &#x2630;
-//-       header
-//-         h1 Director's Dashboard
-
-//-       .container
-//-         .card
-//-           h3 Daily Sales
-//-           #dailySales.value
-
-//-         .card
-//-           h3 Top-Selling Products
-//-           ul#topProducts
-
-//-         .card
-//-           h3 Low Stock Alerts
-//-           ul#lowStock
-
-//-         .card
-//-           h3 Customer Satisfaction Score
-//-           #satisfaction.value Loading
-
-//-         .card
-//-           h3 Gross Profit Margin
-//-           #grossProfit.value Loading
-
-//-         .card
-//-           h3 Produce Sales List 
-//-           #produceSaleList.value 
-
-//-         .card
-//-           h3 Stock List 
-//-           #attendance.value 
-
-//-         .card
-//-           h3 Logout 
-//-           #logout.value 
-
-//-     script(src='directorsDashboard.js')
-
-
 doctype html
 html
   head
@@ -89,10 +8,10 @@ html
     link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css' integrity='sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==' crossorigin='anonymous' referrerpolicy='no-referrer')
 body
     #sidebar.sidebar
-      h2 Karibu
+      h2 Welcome  Orban 
       a(href='/')
         i.fas.fa-home
-        |  home 
+        |  Home 
       a(href='/addproduceSale')
         i.fas.fa-seedling
         |  Produce Sale 
@@ -131,23 +50,15 @@ body
           ul#lowStock
 
         .card
-          h3 Customer Satisfaction Score
-          #satisfaction.value Loading
+          h3 Weekly Sales
+          #satisfaction.value 
 
         .card
-          h3 Gross Profit Margin
-          #grossProfit.value Loading
+          h3 Monthly Sales
+          #grossProfit.value 
 
         .card
-          h3 Produce Sales List 
-          #produceSaleList.value 
-
-        .card
-          h3 Stock List 
-          #attendance.value 
-
-        .card
-          h3 Logout 
-          #logout.value 
+          h3 Low selling products
+          #lowsellingproducts.value 
 
     script(src='js/directorsDashboard.js')

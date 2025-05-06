@@ -15,7 +15,7 @@ require('dotenv').config();
 const Signup =require('./models/Signup');
 const Register =require('./models/Register');
 const ProduceSale =require('./models/ProduceSale');
-const Credit =require('./models/Credit');
+const Creditsale =require('./models/Credit');
 const Procurement =require('./models/Procurement');
 
 // 2.Instantations

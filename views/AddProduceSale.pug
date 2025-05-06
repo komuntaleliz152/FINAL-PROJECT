@@ -1,31 +1,49 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Produce sale form 
-  link(rel='stylesheet' href='/css/addproducesale.css')
-form#producesalesform( action='/AddProduceSale' method='POST')
-  h2 Produce sale form
-  // Error Message Display
-  #errorMsg.error
-  // Produce Name
-  label(for='produceName') Produce Name
-  input#produce(type='text' name='produceName')
-  // Tonnage
-  label(for='tonnage') Tonnage (kg)
-  input#tonnage(type='number' name='tonnage')
-  // Amount Paid
-  label(for='amount') Amount  (UGX)
-  input#amount(type='text' name='amount')
-  // Buyer Name
-  label(for='buyerName') Buyer Name
-  input#buyerName(type='text' name='buyerName' required='')
-  // Sales Agent
-  label(for='salesAgent') Sales Agent Name
-  input#salesAgent(type='text' name='salesAgent' required='')
-  // Sale Date and Time
-  label(for='saleDateTime') Date and Time
-  input#saleDateTime(type='datetime-local' name='saleDateTime' required='')
-  // Submit Button
-  button(type='submit') Submit Sale
-script(src='js/addproducesale.js')
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Produce Sale Form
+    link(rel='stylesheet', href='/css/addproducesale.css')
+  body
+    form#producesalesform(action='/AddProduceSale', method='POST', onsubmit='return validateForm()')
+      h2 Produce Sale Form
+
+      // Top general error
+      #errorMsg.error
+
+      // Produce Name
+      label(for='produce') Produce Name
+      input#produce(type='text', name='produceName')
+      span.error-msg#produceNameError
+
+      // Tonnage
+      label(for='tonnage') Tonnage (kg)
+      input#tonnage(type='number', name='tonnage')
+      span.error-msg#tonnageError
+
+      // Amount Paid
+      label(for='amount') Amount (UGX)
+      input#amount(type='text', name='amount')
+      span.error-msg#amountError
+
+      // Buyer Name
+      label(for='buyerName') Buyer Name
+      input#buyerName(type='text', name='buyerName', required='')
+      span.error-msg#buyerNameError
+
+      // Sales Agent
+      label(for='salesAgent') Sales Agent Name
+      input#salesAgent(type='text', name='salesAgent', required='')
+      span.error-msg#salesAgentError
+
+      // Sale Date and Time
+      label(for='saleDateTime') Date and Time
+      input#saleDateTime(type='datetime-local', name='saleDateTime', required='')
+      span.error-msg#saleDateTimeError
+
+      // Submit Button
+      button(type='submit') Submit Sale
+
+    script(src='/js/addproducesale.js')
+

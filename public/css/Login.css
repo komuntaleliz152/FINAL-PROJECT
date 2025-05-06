@@ -68,6 +68,21 @@
   .login-btn:hover {
     background: black;
   }
+  /* Red border for inputs with errors */
+.error-border {
+  border: 10px solid red;
+  outline: none;
+}
+
+/* Style for error messages */
+.error-message {
+  color: red;
+  font-size: 0.875rem; /* Slightly smaller than normal text */
+  margin-top: 4px;
+  display: block;
+  font-weight: 500;
+}
+
   
         
     

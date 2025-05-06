@@ -45,11 +45,11 @@ const ProcurementSchema = new mongoose.Schema({
     type: Number,
     trim: true
   },
-  Date: {
+  date: {
     type: Date,
     trim: true
   },
-  Time: {
+  time: {
     type: Number,
     trim: true
   }

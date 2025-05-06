@@ -1,72 +1,105 @@
-/* saleslist.css */
-
-/* Page background and overall text settings */
+/* General Layout */
 body {
-    background-color: #f8f9fa;
-    color: #343a40;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* header.bg-dark.text-light {
+  background-color: ;
+  color: #fff;
+  padding: 1.5rem 0;
+} */
+
+header h1.text-center {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+nav.text-center {
+  margin-top: 10px;
+}
+
+main.container.my-4 {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+form#addStockForm {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form#addStockForm .form-label {
+  font-weight: 500;
+  color: #333;
+  font-size: 1rem;
+}
+
+form#addStockForm .form-control {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+  background-color: #f8f9fa;
+}
+
+form#addStockForm .form-control:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+form#addStockForm .error-message {
+  color: #dc3545;
+  font-size: 0.875rem;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+button.btn.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+button.btn.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  main.container.my-4 {
+    padding: 1rem;
   }
-  
-  /* Header Styling */
-  header {
-    border-bottom: 3px solid #ffc107;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  form#addStockForm {
+    padding: 1.5rem;
   }
-  
-  header h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin: 0;
+
+  button.btn.btn-primary {
+    width: 100%;
   }
-  
-  /* Navigation Buttons */
-  nav a.btn {
-    margin: 0 5px;
-    font-weight: 500;
-  }
-  
-  /* Stock Table Styling */
-  #procurement-table {
-    margin-top: 1.5rem;
-    background-color: #ffffff;
-    border-collapse: collapse;
-  }
-  
-  #procurement-table th {
-    background-color: #343a40;
-    color: white;
-    text-align: center;
-  }
-  
-  #procurement-table td {
-    vertical-align: middle;
-    text-align: center;
-  }
-  
-  /* Action Buttons */
-  td a.btn-primary,
-  td button.btn-danger {
-    margin: 0 2px;
-  }
-  
-  /* Add Button */
-  a.btn-primary.mt-3 {
-    font-weight: 500;
-  }
-  
-  /* Responsive improvements */
-  @media (max-width: 768px) {
-    header h1 {
-      font-size: 1.75rem;
-    }
-  
-    nav a.btn {
-      display: block;
-      margin: 5px auto;
-    }
-  
-    #procurement-table {
-      font-size: 0.9rem;
-    }
-  }
+}
+
+
+
+
+
+
   

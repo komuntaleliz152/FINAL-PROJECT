@@ -9,7 +9,7 @@ body {
   font-family: Arial, sans-serif;
   display: flex;
   height: 100vh;
-  background-color: rgba(152, 183, 180, 0.5);
+  background-color: rgb(236, 236, 236);
 }
 
 .dashboard-container {
@@ -78,7 +78,7 @@ header {
   position: absolute;
   top: -5px;
   right: -5px;
-  background-color: whitesmoke;
+  background-color: #12574f;
   color: white;
   border-radius: 50%;
   padding: 5px 10px;
@@ -144,12 +144,14 @@ header {
 }
 
 .stat-box {
-  background-color: #e9eaea;
+  background-color: white;
   padding: 20px;
   border-radius: 5px;
   flex: 1 1 calc(33.333% - 20px);
   text-align: center;
   min-width: 250px;
+  font-size: 20px;
+  height: 200px;
 }
 
 .stat-box h3 {

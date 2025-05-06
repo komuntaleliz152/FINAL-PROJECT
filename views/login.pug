@@ -1,21 +1,26 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Document
-  link(rel='stylesheet' href='/css/Login.css')
-  | &quot;
-form#loginForm(action='/login' method='post')
-  .input-group
-    label(for='email') Email
-    input#email(type='text' name='email')
-    #emailError.error
-  .input-group
-    label(for='password') Password
-    input#password(type='password' name='password')
-    #passwordError.error
-  .input-group.remember-me
-    input#rememberMe(type='checkbox')
-    label(for='rememberMe') Remember Me
-  button.login-btn(type='submit') Login
-script(src='Login.js')
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Login
+    link(rel='stylesheet' href='/css/Login.css')
+  body
+    form#loginForm(action='/login' method='post')
+      .input-group
+        label(for='email') Email
+        input#email(type='text' name='email')
+        span#emailError.error-message
+
+      .input-group
+        label(for='password') Password
+        input#password(type='password' name='password')
+        span#passwordError.error-message
+
+      .input-group.remember-me
+        input#rememberMe(type='checkbox')
+        label(for='rememberMe') Remember Me
+
+      button.login-btn(type='submit') Login
+
+    script(src='/js/Login.js')

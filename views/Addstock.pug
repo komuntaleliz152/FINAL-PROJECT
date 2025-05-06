@@ -4,13 +4,11 @@ html
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     title Add Stock
-    link(rel='stylesheet', href='/css/addstock.css')
-    link(rel='stylesheet' href='/bootstrap-5.0.2-dist/css/bootstrap.css') 
+    link(rel='stylesheet', href='/css/addstock.css') 
   body
     header.bg-dark.text-light.py-3
       h1.text-center Add New Stock
       nav.text-center
-        a(href='/stocklist' class='btn btn-light') Back to Stock List
 
     main.container.my-4
       form#addStockForm(action='/addstock' method='POST')
@@ -47,13 +45,15 @@ html
           input(type='number', class='form-control', id='sellingPrice', name='sellingPrice')
           span#error-sellingPrice.error-message
         .mb-3
-          label(for='Date' class='form-label')  Date
+          label(for='Date' class='form-label') Date
           input(type='date', class='form-control', id='Date', name='Date')
           span#error-Date.error-message
         .mb-3
           label(for='Time' class='form-label') Time
           input(type='time', class='form-control', id='Time', name='Time')
           span#error-Time.error-message
-        button(type='submit', class='btn btn-primary' me-2 style="width: 400px;") Add Stock
-         a.btn.btn-secondary(href="/stocklist") Back to Stocklist
-    script(src='/js/addstock.js')
+
+        button(type='submit', class='btn btn-primary mt-3') Add Stock
+        
+
+    script(src='/js/addstock.js')  

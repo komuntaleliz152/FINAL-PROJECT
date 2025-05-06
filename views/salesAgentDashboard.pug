@@ -34,19 +34,32 @@ head
   main.content
     header
       h1 Welcome, Sales Agent Dashboard 
-    section.stats
-      .stat-box
-        | Leads: 
-        span#leads 25
-      .stat-box
-        | Deals Closed: 
-        span#deals 10
-      .stat-box
-        | Revenue: shs 
-        span#revenue 50,000
+    
+          // Statistics & Cards (3 per row)
+          .statistics
+            // Row 1
+            .stat-box
+              h3 Sales Today
+              p 1000000ugx
+            .stat-box
+              h3 High Selling Product
+              p Beans
+              p 8000000ugx
+            .stat-box
+              h3 Current products
+              p maize 
+              p beans
+
+            // Row 2
+            .stat-box
+              h3 Low Stock Items
+              ul
+                li Soybeans – 50kgs
+                li Maize – 30 kgs
+            
 
     .table-container
-      h2 Recent Leads
+      h2 Recent Orders
       table
         tr
           th Name
@@ -57,11 +70,11 @@ head
           td Marcus Bruno
           td brunomarcus@gmail.com
           td New
-          td shs50000
+          td shs5000000
         tr
           td Chiru Faith
           td faithchiru@gmail.com
           td In Progress
-          td shs70000
+          td shs7000000
 
 script(src='js/salesAgentDashboard.js')

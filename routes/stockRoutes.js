@@ -58,7 +58,7 @@ router.get("/UpdateProduceProcurement/:id", async (req, res) => {
       if (!produceProcurement) {
         return res.status(404).send("Produce procurement not found");
       }
-      res.render("UpdateProduceProcurement", { produceProcurement });
+      res.render("/UpdateProduceProcurement", { produceProcurement });
     } catch (error) {
       res.status(500).send("Server error while retrieving the produce procurement");
     }

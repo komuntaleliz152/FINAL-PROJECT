@@ -37,11 +37,11 @@ const CreditSchema = new mongoose.Schema({
     trim: true
   },
   dueDate: {
-    type: Number,
-    trim: true,
+    type: Date,
+    trim: true
   },
   dispatchDate: {
-    type: Number,
+    type: Date,
     trim: true,
   },
   salesAgentName: {

@@ -1,51 +1,70 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Credit Sales Table
-  link(rel='stylesheet' href='/public/css/creditSaleList.css')
-.container
-  h2 Credit Sales List
-  table
-    thead
-      tr
-        th Produce Name
-        th Produce Type
-        th Tonnage
-        th Buyer Name
-        th National ID
-        th Contact
-        th Location
-        th Amount Due (UGX)
-        th Due Date
-        th Dispatch Date
-        th Sales Agent
-        th Actions
-    tbody#salesTableBody
-        if sales && sales.length
-            each sale in sales
-            tr
-                td #{sale.Produce Name} 
-                td #{sale.Produce Type}
-                td #{sale.Tonnage} 
-                td #{sale.Buyer Name} 
-                td #{sale.National ID} 
-                td #{sale.Contact} 
-                td #{sale.Location} 
-                td #{sale.Amount Due (UGX)} 
-                td #{sales.Due Date} 
-                td #{sales.Dispatch Date}
-                td #{sales.salesAgentNameSales} 
-                td.actions
-                button.edit-btn(onclick='editRow(this)') Edit
-                button.delete-btn(onclick='deleteRow(this)') Delete
-        else
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Credit Sales Table
+    link(rel='stylesheet', href='/css/creditSaleList.css')
+  body
+    // Top Navigation Bar
+    nav.navbar
+    .nav-container 
+      span.project-name Karibu Groceries Limited
+
+      .nav-links
+        a.nav-link(href='/') Home
+        a.nav-link(href='/addCreditSale') AddCredit
+        a.nav-link(href='/addprocurement') Procurement
+        a.nav-link(href='/logout') Logout
+
+    .container
+      h2 Credit Sales List
+
+      table
+        thead
+          tr
+            th Produce Name
+            th Produce Type
+            th Tonnage
+            th Buyer Name
+            th National ID
+            th Contact
+            th Location
+            th Amount Due (UGX)
+            th Due Date
+            th Dispatch Date
+            th SalesAgentName
+            th Actions
+          
+        tbody#salesTableBody
+          if creditSales && creditSales.length
+            each sale in creditSales
+              tr
+                td #{sale.produceName} 
+                td #{sale.produceType}
+                td #{sale.tonnage} 
+                td #{sale.buyerName} 
+                td #{sale.nationalId} 
+                td #{sale.contact} 
+                td #{sale.location} 
+                td #{sale.amountDue} 
+                td #{sale.dueDate} 
+                td #{sale.dispatchDate}
+                td #{sale.salesAgentName}
+                td
+                  a.btn.btn-primary.update-btn(href='/UpdateCrediteSale/' + sale._id) Update
+                  form(action="/creditSale/delete-creditSale/" method="POST" style="display:inline")
+                    input(type="hidden" name="_id" value=sale._id)
+                    button.btn.btn-danger.delete-btn(type="submit") Delete
+          else
             tr 
-                td(colspan='7') No sales data available
-          button.edit-btn(onclick='editRow(this)') Edit
-          button.delete-btn(onclick='deleteRow(this)') Delete
-  .add-button-container
-    button.credit-btn(onclick='addCredit()') Add Credit Sale
-footer
-  | &copy; 2025 AgriCredit System | All Rights Reserved.
-script(src='creditSaleList.js')
+              td(colspan='12') No sales data available
+
+      .add-button-container
+        button.btn.btn-success.credit-btn(onclick="window.location.href='/addCreditSale'") Add Credit Sale
+
+    footer
+      | &copy; 2025 CreditSalesList System | Developed by Komuntale Elizabeth All Rights Reserved.
+
+    script(src='js/creditSaleList.js')
+

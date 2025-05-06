@@ -13,8 +13,8 @@ router.get("/addCreditSale", (req, res) => {
 router.post('/addCreditSale', async (req, res) => {
     console.log(req.body);
     try {
-        const newCreditSale = new CreditSale(req.body);
-        await newCreditSale.save();
+        const newCredit = new Credit(req.body);
+        await newCredit.save();
         res.redirect('/CreditSalesList');
     } catch (error) {
         console.error("Error saving CreditSale:", error);
@@ -26,9 +26,10 @@ router.post('/addCreditSale', async (req, res) => {
 router.get("/CreditSalesList", async (req, res) => {
   try {
     // Fetch all produce sales from the database and sort them by most recent
-    const creditSales = await creditSale.find().sort({ $natural: -1 });
-    res.render("CreditSalesList", { creditSales }); // Render the list of produce sales
+    const creditSales = await Credit.find().sort({ $natural: -1 });
+    res.render("CreditSaleList", { creditSales }); // Render the list of produce sales
   } catch (error) {
+    console.error("Error fetching credit sales:", error);
     res.status(400).send("Unable to retrieve credit sales from the database");
   }
 });
