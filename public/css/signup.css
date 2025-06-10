@@ -1,3 +1,4 @@
+/* General Body Styling */
 body {
   font-family: 'Segoe UI', sans-serif;
   background-image: url('../img/maize.jpg');
@@ -12,6 +13,7 @@ body {
   align-items: center;
 }
 
+/* Signup Container Styling */
 .signup-container {
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(12px);
@@ -29,6 +31,7 @@ body {
   color: #ffffff;
 }
 
+/* Form Styling */
 form {
   display: flex;
   flex-direction: column;
@@ -69,6 +72,7 @@ select:focus {
   border-color: #28a745;
 }
 
+/* Button Styling */
 button {
   padding: 12px;
   background-color: #28a745;
@@ -85,6 +89,44 @@ button:hover {
   background-color: #218838;
 }
 
+/* Back Button Styling */
+button[type="button"] {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="button"]:hover {
+  background-color: #5a6268;
+}
+
+/* Back Link Button Styling */
+a.back-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: green;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+a.back-button:hover {
+  background-color: #5a6268;
+}
+
+/* Error Styling */
 .error {
   color: #ff6b6b;
   font-size: 0.85rem;
@@ -113,9 +155,16 @@ select.error-border {
   text-align: center;
 }
 
+/* Responsive Layout */
 @media (max-width: 768px) {
   .form-row {
     grid-template-columns: 1fr;
     gap: 15px;
   }
 }
+
+
+
+
+
+

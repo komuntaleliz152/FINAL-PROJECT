@@ -1,3 +1,8 @@
+// Back button functionality
+function goBack() {
+  window.history.back();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('signupForm');
   const password = document.getElementById('password');
@@ -52,23 +57,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const passwordRegex = /^\d{6}$/;
 
-   // Regex: starts with a capital letter, followed by 3+ lowercase letters, and only letters allowed
-// const nameRegex = /^[A-Z][a-zA-Z]{3,}$/;
+    // First Name Validation
+    if (!nameRegex.test(firstName)) {
+      errorFields.firstName.innerText = 'First name must start with a capital letter, contain only letters, and be at least 4 characters.';
+      firstNameField.classList.add('error-border');
+      isValid = false;
+    }
 
-// First Name Validation
-if (!nameRegex.test(firstName)) {
-  errorFields.firstName.innerText = 'First name must start with a capital letter, contain only letters, and be at least 4 characters.';
-  firstNameField.classList.add('error-border');
-  isValid = false;
-}
-
-// Last Name Validation
-if (!nameRegex.test(lastName)) {
-  errorFields.lastName.innerText = 'Last name must start with a capital letter, contain only letters, and be at least 4 characters.';
-  lastNameField.classList.add('error-border');
-  isValid = false;
-}
-
+    // Last Name Validation
+    if (!nameRegex.test(lastName)) {
+      errorFields.lastName.innerText = 'Last name must start with a capital letter, contain only letters, and be at least 4 characters.';
+      lastNameField.classList.add('error-border');
+      isValid = false;
+    }
 
     // Email
     if (!emailRegex.test(email)) {
@@ -77,7 +78,7 @@ if (!nameRegex.test(lastName)) {
       isValid = false;
     }
 
-    // Password (must be exactly 6 digits)
+    // Password
     if (!passwordRegex.test(pwd)) {
       errorFields.password.innerText = 'Password must be exactly 6 digits (numbers only).';
       password.classList.add('error-border');
@@ -110,6 +111,7 @@ if (!nameRegex.test(lastName)) {
     }
   });
 });
+
 
 
 

@@ -21,7 +21,7 @@ body {
 /* Sidebar */
 .sidebar {
   width: 260px;
-  background-color: #146158;
+  background-color: rgb(7, 172, 18);
   color: white;
   padding: 30px 20px;
 }
@@ -72,7 +72,7 @@ header {
 
 .header-container h1 {
   font-size: 28px;
-  color: #146158;
+  color:  rgb(7, 172, 18);
 }
 
 .notification-area {
@@ -84,7 +84,7 @@ header {
 .notification-bell,
 .settings-icon {
   font-size: 22px;
-  color: #146158;
+  color:  rgb(7, 172, 18);
   cursor: pointer;
   position: relative;
 }
@@ -136,7 +136,7 @@ header {
 
 /* Alert Box */
 .alert-box {
-  background-color: #146158;
+  background-color:  rgb(7, 172, 18);
   color: white;
   padding: 15px 20px;
   margin-bottom: 25px;
@@ -173,7 +173,7 @@ header {
 
 .stat-box h3 {
   font-size: 18px;
-  color: #146158;
+  color: rgb(7, 172, 18);
   margin-bottom: 10px;
 }
 

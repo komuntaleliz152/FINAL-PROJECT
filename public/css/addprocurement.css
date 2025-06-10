@@ -1,210 +1,84 @@
-/* === GENERAL PAGE STYLES === */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f0f4f4;
+body, html {
   margin: 0;
   padding: 0;
-  display: flex;
-  min-height: 100vh;
-  overflow: hidden;
-}
-
-/* === DASHBOARD CONTAINER === */
-.dashboard-container {
-  display: flex;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
-/* === SIDEBAR === */
-.sidebar {
-  width: 200px;
-  background-color: #146158;
-  color: white;
-  padding: 20px;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  overflow-y: auto;
-}
-
-.sidebar h2 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar ul li {
-  margin: 15px 0;
-}
-
-.sidebar ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  display: block;
-}
-
-/* === MAIN CONTENT AREA === */
-.main-content {
-  margin-left: 200px; /* Sidebar width */
-  margin-top: 90px;  /* Space for header */
-  margin-bottom: 50px; /* Space for footer */
-  padding: 30px;
-  width: calc(100% - 200px); /* Sidebar adjustment */
-  overflow-y: auto;
-  height: calc(100vh - 140px); /* Accommodates header and footer */
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-}
-
-/* === HEADER === */
-.page-header {
-  position: fixed;
-  top: 0;
-  left: 240px; /* Adjusted to match sidebar width */
-  right: 0;
-  height: 70px;
-  background-color: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  padding: 0 30px;
+  font-family: 'Segoe UI', sans-serif;
+  height: 100%;
+  background: url('/img/back.jpg') no-repeat center center/cover;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  z-index: 1000;
-}
-
-/* Header Title */
-.page-header h1 {
-  font-size: 22px;
-  color: #146158;
-}
-
-/* Header Icons */
-.icon-area i {
-  font-size: 20px;
-  margin-left: 20px;
-  color: #146158;
-  cursor: pointer;
-}
-
-/* === FOOTER === */
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 200px;
-  right: 0;
-  height: 50px;
-  background-color: #146158;
-  color: white;
-  font-size: 14px;
-  text-align: center;
-  line-height: 50px;
-  z-index: 1000;
-  border-top: 2px solid #12574f;
-}
-
-/* === FORM WRAPPER === */
-.form-wrapper {
-  flex-grow: 1;
-  display: flex;
   justify-content: center;
-  align-items: flex-start;
-  overflow-y: auto;
 }
 
-/* === FORM CONTAINER === */
-.form-container {
-  background-color: #ffffff;
-  padding: 35px 40px;
+.background {
+  backdrop-filter: blur(5px);
+  background-color: rgba(43, 42, 42, 0.65);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 700px;
+  width: 100%;
+  color: white;
+}
+
+.form-card {
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  width: 420px;
-  max-width: 100%;
-  border-top: 8px solid #146158;
-  margin-bottom: 30px;
+  padding: 30px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 
-h2 {
+.form-card h1 {
   text-align: center;
-  margin-bottom: 25px;
-  color: #146158;
-  font-size: 24px;
-}
-
-/* === FORM ELEMENTS === */
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group {
-  margin-bottom: 18px;
-}
-
-label {
-  font-weight: 600;
-  margin-bottom: 6px;
-  display: block;
+  margin-bottom: 20px;
+  font-size: 26px;
   color: #333;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="tel"],
-input[type="date"],
-input[type="time"],
-select {
-  width: 100%;
-  padding: 10px 12px;
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  background-color: #fafafa;
-  font-size: 15px;
-  transition: border 0.3s ease;
+  border-radius: 8px;
+  font-size: 14px;
 }
 
-input:focus,
-select:focus {
-  border-color: #146158;
-  outline: none;
-}
-
-/* === BUTTON STYLES === */
-.form-group button.button {
+.submit-btn {
+  margin-top: 20px;
   width: 100%;
   padding: 12px;
-  background-color: #146158;
+  background-color: #28a745;
   color: white;
-  font-size: 16px;
-  font-weight: bold;
   border: none;
-  border-radius: 6px;
+  font-size: 16px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s;
 }
 
-.form-group button.button:hover {
-  background-color: #0e4b45;
+.submit-btn:hover {
+  background-color: #218838;
 }
 
-/* === ERROR STYLING === */
-.error-message {
-  color: red;
-  font-size: 13px;
-  margin-top: 4px;
-  display: block;
+footer.footer {
+  background-color: #222;
+  color: #ccc;
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 14px;
 }
-
-input.error,
-select.error {
-  border: 2px solid red;
-}
-

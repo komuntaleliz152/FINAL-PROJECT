@@ -4,7 +4,8 @@ function validateForm() {
       el: document.getElementById("produce"),
       min: 4,
       errorId: "produceNameError",
-      msg: "Produce name must be at least 4 characters."
+      msg: "Produce name must be at least 4 characters and contain only letters.",
+      letterOnly: true
     },
     {
       el: document.getElementById("tonnage"),
@@ -22,13 +23,15 @@ function validateForm() {
       el: document.getElementById("buyerName"),
       min: 3,
       errorId: "buyerNameError",
-      msg: "Buyer name must be at least 3 characters."
+      msg: "Buyer name must be at least 3 characters and contain only letters.",
+      letterOnly: true
     },
     {
       el: document.getElementById("salesAgent"),
       min: 4,
       errorId: "salesAgentError",
-      msg: "Sales agent name must be at least 4 characters."
+      msg: "Sales agent name must be at least 4 characters and contain only letters.",
+      letterOnly: true
     },
     {
       el: document.getElementById("saleDateTime"),
@@ -54,6 +57,10 @@ function validateForm() {
     const value = field.el.value.trim();
     if (value.length < field.min) {
       document.getElementById(field.errorId).innerText = field.msg;
+      field.el.classList.add("input-error");
+      isValid = false;
+    } else if (field.letterOnly && !/^[A-Za-z\s]+$/.test(value)) {
+      document.getElementById(field.errorId).innerText = "Only letters are allowed.";
       field.el.classList.add("input-error");
       isValid = false;
     }

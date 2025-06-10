@@ -2,68 +2,70 @@ doctype html
 html
   head
     meta(charset='UTF-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Add Stock
-    link(rel='stylesheet', href='/css/addstock.css') 
-  body
-    header.bg-dark.text-light.py-3
-      h1.text-center Add New Stock
-      nav#navbar.text-center
-        | Manage Inventory | Reports | Settings
+    link(rel='stylesheet', href='/css/addstock.css')
 
-    main.container.my-4
+  body
+    header.header-bar
+      h1.page-title Add New Stock
+      button.back-button(type='button', onclick='history.back()') ← Back
+      nav#navbar
+        //- Navigation content goes here (if any)
+
+    main.container
       form#addStockForm(action='/addstock', method='POST')
         .mb-3
-          label(for='produceName', class='form-label') Produce Name
-          input(type='text', class='form-control', id='produceName', name='produceName')
+          label.form-label(for='produceName') Produce Name
+          input#produceName.form-control(type='text', name='produceName')
           span#error-produceName.error-message
 
         .mb-3
-          label(for='produceType', class='form-label') Type of Produce
-          input(type='text', class='form-control', id='produceType', name='produceType')
+          label.form-label(for='produceType') Type of Produce
+          input#produceType.form-control(type='text', name='produceType')
           span#error-produceType.error-message
 
         .mb-3
-          label(for='tonnage', class='form-label') Tonnage (kg)
-          input(type='number', class='form-control', id='tonnage', name='tonnage')
+          label.form-label(for='tonnage') Tonnage (kg)
+          input#tonnage.form-control(type='number', name='tonnage')
           span#error-tonnage.error-message
 
         .mb-3
-          label(for='cost', class='form-label') Cost
-          input(type='number', class='form-control', id='cost', name='cost')
+          label.form-label(for='cost') Cost
+          input#cost.form-control(type='number', name='cost')
           span#error-cost.error-message
 
         .mb-3
-          label(for='dealerName', class='form-label') Dealer Name
-          input(type='text', class='form-control', id='dealerName', name='dealerName')
+          label.form-label(for='dealerName') Dealer Name
+          input#dealerName.form-control(type='text', name='dealerName')
           span#error-dealerName.error-message
 
         .mb-3
-          label(for='branchName', class='form-label') Branch Name
-          input(type='text', class='form-control', id='branchName', name='branchName')
+          label.form-label(for='branchName') Branch Name
+          input#branchName.form-control(type='text', name='branchName')
           span#error-branchName.error-message
 
         .mb-3
-          label(for='contact', class='form-label') Contact
-          input(type='text', class='form-control', id='contact', name='contact')
+          label.form-label(for='contact') Contact
+          input#contact.form-control(type='text', name='contact')
           span#error-contact.error-message
 
         .mb-3
-          label(for='sellingPrice', class='form-label') Selling Price
-          input(type='number', class='form-control', id='sellingPrice', name='sellingPrice')
+          label.form-label(for='sellingPrice') Selling Price
+          input#sellingPrice.form-control(type='number', name='sellingPrice')
           span#error-sellingPrice.error-message
 
         .mb-3
-          label(for='Date', class='form-label') Date
-          input(type='date', class='form-control', id='Date', name='Date')
+          label.form-label(for='Date') Date
+          input#Date.form-control(type='date', name='Date')
           span#error-Date.error-message
 
         .mb-3
-          label(for='Time', class='form-label') Time
-          input(type='time', class='form-control', id='Time', name='Time')
+          label.form-label(for='Time') Time
+          input#Time.form-control(type='time', name='Time')
           span#error-Time.error-message
 
-        button(type='submit', class='btn btn-primary mt-3') Add Stock
+        button.btn.btn-primary.mt-3(type='submit') Add Stock
 
     script(src='/js/addstock.js')
     script.
