@@ -3,6 +3,9 @@ head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Sales Agent Dashboard
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' rel='stylesheet')
   link(rel='stylesheet' href='css/salesAgentDashboard.css')
   link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css' integrity='sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==' crossorigin='anonymous' referrerpolicy='no-referrer')
 
@@ -33,48 +36,48 @@ head
 
   main.content
     header
-      h1 Welcome, Sales Agent Dashboard 
+      h1 Welcome, Sales Agent Dashboard
+      p Track your sales performance and manage orders efficiently 
     
-          // Statistics & Cards (3 per row)
-          .statistics
-            // Row 1
-            .stat-box
-              h3 Sales Today
-              p 1000000ugx
-            .stat-box
-              h3 High Selling Product
-              p Beans
-              p 8000000ugx
-            .stat-box
-              h3 Current products
-              p maize 
-              p beans
+    // Error message display
+    .error-message(id='errorMessage' style='display: none;')
+      i.fas.fa-exclamation-circle
+      span#errorText
+      button.close-btn(onclick="document.getElementById('errorMessage').style.display='none'") ×
 
-            // Row 2
-            .stat-box
-              h3 Low Stock Items
-              ul
-                li Soybeans – 50kgs
-                li Maize – 30 kgs
+    // Statistics & Cards (3 per row)
+    .statistics(id='statisticsContainer')
+      // Loading spinner
+      .loader(id='statisticsLoader')
+      
+      // Row 1
+      .stat-box(id='salesToday')
+        h3 Sales Today
+        p(id='salesTodayValue') —
+      .stat-box(id='highSellingProduct')
+        h3 High Selling Product
+        p(id='productName') —
+        p(id='productValue') —
+      .stat-box(id='currentProducts')
+        h3 Current Products
+        p(id='productsList') —
+
+      // Row 2
+      .stat-box(id='lowStockItems')
+        h3 Low Stock Items
+        ul(id='lowStockList')
+          li —
             
 
-    .table-container
+    .table-container(id='tableContainer')
       h2 Recent Orders
-      table
+      .loader(id='tableLoader')
+      table(id='ordersTable' style='display: none;')
         tr
           th Name
           th Contact
           th Status
           th Value
-        tr
-          td Marcus Bruno
-          td brunomarcus@gmail.com
-          td New
-          td shs5000000
-        tr
-          td Chiru Faith
-          td faithchiru@gmail.com
-          td In Progress
-          td shs7000000
+        tbody(id='ordersTableBody')
 
 script(src='js/salesAgentDashboard.js')
