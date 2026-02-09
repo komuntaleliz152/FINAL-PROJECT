@@ -4,6 +4,9 @@ html
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Update Produce Sale
+    link(rel='preconnect' href='https://fonts.googleapis.com')
+    link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+    link(href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' rel='stylesheet')
     link(rel='stylesheet', href='/css/UpdateProduceSale.css')
   body
     form#producesalesform(action='/UpdateProduceSale/' + produceSale._id, method='POST')
@@ -17,23 +20,23 @@ html
 
       // Produce Name
       label(for='produce') Produce Name
-      input#produce(type='text', name='produceName', value=produceSale.produceName)
+      input#produce(type='text', name='produceName', value=produceSale.produceName, placeholder='Enter produce name')
 
       // Tonnage
       label(for='tonnage') Tonnage (kg)
-      input#tonnage(type='number', name='tonnage', value=produceSale.tonnage)
+      input#tonnage(type='number', name='tonnage', value=produceSale.tonnage, placeholder='Enter tonnage')
 
       // Amount Paid
       label(for='amount') Amount (UGX)
-      input#amount(type='text', name='amount', value=produceSale.amount)
+      input#amount(type='text', name='amount', value=produceSale.amount, placeholder='Enter amount')
 
       // Buyer Name
       label(for='buyerName') Buyer Name
-      input#buyerName(type='text', name='buyerName', value=produceSale.buyerName)
+      input#buyerName(type='text', name='buyerName', value=produceSale.buyerName, placeholder='Enter buyer name')
 
       // Sales Agent
       label(for='salesAgent') Sales Agent Name
-      input#salesAgent(type='text', name='salesAgent', value=produceSale.salesAgent)
+      input#salesAgent(type='text', name='salesAgent', value=produceSale.salesAgent, placeholder='Enter sales agent name')
 
       // Sale Date and Time
       label(for='saleDateTime') Date and Time

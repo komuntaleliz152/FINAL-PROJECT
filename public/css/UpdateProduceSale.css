@@ -1,79 +1,155 @@
 /* UpdateProduceSale.css */
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: url('../img/home.jpg');
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-image: url('../img/home.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+form#producesalesform {
+  background-color: rgba(43, 42, 42, 0.75);
+  backdrop-filter: blur(12px);
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  max-width: 550px;
+  width: 100%;
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h2 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+label {
+  display: block;
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #f1f1f1;
+  font-size: 15px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="datetime-local"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 15px;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #2d3748;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+input[type="text"]::placeholder,
+input[type="number"]::placeholder {
+  color: #a0aec0;
+}
+
+input:focus {
+  border-color: #228B22;
+  outline: none;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(34, 139, 34, 0.1);
+  transform: translateY(-1px);
+}
+
+#errorMsg.error {
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 4px solid #ff6b6b;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  display: none;
+  font-weight: 500;
+}
+
+button[type="submit"] {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #228B22 0%, #1e7a1e 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(34, 139, 34, 0.3);
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(135deg, #1e7a1e 0%, #196619 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(34, 139, 34, 0.4);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+
   form#producesalesform {
-    background-color:  rgba(42, 157, 143, 0.5);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    width: 100%;
+    padding: 2rem 1.5rem;
   }
-  
+
   h2 {
-    text-align: center;
-    color: #2c3e50;
-    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
   }
-  
+
   label {
-    display: block;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: black;
+    font-size: 14px;
   }
-  
+
   input[type="text"],
   input[type="number"],
-  input[type="datetime-local"],
-  input[type="hidden"] {
-    width: 100%;
-    padding: 0.6rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-sizing: border-box;
-    font-size: 1rem;
+  input[type="datetime-local"] {
+    padding: 10px 12px;
+    font-size: 14px;
   }
-  
-  input:focus {
-    border-color: #2980b9;
-    outline: none;
-    box-shadow: 0 0 5px rgba(41, 128, 185, 0.3);
-  }
-  
-  #errorMsg.error {
-    color: #e74c3c;
-    margin-bottom: 1rem;
-    text-align: center;
-    display: none; /* Can be shown via JS on error */
-  }
-  
-  button[type="submit"] {
-    margin-top: 1.5rem;
-    width: 100%;
-    padding: 0.75rem;
-    background-color: rgba(42, 157, 143, 0.5); 
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: black;
-  }
+}
   
   
