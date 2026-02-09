@@ -4,56 +4,100 @@ html
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     title Produce Procurement Form
+    link(rel='preconnect' href='https://fonts.googleapis.com')
+    link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+    link(href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' rel='stylesheet')
     link(rel='stylesheet', href='/css/addprocurement.css')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css')
   body
-    .background
-      .form-card
-        h1 Produce Procurement Form
-        form#produceForm(action='/addprocurement' method='POST')
-          .form-grid
-            .form-group
-              label(for='produceName') Name of Produce
-              input#produceName(type='text' name='produceName')
+    // Navbar
+    nav.navbar
+      ul
+        li
+          a(href='/ManagerDashboard')
+            i.fas.fa-home
+            |  Dashboard
+        li
+          a(href='/addprocurement')
+            i.fas.fa-shopping-cart
+            |  Procurement
+        li
+          a(href='/addstock')
+            i.fas.fa-box
+            |  Stock
+        li
+          a(href='/logout')
+            i.fas.fa-sign-out-alt
+            |  Logout
 
-            .form-group
-              label(for='produceType') Type of Produce
-              select#produceType(name='produceType' required)
-                option(value='') Select type
-                option(value='Grain') Grain
-                option(value='Legume') Legume
+    // Form Container
+    .container
+      h2 Produce Procurement Form
+      form#produceForm(action='/addprocurement' method='POST')
+        .form-grid
+          .form-group
+            label(for='produceName')
+              i.fas.fa-leaf
+              |  Name of Produce
+            input#produceName(type='text' name='produceName' placeholder='Enter produce name' required)
 
-            .form-group
-              label(for='tonnage') Tonnage (kg)
-              input#tonnage(type='number' name='tonnage')
+          .form-group
+            label(for='produceType')
+              i.fas.fa-tag
+              |  Type of Produce
+            select#produceType(name='produceType' required)
+              option(value='') Select type
+              option(value='Grain') Grain
+              option(value='Legume') Legume
 
-            .form-group
-              label(for='cost') Cost (UGX)
-              input#cost(type='number' name='cost')
+          .form-group
+            label(for='tonnage')
+              i.fas.fa-weight
+              |  Tonnage (kg)
+            input#tonnage(type='number' name='tonnage' placeholder='Enter tonnage' required)
 
-            .form-group
-              label(for='dealerName') Dealer Name
-              input#dealerName(type='text' name='dealerName')
+          .form-group
+            label(for='cost')
+              i.fas.fa-money-bill-wave
+              |  Cost (UGX)
+            input#cost(type='number' name='cost' placeholder='Enter cost' required)
 
-            .form-group
-              label(for='branchName') Branch Name
-              select#branchName(name='branchName')
-                option(value='') Select Branch
-                option(value='Mattuga') Mattuga
-                option(value='Maganjo') Maganjo
+          .form-group
+            label(for='dealerName')
+              i.fas.fa-user
+              |  Dealer Name
+            input#dealerName(type='text' name='dealerName' placeholder='Enter dealer name' required)
 
-            .form-group
-              label(for='contact') Dealer Contact
-              input#contact(type='tel' name='contact')
+          .form-group
+            label(for='branchName')
+              i.fas.fa-store
+              |  Branch Name
+            select#branchName(name='branchName' required)
+              option(value='') Select Branch
+              option(value='Mattuga') Mattuga
+              option(value='Maganjo') Maganjo
 
-            .form-group
-              label(for='date') Date
-              input#date(type='date' name='date')
+          .form-group
+            label(for='contact')
+              i.fas.fa-phone
+              |  Dealer Contact
+            input#contact(type='tel' name='contact' placeholder='Enter contact number' required)
 
-            .form-group
-              label(for='time') Time of Produce
-              input#time(type='time' name='time')
+          .form-group
+            label(for='date')
+              i.fas.fa-calendar
+              |  Date
+            input#date(type='date' name='date' required)
 
-          button.submit-btn(type='submit') Submit produce
-      footer.footer
+          .form-group
+            label(for='time')
+              i.fas.fa-clock
+              |  Time of Produce
+            input#time(type='time' name='time' required)
+
+        button.submit-btn(type='submit')
+          i.fas.fa-check-circle
+          |  Submit Procurement
+
+    footer.footer
       p © 2025 Karibu Grocery Limited. All rights reserved.    
