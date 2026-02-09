@@ -1,3 +1,39 @@
+// Thousand separator utility
+const formatNumber = (num) => {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
+const removeCommas = (str) => {
+  return str.replace(/,/g, "");
+};
+
+// Add thousand separator and date restriction on page load
+document.addEventListener('DOMContentLoaded', () => {
+  const amountField = document.getElementById('amount');
+  const dateTimeField = document.getElementById('saleDateTime');
+  
+  // Set datetime field to now and restrict to today only
+  const now = new Date();
+  const today = now.toISOString().split('T')[0];
+  const currentTime = now.toTimeString().slice(0, 5);
+  const currentDateTime = `${today}T${currentTime}`;
+  
+  if (dateTimeField) {
+    dateTimeField.value = currentDateTime;
+    dateTimeField.setAttribute('max', `${today}T23:59`);
+    dateTimeField.setAttribute('min', `${today}T00:00`);
+  }
+  
+  if (amountField) {
+    amountField.addEventListener("input", (e) => {
+      let value = removeCommas(e.target.value);
+      if (value && !isNaN(value)) {
+        e.target.value = formatNumber(value);
+      }
+    });
+  }
+});
+
 function validateForm() {
   const fields = [
     {
@@ -54,7 +90,13 @@ function validateForm() {
 
   // Validate each field
   fields.forEach(field => {
-    const value = field.el.value.trim();
+    let value = field.el.value.trim();
+    
+    // Remove commas for amount field validation
+    if (field.el.id === 'amount') {
+      value = removeCommas(value);
+    }
+    
     if (value.length < field.min) {
       document.getElementById(field.errorId).innerText = field.msg;
       field.el.classList.add("input-error");
@@ -71,6 +113,10 @@ function validateForm() {
     const topError = document.getElementById("errorMsg");
     topError.style.display = "block";
     topError.innerText = "Please correct the highlighted errors.";
+  } else {
+    // Remove commas before submission
+    const amountField = document.getElementById("amount");
+    amountField.value = removeCommas(amountField.value);
   }
 
   return isValid;

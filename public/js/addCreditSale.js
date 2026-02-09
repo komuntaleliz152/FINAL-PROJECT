@@ -1,3 +1,35 @@
+// Thousand separator utility
+const formatNumber = (num) => {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
+const removeCommas = (str) => {
+  return str.replace(/,/g, "");
+};
+
+// Add thousand separator on page load
+document.addEventListener('DOMContentLoaded', () => {
+  const amountDueField = document.getElementById('amountDue');
+  const dispatchDateField = document.getElementById('dispatchDate');
+  
+  // Set dispatch date to today and restrict to today only
+  const today = new Date().toISOString().split('T')[0];
+  if (dispatchDateField) {
+    dispatchDateField.value = today;
+    dispatchDateField.setAttribute('max', today);
+    dispatchDateField.setAttribute('min', today);
+  }
+  
+  if (amountDueField) {
+    amountDueField.addEventListener("input", (e) => {
+      let value = removeCommas(e.target.value);
+      if (value && !isNaN(value)) {
+        e.target.value = formatNumber(value);
+      }
+    });
+  }
+});
+
 function validateForm() {
   let valid = true;
 
@@ -8,7 +40,7 @@ function validateForm() {
   const location = document.getElementById('location').value.trim();
   const contactRaw = document.getElementById('contact').value.trim();
   const contact = contactRaw.replace(/\s/g, ''); // remove spaces
-  const amountDueRaw = document.getElementById('amountDue').value.trim();
+  const amountDueRaw = removeCommas(document.getElementById('amountDue').value.trim());
   const amountDue = parseFloat(amountDueRaw);
   const salesAgentName = document.getElementById('salesAgentName').value.trim();
   const dueDate = document.getElementById('dueDate')?.value;
@@ -90,20 +122,14 @@ function validateForm() {
     valid = false;
   }
 
-  // Final check
+  // Remove commas before submission
   if (valid) {
+    document.getElementById('amountDue').value = removeCommas(document.getElementById('amountDue').value);
     document.getElementById('formSuccess').innerText = '✅ Credit Sale successfully registered!';
     return true; 
   }
 
-  // return false; prevent submission if not valid
-}
-
-
-// Optional validation placeholder
-function validateForm() {
-  // Basic client-side check
-  return true;
+  return false;
 }
 
 

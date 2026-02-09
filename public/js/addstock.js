@@ -1,6 +1,41 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('addStockForm');
 
+  // Set date field to today and restrict to today only
+  const dateField = document.getElementById('Date');
+  const today = new Date().toISOString().split('T')[0];
+  dateField.value = today;
+  dateField.setAttribute('max', today);
+  dateField.setAttribute('min', today);
+
+  // Thousand separator utility
+  const formatNumber = (num) => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
+  const removeCommas = (str) => {
+    return str.replace(/,/g, "");
+  };
+
+  // Add thousand separator to cost and selling price fields
+  const costField = document.getElementById('cost');
+  const sellingPriceField = document.getElementById('sellingPrice');
+
+  [costField, sellingPriceField].forEach(field => {
+    field.addEventListener("input", (e) => {
+      let value = removeCommas(e.target.value);
+      if (value && !isNaN(value)) {
+        e.target.value = formatNumber(value);
+      }
+    });
+  });
+
+  // Remove commas before form submission
+  form.addEventListener("submit", (e) => {
+    costField.value = removeCommas(costField.value);
+    sellingPriceField.value = removeCommas(sellingPriceField.value);
+  });
+
   // Helper functions
   const isOnlyLetters = str => /^[A-Za-z\s]+$/.test(str);
   const isValidUgandanPhone = str => /^07\d{8}$/.test(str);
@@ -19,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       message: 'Tonnage must be at least 3 characters long.'
     },
     cost: {
-      validate: value => value.trim().length >= 5,
+      validate: value => removeCommas(value).trim().length >= 5,
       message: 'Cost must be at least 5 characters long.'
     },
     dealerName: {
@@ -35,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
       message: 'Contact must be a valid Ugandan number (e.g. 07XXXXXXXX).'
     },
     sellingPrice: {
-      validate: value => value.trim().length >= 5,
+      validate: value => removeCommas(value).trim().length >= 5,
       message: 'Selling price must be at least 5 characters long.'
     },
     Date: {

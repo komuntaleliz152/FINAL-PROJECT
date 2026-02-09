@@ -21,6 +21,34 @@ document.addEventListener("DOMContentLoaded", () => {
     date: document.getElementById("dateError")
   };
 
+  // Set date field to today and restrict to today only
+  const today = new Date().toISOString().split('T')[0];
+  fields.date.value = today;
+  fields.date.setAttribute('max', today);
+  fields.date.setAttribute('min', today);
+
+  // Thousand separator utility
+  const formatNumber = (num) => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
+  const removeCommas = (str) => {
+    return str.replace(/,/g, "");
+  };
+
+  // Add thousand separator to cost field
+  fields.cost.addEventListener("input", (e) => {
+    let value = removeCommas(e.target.value);
+    if (value && !isNaN(value)) {
+      e.target.value = formatNumber(value);
+    }
+  });
+
+  // Remove commas before form submission
+  form.addEventListener("submit", (e) => {
+    fields.cost.value = removeCommas(fields.cost.value);
+  });
+
   const isAlphaNum = str => /^[A-Za-z0-9 ]+$/.test(str);
   const isNumeric = str => /^[0-9]+$/.test(str);
   const isPhone = num => /^\+256\d{9}$/.test(num);
@@ -56,7 +84,8 @@ document.addEventListener("DOMContentLoaded", () => {
       isValid = false;
     }
 
-    if (!cost.value || !isNumeric(cost.value) || cost.value.length < 5) {
+    const costValue = removeCommas(cost.value);
+    if (!costValue || !isNumeric(costValue) || costValue.length < 5) {
       setError("cost", "Cost must be numeric and at least 5 digits.");
       isValid = false;
     }
