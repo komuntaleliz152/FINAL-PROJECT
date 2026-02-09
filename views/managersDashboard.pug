@@ -43,21 +43,23 @@ html
 
       // Main Content
       main.main-content
+        .notification-area
+          .notification-bell(onclick='toggleNotifications()')
+            i.fas.fa-bell
+            span#notification-count.badge 3
+          .settings-icon
+            i.fas.fa-cog
+          #notification-dropdown.notification-dropdown
+            h4 Notifications
+            ul
+              li New stock added: Beans
+              li Customer order #223 completed
+              li New message from the supplier
+
         header
           .header-container
             h1 Manager's Dashboard
-            .notification-area
-              .notification-bell(onclick='toggleNotifications()')
-                i.fas.fa-bell
-                span#notification-count.badge 3
-              .settings-icon
-                i.fas.fa-cog
-              #notification-dropdown.notification-dropdown
-                h4 Notifications
-                ul
-                  li New stock added: Beans
-                  li Customer order #223 completed
-                  li New message from the supplier
+            p Manage inventory, track sales, and monitor business operations
 
         section.overview
           #alert-box.alert-box
