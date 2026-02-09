@@ -6,6 +6,7 @@ html(lang="en")
     title Procurement List
     link(rel="stylesheet" href="/bootstrap-5.0.2-dist/css/bootstrap.min.css")
     link(rel="stylesheet" href="/css/procurementlist.css")
+    link(rel="stylesheet" href="/css/deleteModal.css")
 
   body
     // Header Section
@@ -48,7 +49,7 @@ html(lang="en")
                 td= procurement.time
                 td
                   a.update-btn(href="/UpdateProduceProcurement/" + procurement._id) Update
-                  form(method="POST", action="/delete-procurement", style="display:inline;")
+                  form(method="POST", action="/delete-procurement", style="display:inline;" onsubmit="return showDeleteConfirmation('Are you sure you want to delete this procurement?', '#{procurement.produceName}', this)")
                     input(type="hidden", name="id", value=procurement._id)
                     button.delete-btn(type="submit") Delete
           else
@@ -63,4 +64,6 @@ html(lang="en")
     footer.bg-dark.text-light.py-3.mt-5
       .container.text-center
         p.mb-0 © #{year} Procurement System by Komuntale Elizabeth. All rights reserved.
+
+    script(src="/js/deleteModal.js")
 

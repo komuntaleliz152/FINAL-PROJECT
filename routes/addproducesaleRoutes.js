@@ -34,23 +34,25 @@ router.get("/produceSalesList", async (req, res) => {
 });
 
 // Show update form for a specific sale
-router.get("/updateProduceSale/:id", async (req, res) => {
+router.get("/UpdateProduceSale/:id", async (req, res) => {
   try {
     // Find the produce sale by ID
     const produceSale = await ProduceSale.findById(req.params.id);
-    res.render("updateProduceSale", { produceSale }); // Render the form for updating the sale
+    res.render("UpdateProduceSale", { produceSale }); // Render the form for updating the sale
   } catch (error) {
+    console.error("Error finding produce sale:", error);
     res.status(400).send("Unable to find the produce sale to update");
   }
 });
 
 // Handle produce sale update submission
-router.post("/updateProduceSale", async (req, res) => {
+router.post("/UpdateProduceSale/:id", async (req, res) => {
   try {
     // Update the produce sale by its ID
-    await ProduceSale.findByIdAndUpdate(req.body.id, req.body);
+    await ProduceSale.findByIdAndUpdate(req.params.id, req.body);
     res.redirect("/produceSalesList"); // Redirect to the list of sales after successful update
   } catch (error) {
+    console.error("Error updating produce sale:", error);
     res.status(400).send("Unable to update the produce sale");
   }
 });
