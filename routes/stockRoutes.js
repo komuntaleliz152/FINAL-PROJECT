@@ -142,4 +142,16 @@ router.post("/UpdateStock/:id", async (req, res) => {
     }
 });
 
+// ROUTE: Delete stock
+router.post("/deleteStock", async (req, res) => {
+    try {
+        console.log("Deleting stock:", req.body);
+        await Stock.deleteOne({ _id: req.body._id });
+        res.redirect("/stocklist");
+    } catch (error) {
+        console.error("Error deleting stock:", error);
+        res.status(400).send("Unable to delete the stock");
+    }
+});
+
 module.exports = router;

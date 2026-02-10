@@ -119,6 +119,17 @@ h2 {
   font-size: 14px;
 }
 
+/* Action column alignment */
+#stockTable td:last-child {
+  text-align: center;
+  white-space: nowrap;
+}
+
+#stockTable td form {
+  display: inline-block;
+  margin: 0;
+}
+
 .no-data {
   text-align: center;
   color: #a0aec0;
@@ -173,7 +184,7 @@ h2 {
 
 /* BUTTONS */
 button.btn {
-  margin-right: 8px;
+  margin: 0 4px;
   border: none;
   border-radius: 8px;
   color: white;
@@ -182,37 +193,57 @@ button.btn {
   transition: all 0.2s ease;
   font-size: 13px;
   font-family: 'Inter', sans-serif;
+  padding: 8px 20px;
+  vertical-align: middle;
+}
+
+.btn {
+  margin: 0 4px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  padding: 8px 20px;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* UPDATE BUTTON */
-button.btn-update {
-  background: linear-gradient(135deg, #228B22 0%, #1e7a1e 100%);
-  padding: 8px 16px;
-  box-shadow: 0 2px 6px rgba(34, 139, 34, 0.3);
+button.btn-update,
+a.btn-update {
+  background: #28a745;
+  color: white;
+  box-shadow: 0 2px 6px rgba(40, 167, 69, 0.3);
 }
 
-button.btn-update:hover {
-  background: linear-gradient(135deg, #1e7a1e 0%, #196619 100%);
+button.btn-update:hover,
+a.btn-update:hover {
+  background: #218838;
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(34, 139, 34, 0.4);
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.4);
 }
 
 /* DELETE BUTTON */
 button.btn-delete {
-  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-  padding: 8px 16px;
-  box-shadow: 0 2px 6px rgba(239, 68, 68, 0.3);
+  background: #dc3545;
+  color: white;
+  box-shadow: 0 2px 6px rgba(220, 53, 69, 0.3);
 }
 
 button.btn-delete:hover {
-  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  background: #c82333;
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.4);
+  box-shadow: 0 4px 10px rgba(220, 53, 69, 0.4);
 }
 
 /* ADD BUTTON */
 button.btn-success.add-btn {
-  background: linear-gradient(135deg, #228B22 0%, #1e7a1e 100%);
+  background: #228B22;
   color: white;
   padding: 12px 24px;
   border-radius: 8px;
@@ -222,7 +253,7 @@ button.btn-success.add-btn {
 }
 
 button.btn-success.add-btn:hover {
-  background: linear-gradient(135deg, #1e7a1e 0%, #196619 100%);
+  background: #1e7a1e;
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(34, 139, 34, 0.4);
 }

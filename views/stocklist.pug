@@ -8,6 +8,7 @@ html
     link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
     link(href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' rel='stylesheet')
     link(rel='stylesheet' href='/css/stocklist.css')
+    link(rel='stylesheet' href='/css/deleteModal.css')
   body
     // Top Navigation Bar
     nav.navbar
@@ -52,7 +53,9 @@ html
                 td= stock.time
                 td
                   a.btn.btn-update(href='/UpdateStock/' + stock._id) Update
-                  button.btn.btn-delete(type='button', onclick='deleteRow(this)') Delete
+                  form(method="POST", action="/deleteStock", style="display:inline;" onsubmit="return showDeleteConfirmation('Are you sure you want to delete this stock?', '#{stock.produceName}', this)")
+                    input(type="hidden", name="_id", value=stock._id)
+                    button.btn.btn-delete(type="submit") Delete
           else
             tr
               td(colspan="10" class="no-data") No stock data available.
@@ -63,4 +66,5 @@ html
     footer
       | &copy; 2025 Karibu Grocery Limited. All rights reserved.
 
+    script(src='/js/deleteModal.js')
     script(src='/js/stocklist.js')
