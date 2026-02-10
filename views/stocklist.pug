@@ -4,23 +4,35 @@ html
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     title Karibu Grocery - Stock Management
+    link(rel='preconnect' href='https://fonts.googleapis.com')
+    link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+    link(href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' rel='stylesheet')
     link(rel='stylesheet' href='/css/stocklist.css')
   body
-    header
-      h1  Stock Management
+    // Top Navigation Bar
+    nav.navbar
+      .nav-container 
+        span.project-name Karibu Groceries Limited
 
-    main
+        .nav-links
+          a.nav-link(href='/ManagerDashboard') Dashboard
+          a.nav-link(href='/addStock') Add Stock
+          a.nav-link(href='/procurementlist') Procurement List
+          a.nav-link(href='/logout') Logout
+
+    .container
+      h2 Stock Management
 
       table#stockTable
         thead
           tr
             th Produce Name
             th Product Type
-            th Tonnage 
-            th Cost 
+            th Tonnage (kg)
+            th Cost (UGX)
             th Dealer Name 
             th Contact 
-            th Selling Price 
+            th Selling Price (UGX)
             th Date 
             th Time 
             th Action
@@ -29,23 +41,26 @@ html
           if stocks && stocks.length
             each stock in stocks
               tr
-                td #{stock.produceName}
-                td #{stock.produceType} 
-                td #{stock.tonnage}
-                td #{stock.cost}
-                td #{stock.dealerName}
-                td #{stock.contact}
-                td #{stock.sellingprice}
-                td #{stock.date}
-                td #{stock.time}
-                 td
-                  button.btn.btn-update(type='button', onclick='UpdateRow(this)') Update
+                td= stock.produceName
+                td= stock.produceType
+                td= stock.tonnage
+                td= stock.cost ? stock.cost.toLocaleString() : '0'
+                td= stock.dealerName
+                td= stock.contact
+                td= stock.sellingprice ? stock.sellingprice.toLocaleString() : '0'
+                td= stock.date
+                td= stock.time
+                td
+                  a.btn.btn-update(href='/UpdateStock/' + stock._id) Update
                   button.btn.btn-delete(type='button', onclick='deleteRow(this)') Delete
           else
             tr
               td(colspan="10" class="no-data") No stock data available.
 
-      div.button-container
-      button.btn.btn-success(onclick="window.location.href='/addStock'") Add Stock
+      .add-button-container
+        button.btn.btn-success.add-btn(onclick="window.location.href='/addStock'") Add Stock
+
+    footer
+      | &copy; 2025 Karibu Grocery Limited. All rights reserved.
 
     script(src='/js/stocklist.js')

@@ -26,7 +26,7 @@ router.post('/addProduceSale', async (req, res) => {
 router.get("/produceSalesList", async (req, res) => {
   try {
     // Fetch all produce sales from the database and sort them by most recent
-    const produceSales = await ProduceSale.find().sort({ $natural: -1 });
+    const produceSales = await ProduceSale.find().sort({ date: -1, createdAt: -1 });
     res.render("produceSalesList", { produceSales }); // Render the list of produce sales
   } catch (error) {
     res.status(400).send("Unable to retrieve produce sales from the database");

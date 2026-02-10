@@ -26,7 +26,7 @@ router.post('/addCreditSale', async (req, res) => {
 router.get("/CreditSalesList", async (req, res) => {
   try {
     // Fetch all produce sales from the database and sort them by most recent
-    const creditSales = await Credit.find().sort({ $natural: -1 });
+    const creditSales = await Credit.find().sort({ dispatchDate: -1, createdAt: -1 });
     res.render("CreditSaleList", { creditSales }); // Render the list of produce sales
   } catch (error) {
     console.error("Error fetching credit sales:", error);

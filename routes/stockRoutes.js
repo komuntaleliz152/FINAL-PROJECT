@@ -23,7 +23,7 @@ router.post('/addprocurement', async (req, res) => {
 });
 router.get('/procurementlist', async (req, res) => {
     try {
-        const procurements = await Procurement.find();
+        const procurements = await Procurement.find().sort({ date: -1, time: -1 });
         console.log("Fetched procurements:", procurements); // Log the fetched procurements
         const year = new Date().getFullYear(); // Pass the year
         res.render('procurementlist', { procurements, year });
@@ -94,7 +94,7 @@ router.get("/stockmanagement", (req, res) => {
 // ROUTE: View Stock List
 router.get("/stocklist", async (req, res) => {
     try {
-        const stocks = await Stock.find();
+        const stocks = await Stock.find().sort({ date: -1, time: -1 });
         res.render("stocklist", { stocks });
     } catch (error) {
         console.error("Error retrieving stock:", error);
@@ -116,4 +116,30 @@ router.get('/stock', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
+
+// ROUTE: Display form to update stock by ID
+router.get("/UpdateStock/:id", async (req, res) => {
+    try {
+        const stock = await Stock.findById(req.params.id);
+        if (!stock) {
+            return res.status(404).send("Stock not found");
+        }
+        res.render("UpdateStock", { stock });
+    } catch (error) {
+        console.error("Error retrieving stock:", error);
+        res.status(500).send("Server error while retrieving the stock");
+    }
+});
+
+// ROUTE: Handle form submission to update stock
+router.post("/UpdateStock/:id", async (req, res) => {
+    try {
+        await Stock.findByIdAndUpdate(req.params.id, req.body);
+        res.redirect("/stocklist");
+    } catch (error) {
+        console.error("Error updating stock:", error);
+        res.status(400).send("Unable to update the stock");
+    }
+});
+
 module.exports = router;

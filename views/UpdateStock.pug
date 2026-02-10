@@ -1,0 +1,74 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Update Stock
+    link(rel='preconnect' href='https://fonts.googleapis.com')
+    link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+    link(href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' rel='stylesheet')
+    link(rel='stylesheet', href='/css/UpdateStock.css')
+
+  body
+    // Top Navigation Bar
+    nav.navbar
+      .nav-container 
+        span.project-name Karibu Groceries Limited
+        .nav-links
+          a.nav-link(href='/stocklist') Back to Stock List
+
+    .container
+      h2 Update Stock
+
+      form#updateStockForm(action='/UpdateStock/' + stock._id, method='POST')
+        .form-grid
+          .form-column
+            .form-group
+              label.form-label(for='produceName') Produce Name
+              input#produceName.form-control(type='text', name='produceName', value=stock.produceName, required)
+
+            .form-group
+              label.form-label(for='produceType') Type of Produce
+              input#produceType.form-control(type='text', name='produceType', value=stock.produceType, required)
+
+            .form-group
+              label.form-label(for='tonnage') Tonnage (kg)
+              input#tonnage.form-control(type='number', name='tonnage', value=stock.tonnage, required)
+
+            .form-group
+              label.form-label(for='cost') Cost (UGX)
+              input#cost.form-control(type='text', name='cost', value=stock.cost, required)
+
+            .form-group
+              label.form-label(for='dealerName') Dealer Name
+              input#dealerName.form-control(type='text', name='dealerName', value=stock.dealerName, required)
+
+          .form-column
+            .form-group
+              label.form-label(for='branchName') Branch Name
+              input#branchName.form-control(type='text', name='branchName', value=stock.branchName, required)
+
+            .form-group
+              label.form-label(for='contact') Contact
+              input#contact.form-control(type='text', name='contact', value=stock.contact, required)
+
+            .form-group
+              label.form-label(for='sellingprice') Selling Price (UGX)
+              input#sellingprice.form-control(type='text', name='sellingprice', value=stock.sellingprice, required)
+
+            .form-group
+              label.form-label(for='date') Date
+              input#date.form-control(type='date', name='date', value=stock.date ? stock.date.toISOString().split('T')[0] : '', required)
+
+            .form-group
+              label.form-label(for='time') Time
+              input#time.form-control(type='time', name='time', value=stock.time, required)
+
+        .button-group
+          button.btn.btn-submit(type='submit') Update Stock
+          button.btn.btn-cancel(type='button', onclick='history.back()') Cancel
+
+    footer
+      | &copy; 2025 Karibu Grocery Limited. All rights reserved.
+
+    script(src='/js/UpdateStock.js')
