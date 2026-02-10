@@ -75,64 +75,72 @@ html
     link(rel='stylesheet', href='/css/directorsDashboard.css')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css', integrity='sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==', crossorigin='anonymous', referrerpolicy='no-referrer')
   body
-    #sidebar.sidebar
-      h2 Welcome Orban
-      a(href='/')
-        i.fas.fa-home
-        | Home 
-      a(href='/addproduceSale')
-        i.fas.fa-seedling
-        | Produce Sale 
-      a(href='/addProcurement')
-        i.fas.fa-truck-loading
-        | Procurement
-      a(href='/CreditSalesList')
-        i.fas.fa-hand-holding-usd
-        | Credit Sales List
-      a(href='/addSale')
-        i.fas.fa-receipt
-        | Sales 
-      a(href='/stockList')
-        i.fas.fa-warehouse
-        | Stock List
-      a(href='/Logout')
-        i.fas.fa-sign-out-alt
-        | Logout
+    .dashboard
+      // Sidebar
+      aside.sidebar
+        h2 Karibu Grocery
+        ul
+          li
+            a(href='/')
+              i.fas.fa-home
+              |  Home 
+          li
+            a(href='/addproduceSale')
+              i.fas.fa-seedling
+              |  Produce Sale 
+          li
+            a(href='/addProcurement')
+              i.fas.fa-truck-loading
+              |  Procurement
+          li
+            a(href='/CreditSalesList')
+              i.fas.fa-hand-holding-usd
+              |  Credit Sales List
+          li
+            a(href='/addSale')
+              i.fas.fa-receipt
+              |  Sales 
+          li
+            a(href='/stockList')
+              i.fas.fa-warehouse
+              |  Stock List
+          li
+            a(href='/Logout')
+              i.fas.fa-sign-out-alt
+              |  Logout
 
-    #main.main-content
-      button.toggle-btn(onclick='toggleSidebar()') &#x2630;
-      header
-        h1 Director's Dashboard
+      // Main Content
+      main.main-content
+        header
+          h1 Director's Dashboard
+          p Monitor business performance and key metrics
 
-      .container
-        .card
-          h3 Total Sales
-          p= totalSales ? `UGX ${totalSales.toLocaleString()}` : 'UGX 0'
+        // Statistics
+        .statistics
+          .stat-box
+            h3 Total Sales
+            p= totalSales ? `UGX ${totalSales.toLocaleString()}` : 'UGX 0'
 
-        .card
-          h3 Weekly Sales
-          p= weeklySales ? `UGX ${weeklySales.toLocaleString()}` : 'UGX 0'
+          .stat-box
+            h3 Weekly Sales
+            p= weeklySales ? `UGX ${weeklySales.toLocaleString()}` : 'UGX 0'
 
-        .card
-          h3 Daily Sales
-          p= dailySales ? `UGX ${dailySales.toLocaleString()}` : 'UGX 0'
+          .stat-box
+            h3 Daily Sales
+            p= dailySales ? `UGX ${dailySales.toLocaleString()}` : 'UGX 0'
 
-        .card
-          h3 Top-Selling Products
-          ul#topProducts
-            li Placeholder for future
+          .stat-box
+            h3 Monthly Sales
+            p UGX 0
 
-        .card
-          h3 Low Stock Alerts
-          ul#lowStock
-            li Placeholder for future
+          .stat-box
+            h3 Top-Selling Products
+            ul
+              li Placeholder for future
 
-        .card
-          h3 Monthly Sales
-          #grossProfit.value Placeholder
-
-        .card
-          h3 Low Selling Products
-          #lowsellingproducts.value Placeholder
+          .stat-box
+            h3 Low Stock Alerts
+            ul
+              li Placeholder for future
 
     script(src='/js/directorsDashboard.js')

@@ -34,4 +34,41 @@ router.get("/CreditSalesList", async (req, res) => {
   }
 });
 
+// Show update form for a specific credit sale
+router.get("/UpdateCrediteSale/:id", async (req, res) => {
+  try {
+    const creditSale = await Credit.findById(req.params.id);
+    if (!creditSale) {
+      return res.status(404).send("Credit sale not found");
+    }
+    res.render("UpdateCreditSale", { creditSale });
+  } catch (error) {
+    console.error("Error finding credit sale:", error);
+    res.status(400).send("Unable to find the credit sale to update");
+  }
+});
+
+// Handle credit sale update submission
+router.post("/UpdateCrediteSale/:id", async (req, res) => {
+  try {
+    await Credit.findByIdAndUpdate(req.params.id, req.body);
+    res.redirect("/CreditSalesList");
+  } catch (error) {
+    console.error("Error updating credit sale:", error);
+    res.status(400).send("Unable to update the credit sale");
+  }
+});
+
+// Delete credit sale
+router.post("/creditSale/delete-creditSale", async (req, res) => {
+  try {
+    console.log("Deleting credit sale:", req.body);
+    await Credit.deleteOne({ _id: req.body._id });
+    res.redirect("/CreditSalesList");
+  } catch (error) {
+    console.error("Error deleting credit sale:", error);
+    res.status(400).send("Unable to delete the credit sale");
+  }
+});
+
 module.exports = router;

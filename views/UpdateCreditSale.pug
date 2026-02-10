@@ -1,0 +1,67 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Update Credit Sale
+    link(rel='preconnect' href='https://fonts.googleapis.com')
+    link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+    link(href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' rel='stylesheet')
+    link(rel='stylesheet', href='/css/UpdateCreditSale.css')
+  body
+    form#creditSaleForm(action='/UpdateCrediteSale/' + creditSale._id, method='POST')
+      h2 Update Credit Sale
+
+      // Error Message Display
+      #errorMsg.error Error updating the credit sale.
+
+      // Hidden ID Field
+      input(type='hidden', name='Id', value=creditSale._id)
+
+      .form-grid
+        .form-group
+          label(for='produceName') Produce Name
+          input#produceName(type='text', name='produceName', value=creditSale.produceName, placeholder='Enter produce name')
+
+        .form-group
+          label(for='produceType') Type of Produce
+          select#produceType(name='produceType')
+            option(value='', selected=!creditSale.produceType) Select produce type
+            option(value='Grains', selected=creditSale.produceType === 'Grains') Grains
+            option(value='Cereals', selected=creditSale.produceType === 'Cereals') Cereals
+            option(value='Legumes', selected=creditSale.produceType === 'Legumes') Legumes
+            option(value='Others', selected=creditSale.produceType === 'Others') Others
+
+        .form-group
+          label(for='tonnage') Tonnage (kg)
+          input#tonnage(type='number', name='tonnage', value=creditSale.tonnage, placeholder='Enter tonnage')
+
+        .form-group
+          label(for='buyerName') Buyer Name
+          input#buyerName(type='text', name='buyerName', value=creditSale.buyerName, placeholder='Enter buyer name')
+
+        .form-group
+          label(for='nationalId') National ID
+          input#nationalId(type='text', name='nationalId', value=creditSale.nationalId, placeholder='Enter national ID')
+
+        .form-group
+          label(for='contact') Contact Number
+          input#contact(type='tel', name='contact', value=creditSale.contact, placeholder='Enter contact number')
+
+        .form-group
+          label(for='location') Location
+          input#location(type='text', name='location', value=creditSale.location, placeholder='Enter location')
+
+        .form-group
+          label(for='amountDue') Amount Due (UGX)
+          input#amountDue(type='text', name='amountDue', value=creditSale.amountDue, placeholder='Enter amount due')
+
+        .form-group
+          label(for='dispatchDate') Dispatch Date
+          input#dispatchDate(type='date', name='dispatchDate', value=creditSale.dispatchDate ? creditSale.dispatchDate.toISOString().split('T')[0] : '')
+
+        .form-group
+          label(for='salesAgentName') Sales Agent Name
+          input#salesAgentName(type='text', name='salesAgentName', value=creditSale.salesAgentName, placeholder='Enter sales agent name')
+
+      button(type='submit') Update Credit Sale
