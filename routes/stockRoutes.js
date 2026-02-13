@@ -51,38 +51,41 @@ router.post('/addprocurement', async (req, res) => {
     }
 });
 
-// Display form to update a specific ProduceProcurement by ID
+// Display form to update a specific procurement by ID
 router.get("/UpdateProduceProcurement/:id", async (req, res) => {
     try {
-      const produceProcurement = await ProduceProcurement.findById(req.params.id);
+      const produceProcurement = await Procurement.findById(req.params.id);
       if (!produceProcurement) {
-        return res.status(404).send("Produce procurement not found");
+        return res.status(404).send("Procurement not found");
       }
-      res.render("/UpdateProduceProcurement", { produceProcurement });
+      res.render("UpdateProcurement", { produceProcurement });
     } catch (error) {
-      res.status(500).send("Server error while retrieving the produce procurement");
+      console.error("Error retrieving procurement:", error);
+      res.status(500).send("Server error while retrieving the procurement");
     }
   });
   
-  // Handle form submission to update ProduceProcurement
+  // Handle form submission to update procurement
   router.post("/UpdateProduceProcurement/:id", async (req, res) => {
     try {
-      await ProduceProcurement.findByIdAndUpdate(req.params.id, req.body);
+      await Procurement.findByIdAndUpdate(req.params.id, req.body);
       res.redirect("/procurementlist");
     } catch (error) {
-      res.status(400).send("Unable to update the produce procurement");
+      console.error("Error updating procurement:", error);
+      res.status(400).send("Unable to update the procurement");
     }
   });
   
 
-// Delete produce procurement
-router.post("/produceProcurement/deleteProduceProcurement", async (req, res) => {
+// Delete procurement
+router.post("/delete-procurement", async (req, res) => {
   try {
-    // Delete the produce procurement by ID
-    await ProduceProcurement.deleteOne({ _id: req.body.id });
-    res.redirect("back"); // Redirect back to the previous page
+    // Delete the procurement by ID
+    await Procurement.deleteOne({ _id: req.body.id });
+    res.redirect("/procurementlist");
   } catch (error) {
-    res.status(400).send("Unable to delete the produce procurement");
+    console.error("Error deleting procurement:", error);
+    res.status(400).send("Unable to delete the procurement");
   }
 });
 

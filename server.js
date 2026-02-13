@@ -20,7 +20,8 @@ const Procurement =require('./models/Procurement');
 
 // 2.Instantations
 const app =express();
-const PORT =3004;
+const PORT = process.env.PORT || 3004; // fallback to 3004 for local dev
+
 
 //import routes
  const authRoutes =require("./routes/authRoutes");
@@ -40,6 +41,7 @@ app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));//specify the views directory
 mongoose.connect(process.env.DATABASE, {
     useNewUrlParser: true,
+    useUnifiedTopology: true,
     
   });
   //app.locals.moment =moment;

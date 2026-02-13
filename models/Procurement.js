@@ -33,6 +33,11 @@ const ProcurementSchema = new mongoose.Schema({
     trim: true,
   },
 
+  sellingprice: {
+    type: Number,
+    trim: true,
+  },
+
   date: {
     type: Date,
     trim: true,
