@@ -4,7 +4,7 @@ html
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     title Karibu Grocery Signup
-    link(rel='stylesheet' href='./css/signup.css') 
+    link(rel='stylesheet' href='/css/signup.css') 
   body
     .signup-container
       h2 Karibu Grocery - Signup
@@ -17,34 +17,34 @@ html
         .form-row
           .form-group
             label(for='firstName') First Name
-            input#firstName(type='text' name="firstName")
+            input#firstName(type='text' name="firstName" required)
             span#firstNameError(class='error')
 
           .form-group
             label(for='lastName') Last Name
-            input#lastName(type='text' name="lastName")
+            input#lastName(type='text' name="lastName" required)
             span#lastNameError(class='error')
 
         .form-row
           .form-group
             label(for='email') Email
-            input#email(type='text' name="email")
+            input#email(type='email' name="email" required)
             span#emailError(class='error')
 
           .form-group
             label(for='password') Password
-            input#password(type='password' name="password")
+            input#password(type='password' name="password" required)
             span#passwordError(class='error')
 
         .form-row
           .form-group
             label(for='confirmPassword') Confirm Password
-            input#confirmPassword(type='password' name="confirmPassword")
+            input#confirmPassword(type='password' name="confirmPassword" required)
             span#confirmPasswordError(class='error')
 
           .form-group
             label(for='role') Role
-            select#role(name='role')
+            select#role(name='role' required)
               option(value='') Select Role
               option(value='director') Director
               option(value='salesAgent') Sales Agent
@@ -54,8 +54,8 @@ html
         .form-row
           .form-group
             label(for='branch') Branch Name
-            select#branchName(name='branch')
-              option(value='select') Select Branch
+            select#branchName(name='branch' required)
+              option(value='') Select Branch
               option(value='Matugga') Matugga
               option(value='Maganjo') Maganjo
             span#branchError(class='error')
@@ -66,4 +66,3 @@ html
       a(href='/' class='back-button') ← Back
 
     script(src='/js/signup.js')
-
