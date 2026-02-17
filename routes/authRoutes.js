@@ -12,25 +12,28 @@ router.get("/Signup", (req, res) =>{
     
  router.post("/SignUp", async (req, res) => {
   try {
+    console.log("Signup attempt with data:", req.body);
     const user = new Signup(req.body);
     let existingUser = await Signup.findOne({ 
       email: req.body.email
      });
 
     if (existingUser) {
+      console.log("User already exists:", req.body.email);
       return res.status(400).send("Not Registered, email already exists");
     } else {
       await Signup.register(user, req.body.password, (error) => {
         if(error) {
+          console.error("Error registering user:", error);
           throw error;
         }
+        console.log("User registered successfully:", req.body.email);
         res.redirect("/Login");
       });
     }
-    console.log(user);
   } catch (error){
-    res.status(400).render("signup");
-    console.log(error);
+    console.error("Signup error:", error);
+    res.status(500).send("Error during signup: " + error.message);
   } 
 });
 
