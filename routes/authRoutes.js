@@ -7,7 +7,12 @@ const passport= require('passport');
 const Signup =require('../models/Signup');
 
 router.get("/Signup", (req, res) =>{
-    res.render("Signup");
+    try {
+        res.render("signup");
+    } catch (error) {
+        console.error("Error rendering signup page:", error);
+        res.status(500).send("Error loading signup page: " + error.message);
+    }
  });
     
  router.post("/SignUp", async (req, res) => {
