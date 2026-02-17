@@ -107,7 +107,7 @@ router.get("/stocklist", async (req, res) => {
 
 // ROUTE: Form page to add stock
 router.get("/addstock", (req, res) => {
-    res.render("Addstock");
+    res.render("addstock");
 });
 // ROUTE: View Stock
 router.get('/stock', async (req, res) => {
