@@ -4,7 +4,7 @@ const path = require('path');
 const mongoose =require('mongoose');
 const passport =require('passport')
 const expressSession = require("express-session")({
-  secret: "secret",
+  secret: process.env.SESSION_SECRET || "secret",
   resave: false,
   saveUninitialized: false,
   });
