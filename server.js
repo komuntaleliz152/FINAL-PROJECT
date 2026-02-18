@@ -11,12 +11,8 @@ const expressSession = require("express-session")({
 
 require('dotenv').config();
 
-//import user's mode
+//import user's model
 const Signup =require('./models/Signup');
-const Register =require('./models/Register');
-const ProduceSale =require('./models/ProduceSale');
-const Creditsale =require('./models/Credit');
-const Procurement =require('./models/Procurement');
 
 // 2.Instantations
 const app =express();
@@ -35,6 +31,8 @@ const PORT = process.env.PORT || 3004; // fallback to 3004 for local dev
  const addProduceSaleRoutes = require("./routes/addproducesaleRoutes");
  const creditRoutes = require("./routes/creditRoutes");
  const logoutRoutes = require("./routes/logoutRoutes");
+ const procurementRoutes = require("./routes/procurementRoutes");
+
 // 3. Configurations
 //set view engine to pug
 app.set("view engine", "pug");
@@ -59,6 +57,8 @@ app.use("/public/img/uploads", express.static(__dirname + "/public/img/uploads")
 app.use("/css", express.static(__dirname + "/public/css"));
 app.use("/js", express.static(__dirname + "/public/js"));
 app.use(express.urlencoded({ extended: true })); //helps to parse data from forms
+app.use(express.json()); // Parse JSON bodies
+
 // express session configs
 app.use(expressSession);
 app.use(passport.initialize());
@@ -69,23 +69,38 @@ passport.use(Signup.createStrategy());
 passport.serializeUser(Signup.serializeUser());
 passport.deserializeUser(Signup.deserializeUser());
 
+// Make user available in all views
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  next();
+});
 
 
 //5.Routes
 //using imported routes
 app.use('/', authRoutes);
+app.use('/', homeRoutes);
+app.use('/', logoutRoutes);
 app.use('/', registerproduceRoutes);
 app.use('/', salesRegisterRoutes);
-app.use('/', homeRoutes);
 app.use('/', managerRoutes);
 app.use('/', salesAgentRoutes);
 app.use('/', directorRoutes);
 app.use('/', stockRoutes);
 app.use('/', addProduceSaleRoutes);
 app.use('/', creditRoutes);
-app.use('/', logoutRoutes);
-  
+app.use('/', procurementRoutes);
 
+// 404 handler
+app.use((req, res) => {
+  res.status(404).send('Page not found');
+});
+
+// Error handler
+app.use((err, req, res, next) => {
+  console.error('Error:', err);
+  res.status(500).send('Something went wrong!');
+});
 
 
 //6.Bootstraping the server

@@ -3,8 +3,9 @@ const router = express.Router();
 const ProduceSale = require("../models/ProduceSale");
 const Stock = require("../models/Stock");
 const Credit = require("../models/Credit");
+const { isAuthenticated, isSalesAgent } = require("../middleware/auth");
 
-router.get("/salesAgentDash", async (req, res) => {
+router.get("/salesAgentDash", isAuthenticated, isSalesAgent, async (req, res) => {
   try {
     const now = new Date();
     const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());

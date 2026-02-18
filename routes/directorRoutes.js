@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const ProduceSale = require("../models/ProduceSale");
+const { isAuthenticated, isSalesAgent } = require("../middleware/auth");
 
 router.get("/directorsDash", async (req, res) => {
   try {

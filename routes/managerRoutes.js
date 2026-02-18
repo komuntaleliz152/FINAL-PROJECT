@@ -3,9 +3,10 @@ const router = express.Router();
 const ProduceSale = require("../models/ProduceSale");
 const Stock = require("../models/Stock");
 const Procurement = require("../models/Procurement");
+const { isAuthenticated, isManager } = require("../middleware/auth");
 
 // Manager Dashboard route
-router.get("/ManagerDashboard", async (req, res) => {
+router.get("/ManagerDashboard", isAuthenticated, isManager, async (req, res) => {
   try {
     const now = new Date();
     const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
@@ -105,7 +106,7 @@ router.get("/ManagerDashboard", async (req, res) => {
 });
 
 // Alternative route for backward compatibility
-router.get("/managerDash", async (req, res) => {
+router.get("/managerDash", isAuthenticated, isManager, async (req, res) => {
   try {
     const now = new Date();
     const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
