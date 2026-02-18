@@ -22,7 +22,7 @@ body {
 /* Sidebar */
 .sidebar {
   width: 260px;
-  background: linear-gradient(180deg, #1e7a1e 0%, #228B22 100%);
+  background: #228B22;
   color: white;
   padding: 0;
   height: 100vh;
@@ -203,7 +203,7 @@ header {
 
 /* Alert Box */
 .alert-box {
-  background: linear-gradient(135deg, #228B22 0%, #1e7a1e 100%);
+  background: #228B22;
   border-left: 4px solid #196619;
   color: white;
   padding: 16px 20px;
@@ -277,7 +277,7 @@ header {
   left: 0;
   width: 4px;
   height: 100%;
-  background: linear-gradient(180deg, #1e7a1e 0%, #228B22 100%);
+  background: #228B22;
   opacity: 0;
   transition: opacity 0.3s ease;
 }

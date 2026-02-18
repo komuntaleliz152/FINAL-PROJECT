@@ -24,7 +24,7 @@ body {
 /* Sidebar */
 .sidebar {
     width: 260px;
-    background: linear-gradient(180deg, #1e7a1e 0%, #228B22 100%);
+    background: #228B22;
     color: white;
     padding: 0;
     height: 100vh;
@@ -207,7 +207,7 @@ header p {
     left: 0;
     width: 4px;
     height: 100%;
-    background: linear-gradient(180deg, #1e7a1e 0%, #228B22 100%);
+    background: #228B22;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -279,7 +279,7 @@ header p {
     content: '';
     width: 4px;
     height: 24px;
-    background: linear-gradient(180deg, #1e7a1e 0%, #228B22 100%);
+    background: #228B22;
     margin-right: 12px;
     border-radius: 2px;
 }
