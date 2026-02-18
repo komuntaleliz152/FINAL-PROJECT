@@ -11,6 +11,7 @@ const removeCommas = (str) => {
 document.addEventListener('DOMContentLoaded', () => {
   const amountField = document.getElementById('amount');
   const dateTimeField = document.getElementById('saleDateTime');
+  const form = document.getElementById('produceSaleForm');
   
   // Set datetime field to now and restrict to today only
   const now = new Date();
@@ -29,6 +30,15 @@ document.addEventListener('DOMContentLoaded', () => {
       let value = removeCommas(e.target.value);
       if (value && !isNaN(value)) {
         e.target.value = formatNumber(value);
+      }
+    });
+  }
+
+  // Remove commas before form submission
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      if (amountField) {
+        amountField.value = removeCommas(amountField.value);
       }
     });
   }

@@ -9,16 +9,23 @@ router.get("/addProduceSale", (req, res) => {
   res.render("addProduceSale"); // Render the form where the user can add a new sale
 });
 
-// ROUTE: Save new procurement (POST)
+// ROUTE: Save new produce sale (POST)
 router.post('/addProduceSale', async (req, res) => {
-    console.log(req.body);
+    console.log('Received produce sale data:', req.body);
     try {
+        // Remove commas from amount field
+        if (req.body.amount) {
+            req.body.amount = req.body.amount.toString().replace(/,/g, '');
+        }
+        
         const newProduceSale = new ProduceSale(req.body);
         await newProduceSale.save();
+        console.log('Produce sale saved successfully');
         res.redirect('/produceSalesList');
     } catch (error) {
         console.error("Error saving produceSale:", error);
-        res.status(500).send("Unable to save produceSale to DB");
+        console.error("Error details:", error.message);
+        res.status(500).send("Unable to save produceSale to DB: " + error.message);
     }
 });
 
@@ -26,7 +33,7 @@ router.post('/addProduceSale', async (req, res) => {
 router.get("/produceSalesList", async (req, res) => {
   try {
     // Fetch all produce sales from the database and sort them by most recent
-    const produceSales = await ProduceSale.find().sort({ date: -1, createdAt: -1 });
+    const produceSales = await ProduceSale.find().sort({ saleDateTime: -1, createdAt: -1 });
     res.render("produceSalesList", { produceSales }); // Render the list of produce sales
   } catch (error) {
     res.status(400).send("Unable to retrieve produce sales from the database");

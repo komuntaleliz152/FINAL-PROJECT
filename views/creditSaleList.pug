@@ -9,14 +9,11 @@ html
   body
     // Top Navigation Bar
     nav.navbar
-    .nav-container 
-      span.project-name Karibu Groceries Limited
-
       .nav-links
-        a.nav-link(href='/') Home
-        a.nav-link(href='/addCreditSale') AddCredit
-        a.nav-link(href='/addprocurement') Procurement
-        a.nav-link(href='/logout') Logout
+        a(href='/') Home
+        a(href='/addCreditSale') Add Credit
+        a(href='/addprocurement') Procurement
+        a(href='/logout') Logout
 
     .container
       h2 Credit Sales List
@@ -32,7 +29,6 @@ html
             th Contact
             th Location
             th Amount Due (UGX)
-            th Due Date
             th Dispatch Date
             th SalesAgentName
             th Actions
@@ -49,7 +45,6 @@ html
                 td #{sale.contact} 
                 td #{sale.location} 
                 td #{sale.amountDue} 
-                td #{sale.dueDate} 
                 td #{sale.dispatchDate}
                 td #{sale.salesAgentName}
                 td
@@ -59,7 +54,7 @@ html
                     button.btn.btn-danger.delete-btn(type="submit") Delete
           else
             tr 
-              td(colspan='12') No sales data available
+              td(colspan='11') No sales data available
 
       .add-button-container
         button.btn.btn-success.credit-btn(onclick="window.location.href='/addCreditSale'") Add Credit Sale

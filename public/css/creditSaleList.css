@@ -83,7 +83,8 @@ table td {
 }
 
 /* Add button */
-.add-btn {
+.add-btn,
+.credit-btn {
   background: linear-gradient(135deg, #228B22 0%, #1e7a1e 100%);
   color: white;
   padding: 10px 20px;
@@ -97,7 +98,8 @@ table td {
   box-shadow: 0 4px 12px rgba(34, 139, 34, 0.3);
 }
 
-.add-btn:hover {
+.add-btn:hover,
+.credit-btn:hover {
   background: linear-gradient(135deg, #1e7a1e 0%, #196619 100%);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(34, 139, 34, 0.4);

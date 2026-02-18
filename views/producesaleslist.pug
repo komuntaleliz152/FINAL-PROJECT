@@ -40,7 +40,7 @@ html
               td #{sale.saleDateTime}
               td
                 a.update-btn(href="/UpdateProduceSale/" + sale._id) Update
-                form(action="/produceSale/deleteSale/" method="POST" style="display:inline" onsubmit="return showDeleteConfirmation('Are you sure you want to delete this produce sale?', '#{sale.produceName}', this)")
+                form(action="/produceSale/deleteSale/" method="POST" style="display:inline" onsubmit=`return showDeleteConfirmation('Are you sure you want to delete this produce sale?', '${sale.produceName}', this)`)
                   input(type="hidden" name="_id" value=sale._id)
                   button.delete-btn(type="submit") Delete
         else

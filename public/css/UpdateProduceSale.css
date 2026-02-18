@@ -1,5 +1,6 @@
-/* UpdateProduceSale.css */
-
+/* ===============================
+   Reset and Base Styles
+================================== */
 * {
   margin: 0;
   padding: 0;
@@ -8,27 +9,31 @@
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background-image: url('../img/home.jpg');
+  background-image: url('../img/back.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  margin: 0;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: white;
   line-height: 1.6;
 }
 
-form#producesalesform {
+/* ===============================
+   Form Container
+================================== */
+form {
   background-color: rgba(43, 42, 42, 0.75);
   backdrop-filter: blur(12px);
   padding: 2.5rem 2rem;
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  max-width: 550px;
   width: 100%;
+  max-width: 600px;
   animation: slideUp 0.4s ease;
 }
 
@@ -43,76 +48,82 @@ form#producesalesform {
   }
 }
 
+/* Form title */
 h2 {
   text-align: center;
-  color: #fff;
   margin-bottom: 2rem;
   font-size: 2rem;
+  color: #fff;
   font-weight: 700;
   letter-spacing: -0.5px;
 }
 
+/* ===============================
+   Form Elements
+================================== */
 label {
-  display: block;
-  margin-top: 1.2rem;
-  margin-bottom: 0.5rem;
   font-weight: 600;
-  color: #f1f1f1;
+  margin-bottom: 8px;
+  margin-top: 16px;
   font-size: 15px;
+  color: #f1f1f1;
+  display: block;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="datetime-local"] {
+input {
   width: 100%;
   padding: 12px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   font-size: 15px;
   background-color: rgba(255, 255, 255, 0.95);
   color: #2d3748;
   transition: all 0.3s ease;
   font-family: 'Inter', sans-serif;
+  margin-bottom: 8px;
 }
 
-input[type="text"]::placeholder,
-input[type="number"]::placeholder {
+input::placeholder {
   color: #a0aec0;
 }
 
 input:focus {
-  border-color: #228B22;
   outline: none;
+  border-color: #228B22;
   background-color: white;
   box-shadow: 0 0 0 3px rgba(34, 139, 34, 0.1);
   transform: translateY(-1px);
 }
 
-#errorMsg.error {
-  color: #ff6b6b;
-  background: rgba(255, 107, 107, 0.1);
-  padding: 12px;
-  border-radius: 8px;
-  border-left: 4px solid #ff6b6b;
-  margin-bottom: 1.5rem;
-  text-align: center;
+/* Error Message */
+#errorMsg {
   display: none;
-  font-weight: 500;
+  background-color: #e74c3c;
+  color: white;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
 }
 
+#errorMsg.show {
+  display: block;
+}
+
+/* Submit Button */
 button[type="submit"] {
-  margin-top: 2rem;
   width: 100%;
   padding: 14px 24px;
   background: linear-gradient(135deg, #228B22 0%, #1e7a1e 100%);
-  border: none;
-  border-radius: 8px;
   color: white;
   font-size: 16px;
   font-weight: 700;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-top: 20px;
   box-shadow: 0 4px 12px rgba(34, 139, 34, 0.3);
 }
 
@@ -126,13 +137,11 @@ button[type="submit"]:active {
   transform: translateY(0);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  body {
-    padding: 15px;
-  }
-
-  form#producesalesform {
+/* ===============================
+   Responsive Layout
+================================== */
+@media (max-width: 480px) {
+  form {
     padding: 2rem 1.5rem;
   }
 
@@ -144,12 +153,8 @@ button[type="submit"]:active {
     font-size: 14px;
   }
 
-  input[type="text"],
-  input[type="number"],
-  input[type="datetime-local"] {
+  input {
     padding: 10px 12px;
     font-size: 14px;
   }
 }
-  
-  
