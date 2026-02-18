@@ -1,0 +1,111 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Add Stock - Karibu Grocery Limited
+    link(rel='preconnect' href='https://fonts.googleapis.com')
+    link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+    link(href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' rel='stylesheet')
+    link(rel='stylesheet', href='/css/addstock.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css')
+  body
+    // Navbar
+    nav.navbar
+      ul
+        li
+          a(href='/ManagerDashboard')
+            i.fas.fa-home
+            |  Dashboard
+        li
+          a(href='/addstock')
+            i.fas.fa-box
+            |  Add Stock
+        li
+          a(href='/stockList')
+            i.fas.fa-list
+            |  Stock List
+        li
+          a(href='/logout')
+            i.fas.fa-sign-out-alt
+            |  Logout
+
+    // Form Container
+    .container
+      h2 Add Stock Form
+      form#stockForm(action='/addstock' method='POST')
+        .form-grid
+          .form-group
+            label(for='produceName')
+              i.fas.fa-leaf
+              |  Product Name
+            input#produceName(type='text' name='produceName' placeholder='Enter product name' required)
+
+          .form-group
+            label(for='produceType')
+              i.fas.fa-tag
+              |  Product Type
+            select#produceType(name='produceType' required)
+              option(value='') Select type
+              option(value='Grain') Grain
+              option(value='Legume') Legume
+
+          .form-group
+            label(for='tonnage')
+              i.fas.fa-weight
+              |  Tonnage (kg)
+            input#tonnage(type='number' name='tonnage' placeholder='Enter tonnage' step='0.01' required)
+
+          .form-group
+            label(for='costPerKg')
+              i.fas.fa-money-bill-wave
+              |  Cost Per Kg (UGX)
+            input#costPerKg(type='text' placeholder='Enter cost per kg' required)
+
+          .form-group
+            label(for='cost')
+              i.fas.fa-calculator
+              |  Total Cost (UGX)
+            input#cost(type='text' name='cost' placeholder='Auto-calculated' readonly)
+
+          .form-group
+            label(for='sellingPricePerKg')
+              i.fas.fa-dollar-sign
+              |  Selling Price Per Kg (UGX)
+            input#sellingPricePerKg(type='text' placeholder='Enter selling price per kg' required)
+
+          .form-group
+            label(for='sellingprice')
+              i.fas.fa-calculator
+              |  Total Selling Price (UGX)
+            input#sellingprice(type='text' name='sellingprice' placeholder='Auto-calculated' readonly)
+
+          .form-group
+            label(for='branchName')
+              i.fas.fa-store
+              |  Branch Name
+            select#branchName(name='branchName' required)
+              option(value='') Select Branch
+              option(value='Mattuga') Mattuga
+              option(value='Maganjo') Maganjo
+
+          .form-group
+            label(for='date')
+              i.fas.fa-calendar
+              |  Date
+            input#date(type='date' name='date' required)
+
+          .form-group
+            label(for='time')
+              i.fas.fa-clock
+              |  Time
+            input#time(type='time' name='time' required)
+
+        button.submit-btn(type='submit')
+          i.fas.fa-check-circle
+          |  Add Stock
+
+    footer.footer
+      p © 2025 Karibu Grocery Limited. All rights reserved.
+
+    script(src='/js/addstock.js')

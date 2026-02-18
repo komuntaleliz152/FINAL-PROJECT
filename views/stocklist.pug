@@ -12,14 +12,14 @@ html
   body
     // Top Navigation Bar
     nav.navbar
-      .nav-container 
+      .nav-container
         span.project-name Karibu Groceries Limited
-
+        
         .nav-links
-          a.nav-link(href='/ManagerDashboard') Dashboard
-          a.nav-link(href='/addStock') Add Stock
-          a.nav-link(href='/procurementlist') Procurement List
-          a.nav-link(href='/logout') Logout
+          a(href='/ManagerDashboard') Dashboard
+          a(href='/addStock') Add Stock
+          a(href='/procurementlist') Procurement List
+          a(href='/logout') Logout
 
     .container
       h2 Stock Management
@@ -52,16 +52,16 @@ html
                 td= stock.date
                 td= stock.time
                 td
-                  a.btn.btn-update(href='/UpdateStock/' + stock._id) Update
+                  a.update-btn(href='/UpdateStock/' + stock._id) Update
                   form(method="POST", action="/deleteStock", style="display:inline;" onsubmit="return showDeleteConfirmation('Are you sure you want to delete this stock?', '#{stock.produceName}', this)")
                     input(type="hidden", name="_id", value=stock._id)
-                    button.btn.btn-delete(type="submit") Delete
+                    button.delete-btn(type="submit") Delete
           else
             tr
               td(colspan="10" class="no-data") No stock data available.
 
     .add-button-container
-      button.btn.btn-success.add-btn(onclick="window.location.href='/addStock'") Add Stock
+      button.add-btn(onclick="window.location.href='/addStock'") Add Stock
 
     footer
       | &copy; 2025 Karibu Grocery Limited. All rights reserved.

@@ -3,32 +3,50 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
 /* Nav bar styles */
 .navbar {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   background: linear-gradient(135deg, #1e7a1e 0%, #228B22 100%);
-  padding: 10px 20px;
+  padding: 15px 30px;
   margin-bottom: 20px;
   box-shadow: 0 2px 8px rgba(34, 139, 34, 0.3);
 }
 
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.project-name {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 5px;
+}
+
 .navbar .nav-links a {
   color: white;
-  padding: 10px 15px;
+  padding: 10px 20px;
   text-decoration: none;
-  margin-right: 10px;
   border-radius: 6px;
   transition: all 0.3s ease;
+  font-weight: 500;
 }
 
 .navbar .nav-links a:hover {
   background-color: rgba(255, 255, 255, 0.15);
   transform: translateY(-1px);
-}
-
-
 }
 
 body {
@@ -140,8 +158,6 @@ table#salesTable td {
   box-shadow: 0 6px 16px rgba(34, 139, 34, 0.4);
 }
 
-
-
 /* Generic button styling for Edit/Delete */
 button {
   margin-right: 30px;
@@ -170,7 +186,6 @@ button.update-btn:hover {
 button.delete-btn {
   background-color: #f44336;
 }
-
 
 /* Custom Update Button as link */
 a.update-btn {
@@ -220,4 +235,3 @@ footer {
      padding: 5px 10px; 
   }
 }
-

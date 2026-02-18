@@ -17,6 +17,24 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initializeCharts() {
+  // Get data from the page (passed from server)
+  const weeklySalesDataElement = document.getElementById('weeklySalesData');
+  const inventoryDataElement = document.getElementById('inventoryData');
+  
+  let weeklySalesData = [0, 0, 0, 0];
+  let inventoryData = [];
+  
+  try {
+    if (weeklySalesDataElement) {
+      weeklySalesData = JSON.parse(weeklySalesDataElement.textContent);
+    }
+    if (inventoryDataElement) {
+      inventoryData = JSON.parse(inventoryDataElement.textContent);
+    }
+  } catch (e) {
+    console.error('Error parsing chart data:', e);
+  }
+
   // Sales Trend Chart (Line Chart)
   const salesTrendCtx = document.getElementById('salesTrendChart');
   if (salesTrendCtx) {
@@ -26,7 +44,7 @@ function initializeCharts() {
         labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
         datasets: [{
           label: 'Weekly Sales (UGX)',
-          data: [8500000, 9200000, 8800000, 10500000],
+          data: weeklySalesData,
           borderColor: '#3182ce',
           backgroundColor: 'rgba(49, 130, 206, 0.1)',
           borderWidth: 3,
@@ -78,7 +96,7 @@ function initializeCharts() {
             beginAtZero: true,
             ticks: {
               callback: function(value) {
-                return 'UGX ' + (value / 1000000) + 'M';
+                return 'UGX ' + (value / 1000000).toFixed(1) + 'M';
               },
               font: {
                 size: 11,
@@ -108,30 +126,29 @@ function initializeCharts() {
     });
   }
 
+  // Prepare inventory data
+  const productNames = inventoryData.map(p => p._id || 'Unknown');
+  const stockLevels = inventoryData.map(p => p.totalStock || 0);
+  
+  // Assign colors based on stock levels (red for low, yellow for medium, green for high)
+  const colors = stockLevels.map(stock => {
+    if (stock < 1000) return { bg: 'rgba(239, 68, 68, 0.8)', border: '#ef4444' };
+    if (stock < 5000) return { bg: 'rgba(236, 201, 75, 0.8)', border: '#ecc94b' };
+    return { bg: 'rgba(72, 187, 120, 0.8)', border: '#48bb78' };
+  });
+
   // Inventory Levels Chart (Bar Chart)
   const inventoryCtx = document.getElementById('inventoryChart');
   if (inventoryCtx) {
     new Chart(inventoryCtx, {
       type: 'bar',
       data: {
-        labels: ['Cowpeas', 'Gnuts', 'Beans', 'Soybeans', 'Maize'],
+        labels: productNames,
         datasets: [{
           label: 'Stock (Kgs)',
-          data: [9000, 8000, 5500, 1000, 30],
-          backgroundColor: [
-            'rgba(72, 187, 120, 0.8)',
-            'rgba(49, 130, 206, 0.8)',
-            'rgba(237, 137, 54, 0.8)',
-            'rgba(236, 201, 75, 0.8)',
-            'rgba(239, 68, 68, 0.8)'
-          ],
-          borderColor: [
-            '#48bb78',
-            '#3182ce',
-            '#ed8936',
-            '#ecc94b',
-            '#ef4444'
-          ],
+          data: stockLevels,
+          backgroundColor: colors.map(c => c.bg),
+          borderColor: colors.map(c => c.border),
           borderWidth: 2,
           borderRadius: 6
         }]

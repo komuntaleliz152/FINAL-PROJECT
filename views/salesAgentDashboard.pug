@@ -47,38 +47,56 @@ head
 
     // Statistics & Cards (3 per row)
     .statistics(id='statisticsContainer')
-      // Loading spinner
-      .loader(id='statisticsLoader')
-      
       // Row 1
       .stat-box(id='salesToday')
         h3 Sales Today
-        p(id='salesTodayValue') —
+        p(id='salesTodayValue')= todaySales ? `UGX ${todaySales.toLocaleString()}` : 'UGX 0'
+      
       .stat-box(id='highSellingProduct')
         h3 High Selling Product
-        p(id='productName') —
-        p(id='productValue') —
+        if topProduct
+          p(id='productName')= topProduct._id
+          p(id='productValue')= `UGX ${topProduct.totalSales.toLocaleString()}`
+        else
+          p(id='productName') No data available
+          p(id='productValue') —
+      
       .stat-box(id='currentProducts')
         h3 Current Products
-        p(id='productsList') —
+        if currentProducts && currentProducts.length > 0
+          p(id='productsList')= currentProducts.slice(0, 3).join(', ')
+        else
+          p(id='productsList') No products in stock
 
       // Row 2
       .stat-box(id='lowStockItems')
         h3 Low Stock Items
-        ul(id='lowStockList')
-          li —
-            
+        if lowStockItems && lowStockItems.length > 0
+          ul(id='lowStockList')
+            each item in lowStockItems
+              li= `${item._id} – ${item.totalStock}kgs`
+        else
+          ul(id='lowStockList')
+            li All items well stocked
 
     .table-container(id='tableContainer')
       h2 Recent Orders
-      .loader(id='tableLoader')
-      table(id='ordersTable' style='display: none;')
-        tr
-          th Name
-          th Contact
-          th Status
-          th Value
-        tbody(id='ordersTableBody')
+      if recentOrders && recentOrders.length > 0
+        table(id='ordersTable')
+          tr
+            th Name
+            th Contact
+            th Status
+            th Value
+          tbody(id='ordersTableBody')
+            each order in recentOrders
+              tr
+                td= order.buyerName
+                td= order.contact
+                td Pending
+                td= `UGX ${order.amountDue ? order.amountDue.toLocaleString() : '0'}`
+      else
+        p(style='text-align: center; color: #666;') No recent orders
 
 script(src='js/salesAgentDashboard.js')
 script(src='js/loginSuccess.js')

@@ -109,6 +109,28 @@ router.get("/stocklist", async (req, res) => {
 router.get("/addstock", (req, res) => {
     res.render("addstock");
 });
+
+// ROUTE: Save new stock (POST)
+router.post("/addstock", async (req, res) => {
+    console.log("Adding stock:", req.body);
+    try {
+        // Remove commas from cost and sellingprice if they exist
+        if (req.body.cost) {
+            req.body.cost = req.body.cost.toString().replace(/,/g, '');
+        }
+        if (req.body.sellingprice) {
+            req.body.sellingprice = req.body.sellingprice.toString().replace(/,/g, '');
+        }
+        
+        const newStock = new Stock(req.body);
+        await newStock.save();
+        console.log("Stock saved successfully");
+        res.redirect("/stocklist");
+    } catch (error) {
+        console.error("Error saving stock:", error);
+        res.status(500).send("Unable to save stock to DB: " + error.message);
+    }
+});
 // ROUTE: View Stock
 router.get('/stock', async (req, res) => {
     try {

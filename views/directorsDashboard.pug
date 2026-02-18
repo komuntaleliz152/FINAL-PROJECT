@@ -144,4 +144,8 @@ html
             h3 Sales Distribution
             canvas#salesDistributionChart
 
+    // Hidden data elements for JavaScript
+    script(type='application/json' id='dailySalesData')= dailySalesData
+    script(type='application/json' id='topProductsData')= topProducts
+
     script(src='/js/directorsDashboard.js')

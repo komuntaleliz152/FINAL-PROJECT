@@ -1,7 +1,7 @@
 //defining our schema
 const mongoose = require("mongoose");
 
-const ProcurementSchema = new mongoose.Schema({
+const StockSchema = new mongoose.Schema({
   produceName: {
     type: String,
     trim: true,
@@ -10,12 +10,10 @@ const ProcurementSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
-
   tonnage: {
     type: Number,
     trim: true
   },
-
   cost: {
     type: Number,
     trim: true
@@ -24,7 +22,7 @@ const ProcurementSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
-  brancName: {
+  branchName: {
     type: String,
     trim: true
   },
@@ -32,16 +30,7 @@ const ProcurementSchema = new mongoose.Schema({
     type: Number,
     trim: true,
   },
-
-  dealerName: {
-    type: String,
-    trim: true,
-  },
-  contact: {
-    type: Number,
-    trim: true,
-  },
-  sellingPrice: {
+  sellingprice: {
     type: Number,
     trim: true
   },
@@ -50,7 +39,7 @@ const ProcurementSchema = new mongoose.Schema({
     trim: true
   },
   time: {
-    type: Number,
+    type: String,
     trim: true
   }
 });

@@ -4,16 +4,61 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initializeCharts() {
+  // Get data from the page (passed from server)
+  const dailySalesDataElement = document.getElementById('dailySalesData');
+  const topProductsDataElement = document.getElementById('topProductsData');
+  
+  let dailySalesData = [];
+  let topProductsData = [];
+  
+  try {
+    if (dailySalesDataElement) {
+      dailySalesData = JSON.parse(dailySalesDataElement.textContent);
+    }
+    if (topProductsDataElement) {
+      topProductsData = JSON.parse(topProductsDataElement.textContent);
+    }
+  } catch (e) {
+    console.error('Error parsing chart data:', e);
+  }
+
+  // Prepare daily sales chart data
+  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const last7Days = [];
+  const salesByDay = {};
+  
+  // Initialize last 7 days
+  for (let i = 6; i >= 0; i--) {
+    const date = new Date();
+    date.setDate(date.getDate() - i);
+    const dateStr = date.toISOString().split('T')[0];
+    last7Days.push({
+      date: dateStr,
+      label: daysOfWeek[date.getDay()]
+    });
+    salesByDay[dateStr] = 0;
+  }
+  
+  // Map actual sales data
+  dailySalesData.forEach(item => {
+    if (salesByDay.hasOwnProperty(item._id)) {
+      salesByDay[item._id] = item.total;
+    }
+  });
+  
+  const salesValues = last7Days.map(day => salesByDay[day.date]);
+  const salesLabels = last7Days.map(day => day.label);
+
   // Sales Trend Chart (Line Chart)
   const salesTrendCtx = document.getElementById('salesTrendChart');
   if (salesTrendCtx) {
     new Chart(salesTrendCtx, {
       type: 'line',
       data: {
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        labels: salesLabels,
         datasets: [{
           label: 'Daily Sales (UGX)',
-          data: [1200000, 1900000, 1500000, 2100000, 1800000, 2400000, 2200000],
+          data: salesValues,
           borderColor: '#3182ce',
           backgroundColor: 'rgba(49, 130, 206, 0.1)',
           borderWidth: 3,
@@ -65,7 +110,7 @@ function initializeCharts() {
             beginAtZero: true,
             ticks: {
               callback: function(value) {
-                return 'UGX ' + (value / 1000000) + 'M';
+                return 'UGX ' + (value / 1000000).toFixed(1) + 'M';
               },
               font: {
                 size: 11,
@@ -95,30 +140,30 @@ function initializeCharts() {
     });
   }
 
+  // Prepare top products data
+  const productNames = topProductsData.map(p => p._id || 'Unknown');
+  const productSales = topProductsData.map(p => p.totalSales || 0);
+  
+  const colors = [
+    { bg: 'rgba(49, 130, 206, 0.8)', border: '#3182ce' },
+    { bg: 'rgba(72, 187, 120, 0.8)', border: '#48bb78' },
+    { bg: 'rgba(237, 137, 54, 0.8)', border: '#ed8936' },
+    { bg: 'rgba(159, 122, 234, 0.8)', border: '#9f7aea' },
+    { bg: 'rgba(236, 72, 153, 0.8)', border: '#ec4899' }
+  ];
+
   // Top Products Chart (Bar Chart)
   const topProductsCtx = document.getElementById('topProductsChart');
   if (topProductsCtx) {
     new Chart(topProductsCtx, {
       type: 'bar',
       data: {
-        labels: ['Beans', 'Maize', 'Cowpeas', 'Gnuts', 'Soybeans'],
+        labels: productNames,
         datasets: [{
           label: 'Sales (UGX)',
-          data: [8000000, 6500000, 5200000, 4800000, 3500000],
-          backgroundColor: [
-            'rgba(49, 130, 206, 0.8)',
-            'rgba(72, 187, 120, 0.8)',
-            'rgba(237, 137, 54, 0.8)',
-            'rgba(159, 122, 234, 0.8)',
-            'rgba(236, 72, 153, 0.8)'
-          ],
-          borderColor: [
-            '#3182ce',
-            '#48bb78',
-            '#ed8936',
-            '#9f7aea',
-            '#ec4899'
-          ],
+          data: productSales,
+          backgroundColor: colors.map(c => c.bg),
+          borderColor: colors.map(c => c.border),
           borderWidth: 2,
           borderRadius: 6
         }]
@@ -153,7 +198,7 @@ function initializeCharts() {
             beginAtZero: true,
             ticks: {
               callback: function(value) {
-                return 'UGX ' + (value / 1000000) + 'M';
+                return 'UGX ' + (value / 1000000).toFixed(1) + 'M';
               },
               font: {
                 size: 11,
@@ -184,22 +229,21 @@ function initializeCharts() {
   }
 
   // Sales Distribution Chart (Doughnut Chart)
+  const totalSalesAmount = productSales.reduce((sum, val) => sum + val, 0);
+  const productPercentages = productSales.map(sales => 
+    totalSalesAmount > 0 ? ((sales / totalSalesAmount) * 100).toFixed(1) : 0
+  );
+
   const salesDistributionCtx = document.getElementById('salesDistributionChart');
   if (salesDistributionCtx) {
     new Chart(salesDistributionCtx, {
       type: 'doughnut',
       data: {
-        labels: ['Beans', 'Maize', 'Cowpeas', 'Gnuts', 'Soybeans'],
+        labels: productNames,
         datasets: [{
           label: 'Sales Distribution',
-          data: [28.5, 23.2, 18.6, 17.1, 12.6],
-          backgroundColor: [
-            'rgba(49, 130, 206, 0.8)',
-            'rgba(72, 187, 120, 0.8)',
-            'rgba(237, 137, 54, 0.8)',
-            'rgba(159, 122, 234, 0.8)',
-            'rgba(236, 72, 153, 0.8)'
-          ],
+          data: productPercentages,
+          backgroundColor: colors.map(c => c.bg),
           borderColor: '#ffffff',
           borderWidth: 3,
           hoverOffset: 10

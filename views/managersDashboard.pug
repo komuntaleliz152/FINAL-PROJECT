@@ -59,39 +59,59 @@ html
             p Manage inventory, track sales, and monitor business operations
 
         section.overview
-          #alert-box.alert-box
-            p Important: Inventory levels are low on some items!
-            button(onclick='dismissAlert()') Dismiss
+          if lowStockItems && lowStockItems.length > 0
+            #alert-box.alert-box
+              p Important: Inventory levels are low on some items!
+              button(onclick='dismissAlert()') Dismiss
 
           // Statistics
           .statistics
             .stat-box
               h3 Sales Today
-              p 1000000 UGX
+              p= todaySales ? `UGX ${todaySales.toLocaleString()}` : 'UGX 0'
+            
             .stat-box
               h3 High Selling Product
-              p Beans
-              p 8000000 UGX
+              if topProduct
+                p= topProduct._id
+                p= `UGX ${topProduct.totalSales.toLocaleString()}`
+              else
+                p No data available
+            
             .stat-box
               h3 Current Products
-              p Maize
-              p Beans
+              if currentProducts && currentProducts.length > 0
+                each product in currentProducts.slice(0, 3)
+                  p= product
+              else
+                p No products in stock
+            
             .stat-box
               h3 Low Stock Items
-              ul
-                li Soybeans – 50kgs
-                li Maize – 30kgs
+              if lowStockItems && lowStockItems.length > 0
+                ul
+                  each item in lowStockItems
+                    li= `${item._id} – ${item.totalStock}kgs`
+              else
+                p All items well stocked
+            
             .stat-box
               h3 Recent Orders
-              ul
-                li Beans
-                li Cowpeas
+              if recentOrders && recentOrders.length > 0
+                ul
+                  each order in recentOrders
+                    li= order.produceName
+              else
+                p No recent orders
+            
             .stat-box
               h3 Available Stock
-              ul
-                li Cowpeas – 9000kgs
-                li Soybeans – 1000kgs
-                li Gnuts – 8000kgs
+              if availableStock && availableStock.length > 0
+                ul
+                  each stock in availableStock
+                    li= `${stock._id} – ${stock.totalStock}kgs`
+              else
+                p No stock available
 
         // Charts Section
         section.charts-section
@@ -102,5 +122,9 @@ html
           .chart-card
             h3 Inventory Levels
             canvas#inventoryChart
+
+    // Hidden data elements for JavaScript
+    script(type='application/json' id='weeklySalesData')= weeklySalesData
+    script(type='application/json' id='inventoryData')= inventoryData
 
     script(src='/js/managersDashboard.js')
