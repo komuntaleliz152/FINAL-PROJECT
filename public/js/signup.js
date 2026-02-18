@@ -34,6 +34,67 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Restrict password to 6 digits and validate in real-time
+  password.addEventListener('input', function() {
+    // Remove non-numeric characters
+    this.value = this.value.replace(/\D/g, '');
+    
+    // Limit to 6 characters
+    if (this.value.length > 6) {
+      this.value = this.value.slice(0, 6);
+    }
+
+    // Real-time validation
+    const passwordRegex = /^\d{6}$/;
+    if (passwordRegex.test(this.value)) {
+      // Valid password - green border
+      this.classList.remove('error-border');
+      this.classList.add('success-border');
+      errorFields.password.innerText = '';
+    } else if (this.value.length > 0) {
+      // Invalid password - show error
+      this.classList.remove('success-border');
+      this.classList.add('error-border');
+      if (this.value.length < 6) {
+        errorFields.password.innerText = 'Password must be exactly 6 digits.';
+      }
+    } else {
+      // Empty - reset
+      this.classList.remove('error-border', 'success-border');
+      errorFields.password.innerText = '';
+    }
+  });
+
+  // Restrict confirm password to 6 digits and validate in real-time
+  confirmPassword.addEventListener('input', function() {
+    // Remove non-numeric characters
+    this.value = this.value.replace(/\D/g, '');
+    
+    // Limit to 6 characters
+    if (this.value.length > 6) {
+      this.value = this.value.slice(0, 6);
+    }
+
+    // Real-time validation
+    if (this.value === password.value && this.value.length === 6) {
+      // Passwords match - green border
+      this.classList.remove('error-border');
+      this.classList.add('success-border');
+      errorFields.confirmPassword.innerText = '';
+    } else if (this.value.length > 0) {
+      // Passwords don't match - show error
+      this.classList.remove('success-border');
+      this.classList.add('error-border');
+      if (this.value.length === 6 && this.value !== password.value) {
+        errorFields.confirmPassword.innerText = 'Passwords do not match.';
+      }
+    } else {
+      // Empty - reset
+      this.classList.remove('error-border', 'success-border');
+      errorFields.confirmPassword.innerText = '';
+    }
+  });
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     let isValid = true;

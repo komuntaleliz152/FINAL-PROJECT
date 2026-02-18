@@ -135,7 +135,13 @@ a.back-button:hover {
 
 input.error-border,
 select.error-border {
-  border: 1px solid #ff6b6b;
+  border: 2px solid #ff6b6b;
+}
+
+/* Success Styling */
+input.success-border,
+select.success-border {
+  border: 2px solid #28a745;
 }
 
 .error-msg {
