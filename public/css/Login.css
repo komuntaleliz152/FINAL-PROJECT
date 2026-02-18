@@ -80,6 +80,16 @@ h1 {
   border-color: #28a745;
 }
 
+.input-group input.error-border {
+  border-color: #dc3545;
+  border-width: 2px;
+}
+
+.input-group input.success-border {
+  border-color: #28a745;
+  border-width: 2px;
+}
+
 .input-group .error-message {
   font-size: 0.875rem;
   color: #dc3545;
