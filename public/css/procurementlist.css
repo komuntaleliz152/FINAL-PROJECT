@@ -1,207 +1,100 @@
-/* GENERAL PAGE STYLING */
-body {
-  background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+/* General reset and body styling */
+* {
   margin: 0;
-  padding: 20px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* NAVIGATION BAR */
-.navbar {
-  width: 100%;
-  background: linear-gradient(135deg, #228B22 0%, #1e7a1e 100%);
-  box-shadow: 0 4px 12px rgba(34, 139, 34, 0.2);
-}
-
-.nav-container {
+body {
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background: transparent;
-  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 20px;
+  background-color: rgb(236, 236, 236); 
 }
 
-.project-name {
+/* Nav bar styles */
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: linear-gradient(135deg, #1e7a1e 0%, #228B22 100%);
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(34, 139, 34, 0.3);
+}
+
+.navbar .nav-links a {
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  margin-right: 10px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Header */
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
   font-size: 24px;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th,
+table td {
+  border: 1px solid #343a40;
+  padding: 12px;
+  text-align: left;
+  font-size: 14px;
+  background-color: white;
+}
+
+table th {
+  background: linear-gradient(135deg, #1e7a1e 0%, #228B22 100%);
   font-weight: bold;
   color: white;
 }
 
-.nav-links {
-  display: flex;
-  gap: 30px;
-}
-
-.nav-link {
-  color: rgba(255, 255, 255, 0.9);
-  background-color: transparent;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-size: 15px;
-}
-
-.nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  color: white;
-  transform: translateY(-2px);
-}
-
-/* CONTAINER */
-.container {
-  max-width: 1500px;
-  margin: auto;
-  background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-
-/* HEADINGS */
-h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #1a202c;
-  font-size: 28px;
-  font-weight: 700;
-}
-
-/* TABLE STYLING */
-table {
-  border-collapse: separate;
-  border-spacing: 0;
-  width: 100%;
-  background-color: #fff;
-}
-
-th, td {
-  border-bottom: 1px solid #e2e8f0;
-  padding: 16px;
-  text-align: left;
-}
-
-th {
-  background: linear-gradient(135deg, #228B22 0%, #1e7a1e 100%);
-  color: white;
-  font-weight: 600;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-th:first-child {
-  border-top-left-radius: 8px;
-}
-
-th:last-child {
-  border-top-right-radius: 8px;
-}
-
-tbody tr {
-  transition: all 0.2s ease;
+table tr:nth-child(even) {
+  background-color: white;
 }
 
 table tr:hover {
-  background-color: #f7fafc;
-  transform: scale(1.01);
+  background-color: #e9e9e9;
 }
 
-tbody tr:last-child td {
-  border-bottom: none;
+table td {
+  color: #555;
 }
 
-td {
-  color: #4a5568;
-  font-size: 14px;
-}
-
-.no-data {
-  text-align: center;
-  color: #a0aec0;
-  font-style: italic;
-}
-
-/* RESPONSIVE TABLE */
-@media (max-width: 768px) {
-  .nav-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-  }
-
-  table th {
-    display: none;
-  }
-
-  table td {
-    position: relative;
-    padding-left: 50%;
-  }
-
-  table td::before {
-    content: attr(data-label);
-    position: absolute;
-    left: 10px;
-    font-weight: bold;
-  }
-}
-
-/* BUTTONS */
-.btn {
-  margin-right: 8px;
-  border: none;
-  border-radius: 8px;
-  color: white;
-  cursor: pointer;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.2s ease;
-  font-size: 13px;
-}
-
-/* UPDATE BUTTON */
-.update-btn {
-  background: linear-gradient(135deg, #228B22 0%, #1e7a1e 100%) !important;
-  padding: 8px 16px;
-  box-shadow: 0 2px 6px rgba(34, 139, 34, 0.3);
-}
-
-.update-btn:hover {
-  background: linear-gradient(135deg, #1e7a1e 0%, #196619 100%) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(34, 139, 34, 0.4);
-}
-
-/* DELETE BUTTON */
-.delete-btn {
-  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
-  padding: 8px 16px;
-  box-shadow: 0 2px 6px rgba(239, 68, 68, 0.3);
-}
-
-.delete-btn:hover {
-  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.4);
-}
-
-/* ADD BUTTON */
+/* Add button */
 .add-btn {
   background: linear-gradient(135deg, #228B22 0%, #1e7a1e 100%);
   color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 700;
-  box-shadow: 0 4px 12px rgba(34, 139, 34, 0.3);
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
   transition: all 0.3s ease;
+  width: 200px;
+  box-shadow: 0 4px 12px rgba(34, 139, 34, 0.3);
 }
 
 .add-btn:hover {
@@ -210,20 +103,76 @@ td {
   box-shadow: 0 6px 16px rgba(34, 139, 34, 0.4);
 }
 
-/* ADD BUTTON CONTAINER */
-.add-button-container {
-  text-align: center;
-  margin-top: 30px;
+/* Generic button styling */
+button {
+  margin-right: 10px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  transition: all 0.3s ease;
 }
 
-/* FOOTER */
-footer {
+/* Update Button */
+button.update-btn,
+a.update-btn {
+  display: inline-block;
   background: linear-gradient(135deg, #228B22 0%, #1e7a1e 100%);
   color: white;
-  text-align: center;
-  padding: 20px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
   font-size: 14px;
-  margin-top: 40px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(34, 139, 34, 0.2);
+  transition: all 0.3s ease;
+  margin-right: 10px;
+  box-shadow: 0 2px 6px rgba(34, 139, 34, 0.3);
+}
+
+button.update-btn:hover,
+a.update-btn:hover {
+  background: linear-gradient(135deg, #1e7a1e 0%, #196619 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(34, 139, 34, 0.4);
+}
+
+/* Delete Button */
+button.delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+button.delete-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* Footer styling */
+footer {
+  margin-top: auto;
+  background: linear-gradient(135deg, #1e7a1e 0%, #228B22 100%);
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  border-top: 1px solid #ccc;
+  color: white;
+  box-shadow: 0 -2px 8px rgba(34, 139, 34, 0.3);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  table th,
+  table td {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  button {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .add-btn {
+    width: 100%;
+  }
 }

@@ -1,0 +1,81 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Produce Sale Form
+    link(rel='preconnect' href='https://fonts.googleapis.com')
+    link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+    link(href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' rel='stylesheet')
+    link(rel='stylesheet', href='/css/addproducesale.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css')
+  body
+    // Navbar
+    nav.navbar
+      ul
+        li
+          a(href='/directorsDashboard')
+            i.fas.fa-home
+            |  Dashboard
+        li
+          a(href='/addProduceSale')
+            i.fas.fa-seedling
+            |  Produce Sale
+        li
+          a(href='/produceSalesList')
+            i.fas.fa-list
+            |  Sales List
+        li
+          a(href='/logout')
+            i.fas.fa-sign-out-alt
+            |  Logout
+
+    // Form Container
+    .container
+      h2 Produce Sale Form
+      form#produceSaleForm(action='/addProduceSale' method='POST')
+        .form-grid
+          .form-group
+            label(for='produceName')
+              i.fas.fa-leaf
+              |  Name of Produce
+            input#produceName(type='text' name='produceName' placeholder='Enter produce name' required)
+
+          .form-group
+            label(for='tonnage')
+              i.fas.fa-weight
+              |  Tonnage (kg)
+            input#tonnage(type='number' name='tonnage' placeholder='Enter tonnage' step='0.01' required)
+
+          .form-group
+            label(for='amount')
+              i.fas.fa-money-bill-wave
+              |  Amount (UGX)
+            input#amount(type='text' name='amount' placeholder='Enter amount' required)
+
+          .form-group
+            label(for='buyerName')
+              i.fas.fa-user
+              |  Buyer Name
+            input#buyerName(type='text' name='buyerName' placeholder='Enter buyer name' required)
+
+          .form-group
+            label(for='salesAgent')
+              i.fas.fa-user-tie
+              |  Sales Agent
+            input#salesAgent(type='text' name='salesAgent' placeholder='Enter sales agent name' required)
+
+          .form-group
+            label(for='saleDateTime')
+              i.fas.fa-calendar-alt
+              |  Sale Date & Time
+            input#saleDateTime(type='datetime-local' name='saleDateTime' required)
+
+        button.submit-btn(type='submit')
+          i.fas.fa-check-circle
+          |  Submit Produce Sale
+
+    footer.footer
+      p © 2025 Karibu Grocery Limited. All rights reserved.
+
+    script(src='/js/addproduceSale.js')

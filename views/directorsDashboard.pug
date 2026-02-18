@@ -74,6 +74,7 @@ html
     link(href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' rel='stylesheet')
     link(rel='stylesheet', href='/css/directorsDashboard.css')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css', integrity='sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==', crossorigin='anonymous', referrerpolicy='no-referrer')
+    script(src='https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js')
   body
     .dashboard
       // Sidebar
@@ -118,29 +119,29 @@ html
         // Statistics
         .statistics
           .stat-box
-            h3 Total Sales
-            p= totalSales ? `UGX ${totalSales.toLocaleString()}` : 'UGX 0'
-
-          .stat-box
             h3 Weekly Sales
             p= weeklySales ? `UGX ${weeklySales.toLocaleString()}` : 'UGX 0'
 
           .stat-box
-            h3 Daily Sales
-            p= dailySales ? `UGX ${dailySales.toLocaleString()}` : 'UGX 0'
-
-          .stat-box
             h3 Monthly Sales
-            p UGX 0
+            p= monthlySales ? `UGX ${monthlySales.toLocaleString()}` : 'UGX 0'
 
           .stat-box
-            h3 Top-Selling Products
-            ul
-              li Placeholder for future
+            h3 Total Sales
+            p= totalSales ? `UGX ${totalSales.toLocaleString()}` : 'UGX 0'
 
-          .stat-box
-            h3 Low Stock Alerts
-            ul
-              li Placeholder for future
+        // Charts Section
+        .charts-section
+          .chart-card
+            h3 Sales Trend
+            canvas#salesTrendChart
+          
+          .chart-card
+            h3 Top Products Performance
+            canvas#topProductsChart
+          
+          .chart-card.full-width
+            h3 Sales Distribution
+            canvas#salesDistributionChart
 
     script(src='/js/directorsDashboard.js')

@@ -24,8 +24,8 @@ body {
 /* Sidebar */
 .sidebar {
     width: 260px;
-    background: #228B22;
-    color: white;
+    background: #ffffff;
+    color: #2d3748;
     padding: 0;
     height: 100vh;
     position: fixed;
@@ -34,6 +34,7 @@ body {
     box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     overflow-y: auto;
+    border-right: 1px solid #e2e8f0;
 }
 
 .sidebar h2 {
@@ -42,9 +43,10 @@ body {
     padding: 28px 20px;
     font-size: 22px;
     font-weight: 700;
-    background: rgba(0, 0, 0, 0.15);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: #f7fafc;
+    border-bottom: 1px solid #e2e8f0;
     letter-spacing: 0.5px;
+    color: #1a202c;
 }
 
 .sidebar ul {
@@ -59,7 +61,7 @@ body {
 }
 
 .sidebar ul li a {
-    color: rgba(255, 255, 255, 0.9);
+    color: #4a5568;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -76,13 +78,13 @@ body {
     font-size: 18px;
     width: 20px;
     text-align: center;
+    color: #718096;
 }
 
 .sidebar ul li a:hover {
-    background: rgba(255, 255, 255, 0.15);
-    color: white;
+    background: #f7fafc;
+    color: #1a202c;
     transform: translateX(4px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .sidebar ul li a:active {
@@ -115,8 +117,8 @@ header p {
 
 /* Loading Spinner */
 .loader {
-    border: 3px solid rgba(34, 139, 34, 0.1);
-    border-top: 3px solid #228B22;
+    border: 3px solid rgba(203, 213, 225, 0.3);
+    border-top: 3px solid #64748b;
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -207,15 +209,15 @@ header p {
     left: 0;
     width: 4px;
     height: 100%;
-    background: #228B22;
+    background: #3182ce;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
 .stat-box:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(34, 139, 34, 0.12);
-    border-color: rgba(34, 139, 34, 0.1);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.06);
 }
 
 .stat-box:hover::before {
@@ -279,7 +281,7 @@ header p {
     content: '';
     width: 4px;
     height: 24px;
-    background: #228B22;
+    background: #64748b;
     margin-right: 12px;
     border-radius: 2px;
 }
@@ -384,11 +386,11 @@ td {
     position: fixed;
     top: 20px;
     right: 20px;
-    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    background: linear-gradient(135deg, #475569 0%, #64748b 100%);
     color: white;
     padding: 16px 24px;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+    box-shadow: 0 4px 12px rgba(71, 85, 105, 0.3);
     font-weight: 600;
     font-size: 15px;
     z-index: 10000;

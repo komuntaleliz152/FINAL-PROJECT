@@ -9,6 +9,7 @@ html
     link(href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' rel='stylesheet')
     link(rel='stylesheet' href='/css/managersDashboard.css')
     link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css' integrity='sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==' crossorigin='anonymous' referrerpolicy='no-referrer')
+    script(src='https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js')
 
   body
     .dashboard-container
@@ -91,5 +92,15 @@ html
                 li Cowpeas – 9000kgs
                 li Soybeans – 1000kgs
                 li Gnuts – 8000kgs
+
+        // Charts Section
+        section.charts-section
+          .chart-card
+            h3 Sales Trend
+            canvas#salesTrendChart
+          
+          .chart-card
+            h3 Inventory Levels
+            canvas#inventoryChart
 
     script(src='/js/managersDashboard.js')

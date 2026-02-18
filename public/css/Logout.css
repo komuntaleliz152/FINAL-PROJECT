@@ -1,43 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background: rgb(236, 226, 208);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+.logout-container {
+  width: 100%;
+  max-width: 450px;
+}
+
+.logout-card {
+  background: white;
+  padding: 50px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logout-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  animation: scaleIn 0.5s ease 0.2s both;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.logout-icon i {
+  font-size: 36px;
+  color: white;
+}
+
+.logout-card h1 {
+  font-size: 26px;
+  color: #1a202c;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.logout-card p {
+  color: #718096;
+  font-size: 15px;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.logout-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.4);
+}
+
+.btn-secondary {
+  background: white;
+  color: #4a5568;
+  border: 2px solid #e2e8f0;
+}
+
+.btn-secondary:hover {
+  background: #f7fafc;
+  border-color: #cbd5e0;
+  transform: translateY(-2px);
+}
+
+.btn-primary i,
+.btn-secondary i {
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .logout-card {
+    padding: 40px 24px;
   }
 
-  .logout-container {
-    background: white;
-    padding: 30px 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    text-align: center;
+  .logout-card h1 {
+    font-size: 22px;
   }
 
-  h2 {
-    margin-bottom: 20px;
-    color: #333;
+  .logout-card p {
+    font-size: 14px;
   }
-  .button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #4CAF50; /* Dodger Blue */
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
-  }
-  
-  .button:hover {
-    background-color: #1c86ee; /* Slightly darker blue */
-  }
-  
-  
- 
 
-  
-  
+  .logout-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .logout-icon i {
+    font-size: 32px;
+  }
+}

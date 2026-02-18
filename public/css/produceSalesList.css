@@ -8,9 +8,10 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  background-color: #333;
+  background: linear-gradient(135deg, #1e7a1e 0%, #228B22 100%);
   padding: 10px 20px;
   margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(34, 139, 34, 0.3);
 }
 
 .navbar .nav-links a {
@@ -18,11 +19,13 @@
   padding: 10px 15px;
   text-decoration: none;
   margin-right: 10px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
 }
 
 .navbar .nav-links a:hover {
-  background-color: #575757;
-  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
 }
 
 
@@ -63,7 +66,7 @@ table#salesTable td {
 }
 
 table#salesTable th {
-  background-color: #146158;
+  background: linear-gradient(135deg, #1e7a1e 0%, #228B22 100%);
   font-weight: bold;
   color: white;
 }
@@ -81,7 +84,7 @@ table#salesTable td {
 }
 
 .add-produce-btn {
-  background-color:  #146158; /* Green color */
+  background: linear-gradient(135deg, #228B22 0%, #1e7a1e 100%);
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
@@ -89,12 +92,15 @@ table#salesTable td {
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
   width: 200px;
+  box-shadow: 0 4px 12px rgba(34, 139, 34, 0.3);
 }
 
 .add-produce-btn:hover {
-  background-color: black; /* Darker green on hover */
+  background: linear-gradient(135deg, #1e7a1e 0%, #196619 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(34, 139, 34, 0.4);
 }
 
 
@@ -112,11 +118,15 @@ button {
 
 /* update Button */
 button.update-btn {
-  background-color: rgb(234, 163, 32);
+  background: linear-gradient(135deg, #228B22 0%, #1e7a1e 100%);
+  color: white;
+  box-shadow: 0 2px 6px rgba(34, 139, 34, 0.3);
 }
 
-button.edit-btn:hover {
-  background-color: rgb(218, 70, 70);
+button.update-btn:hover {
+  background: linear-gradient(135deg, #1e7a1e 0%, #196619 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(34, 139, 34, 0.4);
 }
 
 /* Delete Button */
@@ -128,30 +138,34 @@ button.delete-btn {
 /* Custom Update Button as link */
 a.update-btn {
   display: inline-block;
-  background-color: red;
-  color: black;
-  padding: 5px ;
+  background: linear-gradient(135deg, #228B22 0%, #1e7a1e 100%);
+  color: white;
+  padding: 5px;
   border-radius: 6px;
   text-decoration: none;
   font-weight: bold;
   font-size: 16px;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
   margin-right: 10px;
+  box-shadow: 0 2px 6px rgba(34, 139, 34, 0.3);
 }
 
 a.update-btn:hover {
-  background-color: red;
+  background: linear-gradient(135deg, #1e7a1e 0%, #196619 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(34, 139, 34, 0.4);
 }
 
 /* Footer styling */
 footer {
   margin-top: auto;
-  background-color: #343a40;
+  background: linear-gradient(135deg, #1e7a1e 0%, #228B22 100%);
   text-align: center;
   padding: 15px 0;
   font-size: 14px;
   border-top: 1px solid #ccc;
   color: white;
+  box-shadow: 0 -2px 8px rgba(34, 139, 34, 0.3);
 }
 
 /* Responsive tweaks */
