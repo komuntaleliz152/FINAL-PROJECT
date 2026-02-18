@@ -379,6 +379,29 @@ td {
     }
 }
 
+/* Success Toast Notification */
+.success-toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    padding: 16px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+    font-weight: 600;
+    font-size: 15px;
+    z-index: 10000;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+}
+
+.success-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 @media (max-width: 768px) {
     .sidebar {
         position: fixed;

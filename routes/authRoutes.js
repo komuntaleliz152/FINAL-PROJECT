@@ -36,7 +36,8 @@ router.get("/Signup", (req, res) =>{
           throw error;
         }
         console.log("User registered successfully:", req.body.email);
-        res.redirect("/Login");
+        // Redirect to login with success message
+        res.redirect("/login?signup=success");
       });
     }
   } catch (error){
@@ -46,7 +47,8 @@ router.get("/Signup", (req, res) =>{
 });
 
 router.get("/login", (req, res) =>{
-  res.render("login");
+  const successMessage = req.query.signup === 'success' ? 'Account created successfully! Please login.' : null;
+  res.render("login", { successMessage });
 });
 
 router.post("/login", passport.authenticate("local", {failureRedirect: "/login"}),(req,res) =>{
@@ -55,13 +57,13 @@ router.post("/login", passport.authenticate("local", {failureRedirect: "/login"}
   
 
   if(req.user.role ==="Manager"){
-    res.redirect("/managerDash");
+    res.redirect("/managerDash?login=success");
 }
 else if(req.user.role ==="salesAgent"){
-    res.redirect("/salesAgentDash")
+    res.redirect("/salesAgentDash?login=success")
 }
 else if(req.user.role ==="director"){
-    res.redirect("/directorsDash");
+    res.redirect("/directorsDash?login=success");
 }else{
     res.send("You do not have any role in the system")
 }

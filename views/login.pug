@@ -7,6 +7,9 @@ html
     link(rel='stylesheet' href='/css/Login.css')
   body
     form#loginForm(action='/login' method='post')
+      if successMessage
+        .success-message= successMessage
+      
       .input-group
         label(for='email') Email
         input#email(type='text' name='email')
