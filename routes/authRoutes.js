@@ -8,9 +8,12 @@ const Signup =require('../models/Signup');
 
 router.get("/Signup", (req, res) =>{
     try {
+        console.log("Attempting to render signup page");
+        console.log("Views directory:", req.app.get('views'));
         res.render("signup");
     } catch (error) {
         console.error("Error rendering signup page:", error);
+        console.error("Error stack:", error.stack);
         res.status(500).send("Error loading signup page: " + error.message);
     }
  });
